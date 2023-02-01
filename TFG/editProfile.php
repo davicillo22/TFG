@@ -3,7 +3,7 @@
 require_once __DIR__.'/includes/config.php';
 require_once __DIR__.'/includes/usuarios.php';
 
-$tituloPagina = 'Mi perfil 3338';
+$tituloPagina = 'Mi perfil 3339999';
 $contenidoPrincipal=datosUsuario($_SESSION["email"]);
 $contenidoPrincipal.= <<<EOS
 
