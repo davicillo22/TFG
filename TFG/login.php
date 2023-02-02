@@ -65,4 +65,4 @@ $contenidoPrincipal= <<<EOS
 
 EOS;
 
-require __DIR__.'/includes/layout.php';
+require __DIR__.'/includes/layoutLogin.php';
