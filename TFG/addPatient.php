@@ -39,7 +39,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td><input type="submit" name="enviar" value= "Enviar" class="btn btn-primary btn-block btn-large"/></td>
-            <td><a href = "profile.php"> <button class="btn btn-primary btn-large"> Cancelar </button></a></td>
+            <td><a href = "addPatient.php"> <button class="btn btn-primary btn-large"> Cancelar </button></a></td>
             </tr>
             
             </table>

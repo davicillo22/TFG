@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/patients.php';
+require_once __DIR__ . '/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'AddPatient';
