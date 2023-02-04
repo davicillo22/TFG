@@ -8,9 +8,9 @@ $tituloPagina = 'AddPatient';
 
 
 if(!cambiarDatos($_SESSION["email"])){
-    $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='editProfile.php'>Inténtalo de nuevo</a></p>";
-    $contenidoPrincipal.="<p>¿Has intentado cambiar la contraseña? Asegúrate de haberla puesto bien las dos veces.</p>";
+    $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
 }else{
+
     header( 'Location: addPatient.php' );
 
 }

@@ -4,9 +4,11 @@ require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Login';
-
+$log = false;
 $contenidoPrincipal='';
 if (!checkLogin()) {
+
+    header('location: login.php');
     $contenidoPrincipal= <<<EOS
 		<h1>Error</h1>
 		<p>El email o contraseña introducidos no son válidos.</p>

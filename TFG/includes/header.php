@@ -35,7 +35,7 @@
                 </button>
 
                 <!-- lOGO TEXT HERE al index, no al procesarLogin-->
-                <a href="procesarLogin.html" class="navbar-brand"><i class="fa fa-h-square"></i>Risk Calculator</a>
+                <a href="procesarLogin.php" class="navbar-brand"><i class="fa fa-h-square"></i>Risk Calculator</a>
             </div>
 
             <!-- MENU LINKS -->

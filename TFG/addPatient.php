@@ -5,13 +5,15 @@ require_once __DIR__.'/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Add Patient';
-//datos paciente en vez de datos usuario $contenidoPrincipal=datosUsuario($_SESSION["email"]);
+//datos paciente en vez de datos usuario
+// $contenidoPrincipal=datosUsuario($_SESSION["email"]);
 $contenidoPrincipal= <<<EOS
 <link rel="stylesheet" href="css/style.css">
-<div class = "containerModif2">
+<div class="screen-1">
 
 
 <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">
+
 <h2>Añade los datos del nuevo paciente</h2>
       
             <table class="formula">

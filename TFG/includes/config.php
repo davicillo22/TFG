@@ -57,6 +57,6 @@ function cierraConexion()
 
 register_shutdown_function('cierraConexion');
 
-require_once __DIR__.'/Usuario.php';
+require_once __DIR__.'/usuario.php';
 
 session_start();

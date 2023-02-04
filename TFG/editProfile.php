@@ -7,13 +7,12 @@ $tituloPagina = 'Mi perfil';
 $contenidoPrincipal=datosUsuario($_SESSION["email"]);
 $contenidoPrincipal.= <<<EOS
 
-<div class = "containerModif2">
+<div class="screen-1">
 
 
 <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarProfile.php">
 <h2>Modifica tus datos</h2>
-<h3>(Los campos que dejes en blanco no se modificarán)</h3>
-           <div class = "containerModif3"> <p>
+           <div> <p>
             <table class="editProfileTable">
             
             <tr>
@@ -37,8 +36,8 @@ $contenidoPrincipal.= <<<EOS
             </tr>
             
             <tr>
-            <td><input type="submit" name="enviar" value= "Enviar" class="btn btn-primary btn-block btn-large"/></td>
-            <td><a href = "profile.php"> <button class="btn btn-primary btn-large"> Cancelar </button></a></td>
+            <td><input type="submit" name="enviar" value= "Enviar"/></td>
+            <td><a href = "profile.php"> <button class="cancel"> Cancelar </button></a></td>
             </tr>
             
             </table>

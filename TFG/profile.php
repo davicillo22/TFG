@@ -7,9 +7,9 @@ $tituloPagina = 'Mi perfil';
 
 $contenidoPrincipal=datosUsuario($_SESSION["email"]);
 $contenidoPrincipal.=<<<EOS
-<div class="containerModif2">
-<a href = "editProfile.php"> <button class="btn btn-primary "> Modifica tus datos </button></a>
-</div>
+<link rel="stylesheet" href="css/style.css">
+
+
 EOS;
 
 require __DIR__.'/includes/layout.php';

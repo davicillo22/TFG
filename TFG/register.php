@@ -5,7 +5,8 @@ require_once __DIR__.'/includes/config.php';
 $tituloPagina = 'Crear cuenta';
 
 $contenidoPrincipal= <<<EOS
-<div class="containerRegister">
+<link rel="stylesheet" href="css/style.css">
+<div class="screen-1">
 <form method="post" action="procesarRegister.php">
 <h2>Registrar usuario</h2>
     <p>Nombre:</p>
@@ -23,7 +24,7 @@ $contenidoPrincipal= <<<EOS
     </select></p>
         
     
-    <p><input type="submit" name="Registro" class="btn btn-primary btn-block btn-large"/></p>
+    <p><input type="submit" name="Registro"/></p>
 
 </form>
 </div>
