@@ -2,17 +2,67 @@
   font-family: "Poppins";
 }
 
+input[type=submit] {
+  font-size: medium;
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2d6b2f;
+}
+
+table.formula {
+  margin: auto;
+  width: 10%;
+  border-collapse: separate;
+  border: 1px solid #fff; /*for older IE*/
+  border-style: hidden;
+  overflow: scroll;
+}
+
+table.formula td {
+  padding-right: -100px;
+  padding-left: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #2d8a1e #ffffff;
+  font-size: large;
+}
+
+table.formula tr{
+  padding: 1px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #2d8a1e #ffffff;
+}
+
+
 body {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  overflow-y: hidden;
-  display: flex;
+
   justify-content: center;
   align-items: center;
-  background: #dde5f4;
+  background: #FFFFFF;
   height: 100vh;
+  font-size: medium;
+}
+h1, h2, h3{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .screen-1 {
@@ -115,6 +165,27 @@ body {
   cursor: pointer;
 }
 
+
+
 button {
   cursor: pointer;
+}
+
+button.cancel{
+  font-size: medium;
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  alignment: right;
+  align-items: end;
+  margin-left: 25%;
+}
+
+button.cancel:hover {
+  background-color: #2d6b2f;
 }

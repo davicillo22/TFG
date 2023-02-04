@@ -316,6 +316,7 @@ http://www.tooplate.com/view/2098-health
   .navbar-default .navbar-brand {
     color: #393939;
     font-weight: 500;
+    font-size: x-large;
   }
 
   .navbar-default .navbar-brand .fa {
@@ -327,16 +328,17 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav li.appointment-btn a {
-    background: #a5c422;
+    background: #ffffff;
     border-radius: 3px;
-    color: #ffffff;
+    color: #000000;
     font-weight: 600;
     padding-top: 12px;
     padding-bottom: 12px;
+    font-size: medium;
   }
 
   .navbar-default .navbar-nav li.appointment-btn a:hover {
-    background: #4267b2;
+    background: #39a442;
     color: #ffffff !important;
   }
 
