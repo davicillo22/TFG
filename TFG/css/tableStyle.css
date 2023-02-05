@@ -1,0 +1,56 @@
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		font-family: Arial, sans-serif;
+	  }
+	  th, td {
+		border: 1px solid #6c757d;
+		padding: 8px;
+		text-align: left;
+	  }
+	  th {
+		background-color: #4CAF50;
+		color: white;
+		border-bottom: 1px solid #6c757d;
+		position: sticky;
+		top: -1px;
+	  }
+	  td {
+		background-color: #f2f2f2;
+		border-bottom: 1px solid #6c757d;
+	  }
+	
+	.search-container {
+	  display: flex;
+	  align-items: center;
+	  background-color: #4CAF50;
+	  padding: 10px 20px;
+	  border-radius: 5px;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	.search-container input[type="text"] {
+	  width: 60%;
+	  padding: 10px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	  border: none;
+	  border-radius: 5px 0 0 5px;
+	  outline: none;
+	}
+
+	.search-container button {
+	  width: 40%;
+	  padding: 10px;
+	  font-size: 16px;
+	  font-family: Arial, sans-serif;
+	  background-color: white;
+	  color: #4CAF50;
+	  border: none;
+	  border-radius: 0 5px 5px 0;
+	  cursor: pointer;
+	}
+
+	.search-container button:hover {
+	  background-color: #f2f2f2;
+	}
