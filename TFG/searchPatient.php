@@ -52,4 +52,7 @@ echo json_encode($patients);
 // Close the connection
 mysqli_close($conn);
 
+$contenidoPrincipal = $tabla;
+$contenidoPrincipal .= "</div>";
+
 
