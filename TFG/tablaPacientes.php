@@ -11,7 +11,7 @@ $contenidoPrincipal= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 	  
     <form class="search-container" action="searchPatient.php" method="post">
-        <input type="submit" name="submit" value="Submit">
+        <input type="text" id="idInput">
         <button id="searchBtn">Search</button>
     </form>
 
@@ -70,5 +70,6 @@ mysqli_close($conn);
 
 $contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
+
 
 require __DIR__.'/includes/layout.php';
