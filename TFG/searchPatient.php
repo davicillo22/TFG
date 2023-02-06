@@ -17,7 +17,9 @@ $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 $result = mysqli_query($conn, $sql);
 $patients = [];
-
+$contenidoPrincipal= <<<EOS
+<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
+EOS;
 $tabla = "";
 
 if (mysqli_num_rows($result) > 0) {
@@ -49,7 +51,7 @@ if (mysqli_num_rows($result) > 0) {
 // Close the connection
 mysqli_close($conn);
 
-$contenidoPrincipal = $tabla;
+$contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
 
 require __DIR__.'/includes/layout.php';
