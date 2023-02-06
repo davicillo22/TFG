@@ -11,7 +11,7 @@ $contenidoPrincipal= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 	  
     <form class="search-container" action="searchPatient.php" method="post">
-        <input type="text" id="idInput">
+        <input type="text" id="idInput" placeholder="Introduzca el NHIS">
         <button id="searchBtn">Search</button>
     </form>
 
