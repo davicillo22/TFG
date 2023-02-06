@@ -12,7 +12,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$id = $_GET["nhis"];
+$id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
 $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 $result = mysqli_query($conn, $sql);
