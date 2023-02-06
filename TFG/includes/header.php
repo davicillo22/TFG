@@ -44,7 +44,7 @@
                     <?php
                     if (isset($_SESSION["login"]) && $_SESSION["login"]){
                     ?>
-                        <li class="appointment-btn"><a href="addPatient.php" class="smoothScroll">Pacientes</a></li>
+                        <li class="appointment-btn"><a href="tablaPacientes.php" class="smoothScroll">Pacientes</a></li>
                         <li class="appointment-btn"><a href="calculator.php" class="smoothScroll">Calculadora</a></li>
                         <li class="appointment-btn"><a href="profile.php" class="smoothScroll">Mi perfil</a></li>
                         <li class="appointment-btn"><a href="logout.php" class="smoothScroll">Cerrar Sesión</a></li>
