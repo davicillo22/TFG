@@ -17,8 +17,33 @@ $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 $result = mysqli_query($conn, $sql);
 $patients = [];
-while ($row = mysqli_fetch_assoc($result)) {
-    $patients[] = $row;
+
+$tabla = "";
+
+if (mysqli_num_rows($result) > 0) {
+    $tabla .= "<table>";
+    $tabla .= "<tr>";
+
+    // Get the column names
+    $column_names = mysqli_fetch_fields($result);
+    foreach ($column_names as $column_name) {
+        $tabla .= "<th>" . $column_name->name . "</th>";
+    }
+
+    $tabla .= "</tr>";
+
+    // Loop through the results and print each row
+    while ($row = mysqli_fetch_assoc($result)) {
+        $tabla .= "<tr>";
+        foreach ($column_names as $column_name) {
+            $tabla .= "<td>" . $row[$column_name->name] . "</td>";
+        }
+        $tabla .= "</tr>";
+    }
+
+    $tabla .= "</table>";
+} else {
+    $tabla .= "0 results";
 }
 
 header('Content-Type: application/json');
