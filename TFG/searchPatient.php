@@ -4,6 +4,8 @@ require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
+$tituloPagina = 'Search-Patient';
+
 // Connect to the database
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
 
@@ -18,6 +20,7 @@ $sql = "SELECT * FROM patients WHERE NHIS = $id";
 $result = mysqli_query($conn, $sql);
 $patients = [];
 $contenidoPrincipal= <<<EOS
+<link rel="stylesheet" href="css/tableStyle.css">
 <div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
 EOS;
 $tabla = "";
