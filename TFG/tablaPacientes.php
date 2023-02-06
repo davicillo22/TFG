@@ -10,13 +10,13 @@ $contenidoPrincipal= <<<EOS
 <link rel="stylesheet" href="css/tableStyle.css">
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 	  
-		<div class="search-container">
-	  		  <input type="text" placeholder="Search patients by ID...">
-		  <button>Search</button>
-		</div>
+    <form class="search-container" action="searchPatient.php" method="post">
+        <input type="submit" name="submit" value="Submit">
+        <button id="searchBtn">Search</button>
+    </form>
 
-	</div>
-	<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
+</div>
+<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
 EOS;
 
 $tabla = "";
@@ -61,6 +61,9 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   $tabla .= "0 results";
 }
+
+
+
 
 // Close the connection
 mysqli_close($conn);
