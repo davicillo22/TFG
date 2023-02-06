@@ -46,13 +46,10 @@ if (mysqli_num_rows($result) > 0) {
     $tabla .= "0 results";
 }
 
-header('Content-Type: application/json');
-echo json_encode($patients);
-
 // Close the connection
 mysqli_close($conn);
 
 $contenidoPrincipal = $tabla;
 $contenidoPrincipal .= "</div>";
 
-
+require __DIR__.'/includes/layout.php';
