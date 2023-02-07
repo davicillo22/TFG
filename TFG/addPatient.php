@@ -236,8 +236,8 @@ $contenidoPrincipal= <<<EOS
             </tr>
             
             <tr>
-            <td>TIMTX:</td>
-            <td><input type="number" min="0" name="timtx" /></td>
+            <td>T1MTX:</td>
+            <td><input type="number" min="0" name="t1mtx" /></td>
             </tr>
             
             <tr>
@@ -268,6 +268,16 @@ $contenidoPrincipal= <<<EOS
             <tr>
             <td>NOTAS:</td>
             <td><input type="text" name="notas"/></td>
+            </tr>
+            
+            <tr>
+            <td>AY:</td>
+            <td><input type="number" name="ay"/></td>
+            </tr>
+            
+            <tr>
+            <td>AZ:</td>
+            <td><input type="number" name="az"/></td>
             </tr>
             
             <tr>

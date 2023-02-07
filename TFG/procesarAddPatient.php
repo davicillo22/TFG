@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/patientFunctions.php';
+require_once __DIR__ . '/includes/patient.php';
 
 $tituloPagina = 'AddPatient';
 
