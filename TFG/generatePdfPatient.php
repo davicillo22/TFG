@@ -4,7 +4,7 @@ require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 // Introducimos HTML de prueba cada uno su ruta********************+
-$html=file_get_contents_curl("http://localhost/TFG_v/TFG//datosPdfPacientes.php");
+$html=file_get_contents_curl("http://localhost/TFG/TFG/datosPacientePdf.php");
 
 // Instanciamos un objeto de la clase DOMPDF.
 $pdf = new DOMPDF();
