@@ -45,6 +45,10 @@ function checkLogin() {
     }
 }
 
+function checkSession() {
+return $_SESSION["login"];
+}
+
 /*
  * funcion que destruye la sesion
  */

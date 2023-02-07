@@ -267,7 +267,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>NOTAS:</td>
-            <td><input type="text"/></td>
+            <td><input type="text" name="notas"/></td>
             </tr>
             
             <tr>
@@ -303,11 +303,6 @@ $contenidoPrincipal= <<<EOS
             <tr>
             <td>C-myc:</td>
             <td><input type="number" min="0" max="1" name="cmyc" /></td>
-            </tr>
-            
-            <tr>
-            <td>Repite contraseña:</td>
-            <td><input type="password" name="password2" /></td>
             </tr>
             
             <tr>

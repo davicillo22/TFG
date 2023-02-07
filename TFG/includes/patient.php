@@ -9,11 +9,12 @@ class Patient
     /*
      * funcion que entra en la base de datos para dar de alta un nuevo usuario, dados todos los campos necesarios
      */
-    public static function registrarUsuario($name, $surname, $email, $password, $privileges): bool
+    public static function registrarPatient($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
+                                            $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
+                                            $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $timtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc): bool
     {
         $conn = getConexionBD();
         if(!self::buscaUsuario($email)){
-            //$passwordhash = password_hash($password, PASSWORD_DEFAULT);
             $query = sprintf("INSERT INTO `users` (`name`, `surname`, `email`, `password`, `privileges`)
                 VALUES ('%s', '%s', '%s', '%s', '%s')", $conn->real_escape_string($name),
                 $conn->real_escape_string($surname), $conn->real_escape_string($email), $conn->real_escape_string($password), $conn->real_escape_string($privileges));

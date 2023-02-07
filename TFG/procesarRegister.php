@@ -3,7 +3,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
-$tituloPagina = 'Crear usuario';
+$tituloPagina = 'Create User';
 
 $contenidoPrincipal='';
 

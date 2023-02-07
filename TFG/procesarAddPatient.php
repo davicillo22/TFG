@@ -1,13 +1,12 @@
 <?php
 
 require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/patient.php';
-require_once __DIR__ . '/includes/usuarios.php';
+require_once __DIR__ . '/includes/patientFunctions.php';
 
 $tituloPagina = 'AddPatient';
 
 
-if(!cambiarDatos($_SESSION["email"])){
+if(!registerPatient()){
     $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
 }else{
 

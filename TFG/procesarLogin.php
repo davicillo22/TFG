@@ -6,7 +6,7 @@ require_once __DIR__ . '/includes/usuarios.php';
 $tituloPagina = 'Login';
 $log = false;
 $contenidoPrincipal='';
-if (!checkLogin()) {
+if (!checkLogin() && !checkSession()) {
 
     header('location: login.php');
     $contenidoPrincipal= <<<EOS
