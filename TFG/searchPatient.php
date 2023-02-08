@@ -20,21 +20,17 @@ $id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
 $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 
-
-
-
 $result = mysqli_query($conn, $sql);
 $patients = [];
 $contenidoPrincipal= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <a href="generatePdfPatient.php" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
 </div>
 <link rel="stylesheet" href="css/tableStyle.css">
 <div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
 EOS;
+
 $tabla = "";
 
 if (mysqli_num_rows($result) > 0) {
