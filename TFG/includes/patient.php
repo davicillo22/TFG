@@ -1051,21 +1051,6 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
 
     //GETTERS, SETTERS (que mantienen la BD actualizada) y METODOS AUXILIARES
 
-
-
-    public function cambiaPassword($nuevoPassword): bool
-    {
-        $conn = getConexionBD();
-        // $passwordhash = password_hash($nuevoPassword, PASSWORD_DEFAULT);
-        $query = sprintf("UPDATE `users` SET `password` = '%s' WHERE `users`.`id` = '%s'", $conn->real_escape_string($nuevoPassword), $conn->real_escape_string($this->id));
-        if ($conn->query($query) === TRUE) {
-            $this->password = $nuevoPassword;
-            return true;
-        }
-        return false;
-    }
-
-
     public function cambiaName($nuevoName): bool
     {
         $conn = getConexionBD();
