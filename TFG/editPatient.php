@@ -16,7 +16,7 @@ if (!$conn) {
 
 
 $id=$_GET["id"];
-$sql = "DELETE FROM patients WHERE NHIS = $id";
+$sql = "UPDATE `patients` SET `FECHACIR` = '%s' WHERE `patients`.`NHIS` = '%s', $conn->real_escape_string('nuevoName'), $conn->real_escape_string($this->id));";
 
 
 $result = mysqli_query($conn, $sql);

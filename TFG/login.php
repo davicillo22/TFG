@@ -4,6 +4,12 @@ require_once __DIR__.'/includes/config.php';
 
 $logued = false;
 $tituloPagina = 'Login';
+if (empty($_GET)) {
+    $log=true;
+}
+else
+    $log=$_GET["log"];
+
 
 $contenidoPrincipal= <<<EOS
 
@@ -64,5 +70,10 @@ $contenidoPrincipal= <<<EOS
 </html>
 
 EOS;
+
+if(!$log)
+    $contenidoPrincipal.= "<h3 class='erroneo'>Email o contraseña incorrectos</h3>";
+
+$contenidoPrincipal.= "</body></html>";
 
 require __DIR__.'/includes/layoutLogin.php';

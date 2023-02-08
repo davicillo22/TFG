@@ -13,23 +13,23 @@ $conn = mysqli_connect("localhost", "root", "", "bbdd");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+$hayResultado=true;
+$contenidoPrincipal="";
 
 
 $id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
+if($id==null){
+    header('location: tablaPacientes.php');
+
+}
 $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 
 $result = mysqli_query($conn, $sql);
 $patients = [];
-$contenidoPrincipal= <<<EOS
-<div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
-    <a href="generatePdfPatient.php?$id=variable1" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
-</div>
-<link rel="stylesheet" href="css/tableStyle.css">
-<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
-EOS;
+
+
 
 $tabla = "";
 
@@ -56,12 +56,26 @@ if (mysqli_num_rows($result) > 0) {
 
     $tabla .= "</table>";
 } else {
-    $tabla .= "0 results";
+    $tabla .= "<h1>0 results</h1>";
+    $tabla .= "<a href='tablaPacientes.php' class='btn btn-success btn-lg'>Volver</a>";
+    $hayResultado=false;
 }
 
 // Close the connection
 mysqli_close($conn);
+if($hayResultado){
+    $contenidoPrincipal.= <<<EOS
+<div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
+   <a href="generatePdfPatient.php?$id=variable1" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
+    <a href="editPatient.php" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
+    <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
+    
+</div>
+<link rel="stylesheet" href="css/tableStyle.css">
+<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
+EOS;
+}
 $contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
 

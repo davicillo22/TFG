@@ -59,7 +59,7 @@ if (mysqli_num_rows($result) > 0) {
 
   $tabla .= "</table>";
 } else {
-  $tabla .= "0 results";
+  $tabla .= "<div>0 results</div>";
 }
 
 

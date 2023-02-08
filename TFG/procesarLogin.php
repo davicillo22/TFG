@@ -5,10 +5,12 @@ require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Login';
 $log = false;
+
+
 $contenidoPrincipal='';
 if (!checkLogin() && !checkSession()) {
 
-    header('location: login.php');
+    header("Location: login.php?log=$log");
     $contenidoPrincipal= <<<EOS
 		<h1>Error</h1>
 		<p>El email o contraseña introducidos no son válidos.</p>
