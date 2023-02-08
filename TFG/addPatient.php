@@ -20,7 +20,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>FECHACIR:</td>
-            <td><input type="date" name="fechacir" /></td>
+            <td><input type="date"  min="1910-01-01" max="2022-12-31 name="fechacir" /></td>
             </tr>
              
             

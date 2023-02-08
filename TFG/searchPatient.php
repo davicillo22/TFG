@@ -26,10 +26,15 @@ $contenidoPrincipal= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
     <a href="generatePdfPatient.php" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
+    <a href="editPatient.php" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
+    <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
+    
 </div>
 <link rel="stylesheet" href="css/tableStyle.css">
 <div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
 EOS;
+
+
 
 $tabla = "";
 
