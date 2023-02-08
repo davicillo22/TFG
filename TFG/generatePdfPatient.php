@@ -1,61 +1,58 @@
 <?php
 require('fpdf/fpdf.php');
 
-
-class PDF extends FPDF
-{
-// Cabecera de página
-    function Header()
-    {
-
-        // Arial bold 15
-        $this->SetFont('Arial','B',15);
-        // Movernos a la derecha
-        $this->Cell(60);
-        // Título
-        $this->Cell(30,10,'Informe del paciente',0,0,'C');
-        // Salto de línea
-        $this->Ln(20);
-
-        $this->Cell(50, 10, 'FECHACIR', 1, 0, 'C', 0);
-        $this->Cell(50, 10, 'EDAD', 1, 0, 'C', 0);
-        $this->Cell(50, 10, 'ETNIA', 1, 0, 'C', 0);
-        $this->Cell(50, 10, 'OBESO', 1, 1, 'C', 0);
-    }
-
-// Pie de página
-    function Footer()
-    {
-        // Posición: a 1,5 cm del final
-        $this->SetY(-15);
-        // Arial italic 8
-        $this->SetFont('Arial','I',8);
-        // Número de página
-        $this->Cell(0,10,utf8_decode('Page').$this->PageNo().'/{nb}',0,0,'C');
-    }
-}
-
-
-require 'cn.php';
-//require_once 'searchPatient.php';
+//require 'searchPatient.php';
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
+$tituloPagina = 'Pdf-Patient';
+
+$id = $_GET["variable1"];
+
+// Conexión a la base de datos
+$conn = mysqli_connect("localhost", "root", "", "bbdd");
 
 
-// Creación del objeto de la clase heredada
-$pdf = new PDF();
-$pdf->AliasNbPages();
+// Consulta para obtener los datos de la tabla
+$query = "SELECT * FROM patients WHERE NHIS = $id";
+$result = mysqli_query($conn, $query);
+
+
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    // Mostrar un mensaje de error si la consulta falla
+    echo "Error: " . mysqli_error($conn);
+    exit;
+}
+// Creación del PDF
+$pdf = new FPDF();
 $pdf->AddPage();
-$pdf->SetFont('Times','',12);
 
-//while(($row = mysqli_num_rows($result)) > 0) {
-    $pdf->Cell(90, 10, ['FECHACIR'],1, 0, 'C', 0);
-   // $pdf->Cell(90, 10, $row['EDAD'],1, 0, 'C', 0);
-    //$pdf->Cell(90, 10, $row['ETNIA'],1, 0, 'C', 0);
-   // $pdf->Cell(90, 10, $row['OBESO'],1, 0, 'C', 0);
+// Encabezados de las columnas
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(40, 10, 'FECHACIR');
+$pdf->Cell(40, 10, 'EDAD');
+$pdf->Cell(40, 10, 'ETNIA');
+$pdf->Cell(40, 10, 'OBESO');
+$pdf->Cell(40, 10, 'HTA');
+$pdf->Cell(40, 10, 'DM');
+$pdf->Ln();
 
+// Datos de la tabla
+$pdf->SetFont('Arial', '', 12);
+while ($row = mysqli_fetch_array($result)) {
+    $pdf->Cell(40, 10, $row['FECHACIR']);
+    $pdf->Cell(40, 10, $row['EDAD']);
+    $pdf->Cell(40, 10, $row['ETNIA']);
+    $pdf->Cell(40, 10, $row['OBESO']);
+    $pdf->Cell(40, 10, $row['HTA']);
+    $pdf->Cell(40, 10, $row['DM']);
+
+    $pdf->Ln();
+}
 
 $pdf->Output();
-?>
+mysqli_free_result($result);
+//$header = array('FECHACIR','EDAD','ETNIA','OBESO','HTA','DM','TABACO','HEREDA','TACTOR','PSAPRE','PSALT','TDUPPRE','ECOTR','NBIOPSIA','HISTO','GLEASON1','NCILPOS','BILAT','PORCENT','IPERIN','ILINF','IVASCU','TNM1','HISTO2','GLEASON2','BILAT2','LOCALIZ','MULTIFOC','VOLUMEN','EXTRACAP','VVSS','IPERIN2','ILINF2','IVASCU2','PINAG','MARGEN','TNM2','PSAPOS','RTPADYU','RTPMES','RBQ','TRBQ','TDUPLI','T1MTX','FECHAFIN','FALLEC','TSUPERV','PSAFIN','TSEGUI','NOTAS','AY','AZ','CAPRA-S','RA','PTEN','ERG','KI-67','SPINK1','C-MYC','NHIS');
