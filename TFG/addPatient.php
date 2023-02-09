@@ -26,7 +26,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>EDAD:</td>
-            <td><input type="number" min="0" name="edad" /></td>
+            <td><input type="number" min="0" max="120" name="edad" /></td>
             </tr>
             
             <tr>
@@ -67,7 +67,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>PSAPRE:</td>
-            <td><input type="number" min="0" step="any" name="psapre" /></td>
+            <td><input type="number" min="0" max="999" step="any" name="psapre" /></td>
             </tr>
             
             <tr>
@@ -77,7 +77,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>TDUPPRE:</td>
-            <td><input type="number" min="0" step="any" name="tduppre" /></td>
+            <td><input type="number" min="0" max="999" step="any" name="tduppre" /></td>
             </tr>
             
             <tr>
@@ -87,7 +87,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>NBIOPSIA:</td>
-            <td><input type="number" min="0" name="nbiopsia" /></td>
+            <td><input type="number" min="0" max="999" name="nbiopsia" /></td>
             </tr>
             
             <tr>
@@ -207,7 +207,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>PSAPOS:</td>
-            <td><input type="number" min="0" step="any" name="psapos" /></td>
+            <td><input type="number" min="0" max="999" step="any" name="psapos" /></td>
             </tr>
             
             <tr>
@@ -217,7 +217,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>RTPMES:</td>
-            <td><input type="number" min="0" name="rtpmes" /></td>
+            <td><input type="number" min="0" max="999" name="rtpmes" /></td>
             </tr>
             
             <tr>
@@ -227,17 +227,17 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>TRBQ:</td>
-            <td><input type="number" min="0" name="trbq" /></td>
+            <td><input type="number" min="0" max="999" name="trbq" /></td>
             </tr>
             
             <tr>
             <td>TDUPLI:</td>
-            <td><input type="number" min="0" name="tdupli" /></td>
+            <td><input type="number" min="0" max="999" name="tdupli" /></td>
             </tr>
             
             <tr>
             <td>T1MTX:</td>
-            <td><input type="number" min="0" name="t1mtx" /></td>
+            <td><input type="number" min="0" max="999" name="t1mtx" /></td>
             </tr>
             
             <tr>
@@ -252,17 +252,17 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>TSUPERV:</td>
-            <td><input type="number" min="0" name="tsuperv" /></td>
+            <td><input type="number" min="0" max="999" name="tsuperv" /></td>
             </tr>
             
             <tr>
             <td>PSAFIN:</td>
-            <td><input type="number" min="0" step="any" name="psafin" /></td>
+            <td><input type="number" min="0" max="999" step="any" name="psafin" /></td>
             </tr>
             
             <tr>
             <td>TSEGUI:</td>
-            <td><input type="number" min="0" name="tsegui" /></td>
+            <td><input type="number" min="0" max="999" name="tsegui" /></td>
             </tr>
             
             <tr>
@@ -272,7 +272,7 @@ $contenidoPrincipal= <<<EOS
                  
             <tr>
             <td>CAPRA-S:</td>
-            <td><input type="number" min="0" name="capras" /></td>
+            <td><input type="number" min="0" max="999" name="capras" /></td>
             </tr>
             
             <tr>

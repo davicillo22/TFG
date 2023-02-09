@@ -22,6 +22,12 @@
 		border-bottom: 1px solid #6c757d;
 
 	  }
+
+	.fin{
+		border: 0px solid #6c757d;
+		border-top: 1px solid #6c757d;
+		background-color: #FFFFFF;
+	}
 	
 	.search-container {
 	  display: flex;
