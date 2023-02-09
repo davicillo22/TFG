@@ -189,12 +189,9 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Ln();
     $pdf->Cell(30, 10, 'NOTAS');
     $str = iconv('UTF-8', 'windows-1252', $col['NOTAS']);
-
     $pdf->Cell(30, 10, $str);
     $pdf->Ln();
-    $pdf->Cell(30, 10, 'AY');
-    $pdf->Cell(30, 10, $col['AY']);
-    $pdf->Ln();
+
     $pdf->Cell(30, 10, 'CAPRA-S');
     $pdf->Cell(30, 10, $col['CAPRA-S']);
     $pdf->Ln();
