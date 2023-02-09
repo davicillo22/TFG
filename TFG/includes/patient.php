@@ -8,12 +8,12 @@ class Patient
 
 private $fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
 $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
-$pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $ay, $az, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc;
+$pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc;
 
 
     public function __construct($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1, $ncilpos, $bilat, $porcent, $iperin,
                                 $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2, $pinag, $margen, $tnm2, $psapos, $rtpadyu,
-                                $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $ay, $az, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc)
+                                $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc)
     {
         $this->fechacir = $fechacir;
         $this->edad = $edad;
@@ -65,8 +65,6 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
         $this->psafin = $psafin;
         $this->tsegui = $tsegui;
         $this->notas = $notas;
-        $this->ay =$ay;
-        $this->az =$az;
         $this->capras = $capras;
         $this->ra = $ra;
         $this->pten = $pten;
@@ -81,19 +79,21 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
  */
     public static function registrarPatient($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
                                             $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
-                                            $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $timtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $ay, $az, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc): bool
+                                            $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $timtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc): bool
     {
+        $fechacir=date('Y-m-d', strtotime($fechacir));
+        $fechafin=date('Y-m-d', strtotime($fechafin));
         $conn = getConexionBD();//corregir %s %d cuando se arregle tema fechas y varchars, añadir otro %d al final para NHIS
 
             $query = sprintf("INSERT INTO `patients` (`fechacir`, `edad`, `etnia`, `obeso`, `hta`, `dm`, `tabaco`, `hereda`, `tactor`, `psapre`, `psalt`, `tduppre`, `ecotr`, `nbiopsia`, `histo`
                             ,`gleason1`, `ncilpos`, `bilat`, `porcent`, `iperin`, `ilinf`, `ivascu`, `tnm1`, `histo2`, `gleason2`, `bilat2`, `localiz`, `multifoc`, `volumen`, `extracap`, `vvss`, `iperin2`, `ilinf2`, `ivascu2`, `pinag`, `margen`,
-                       `tnm2`, `psapos`, `rtpadyu`, `rtpmes`, `rbq`, `trbq`, `tdupli`, `t1mtx`, `fechafin`, `fallec`, `tsuperv`, `psafin`, `tsegui`, `notas`, `ay`, `az`, `capra-s`, `ra`, `pten`, `erg`, `ki-67`, `spink1`, `c-myc`)
+                       `tnm2`, `psapos`, `rtpadyu`, `rtpmes`, `rbq`, `trbq`, `tdupli`, `t1mtx`, `fechafin`, `fallec`, `tsuperv`, `psafin`, `tsegui`, `notas`, `capra-s`, `ra`, `pten`, `erg`, `ki-67`, `spink1`, `c-myc`)
                 VALUES ('%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%s', '%s', '%s', '%d',
                         '%d', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d',
-                        '%s','%d', '%d', '%d', '%d', '%s', '%d', '%s', '%d', '%d', '%s', '%d', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d')", $conn->real_escape_string($fechacir),
+                        '%s','%d', '%d', '%d', '%d', '%s', '%d', '%s', '%d', '%d', '%s', '%d','%s', '%d', '%d', '%d', '%d', '%d', '%d', '%d')", $conn->real_escape_string($fechacir),
                 $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $conn->real_escape_string($psapre), $conn->real_escape_string($psalt), $conn->real_escape_string($tduppre), $ecotr, $nbiopsia, $histo, $gleason1,
                 $ncilpos, $bilat, $conn->real_escape_string($porcent), $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $conn->real_escape_string($volumen), $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
-                $pinag, $margen, $tnm2, $conn->real_escape_string($psapos), $rtpadyu, $rtpmes, $rbq, $trbq, $conn->real_escape_string($tdupli), $timtx, $conn->real_escape_string($fechafin), $fallec, $tsuperv, $conn->real_escape_string($psafin), $tsegui, $conn->real_escape_string($notas), $conn->real_escape_string($ay), $conn->real_escape_string($az), $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
+                $pinag, $margen, $tnm2, $conn->real_escape_string($psapos), $rtpadyu, $rtpmes, $rbq, $trbq, $conn->real_escape_string($tdupli), $timtx, $conn->real_escape_string($fechafin), $fallec, $tsuperv, $conn->real_escape_string($psafin), $tsegui, $conn->real_escape_string($notas), $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
             if ($conn->query($query) === TRUE) {
                 return true;
             }
@@ -901,39 +901,6 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
     {
         $this->notas = $notas;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getAy()
-    {
-        return $this->ay;
-    }
-
-    /**
-     * @param mixed $ay
-     */
-    public function setAy($ay): void
-    {
-        $this->ay = $ay;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAz()
-    {
-        return $this->az;
-    }
-
-    /**
-     * @param mixed $az
-     */
-    public function setAz($az): void
-    {
-        $this->az = $az;
-    }
-
 
 
     /**

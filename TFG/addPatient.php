@@ -20,7 +20,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>FECHACIR:</td>
-            <td><input type="date"  min="1910-01-01" max="2022-12-31 name="fechacir" /></td>
+            <td><input type="date"  min="1910-01-01" max="2022-12-31" name="fechacir" /></td>
             </tr>
              
             
@@ -242,7 +242,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>FECHAFIN:</td>
-            <td><input type="date" name="fechafin" /></td>
+            <td><input type="date" name="fechafin" min="1910-01-01" max="2022-12-31" /></td>
             </tr>
             
             <tr>
@@ -269,17 +269,7 @@ $contenidoPrincipal= <<<EOS
             <td>NOTAS:</td>
             <td><input type="text" name="notas"/></td>
             </tr>
-            
-            <tr>
-            <td>AY:</td>
-            <td><input type="number" name="ay"/></td>
-            </tr>
-            
-            <tr>
-            <td>AZ:</td>
-            <td><input type="number" name="az"/></td>
-            </tr>
-            
+                 
             <tr>
             <td>CAPRA-S:</td>
             <td><input type="number" min="0" name="capras" /></td>

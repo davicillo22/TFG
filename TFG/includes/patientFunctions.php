@@ -57,8 +57,6 @@ function registerPatient(){
     $psafin = isset($_POST["psafin"]) ? $_POST["psafin"] : null;
     $tsegui = isset($_POST["tsegui"]) ? $_POST["tsegui"] : null;
     $notas = isset($_POST["notas"]) ? $_POST["notas"] : null;
-    $ay = isset($_POST["ay"]) ? $_POST["ay"] : null;
-    $az = isset($_POST["az"]) ? $_POST["az"] : null;
     $capras = isset($_POST["capras"]) ? $_POST["capras"] : null;
     $ra = isset($_POST["ra"]) ? $_POST["ra"] : null;
     $pten = isset($_POST["pten"]) ? $_POST["pten"] : null;
@@ -70,7 +68,7 @@ function registerPatient(){
 
     if (Patient::registrarPatient($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
         $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
-        $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $ay, $az, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc  )){
+        $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc  )){
         return true;
     }else{
         return false;
@@ -78,83 +76,3 @@ function registerPatient(){
 }
 
 
-/*
- * funcion que muestra al usuario sus datos personales en formato tabla
- */
-function datosUsuario($email): string
-{
-    $html = '<link rel="stylesheet" href="css/style.css"><div class="screen-1"><p><table class="formula">';
-    $perfil = Usuario::buscaUsuario($email);
-    $html .='<thead><td colspan="2"> Datos del usuario</td></thead>';
-
-    $html .= '<tr><td>';
-    $html .= 'Nombre: ';
-    $html .= '</td><td>';
-    $html .= $perfil->name();
-    $html .= '</td></tr>';
-
-    $html .= '<tr><td>';
-    $html .= 'Apellido: ';
-    $html .= '</td><td>';
-    $html .= $perfil->surname();
-    $html .= '</td></tr>';
-
-    $html .= '<tr><td>';
-    $html .= 'Email: ';
-    $html .= '</td><td>';
-    $html .= $perfil->email();
-    $html .= '</td></tr>';
-
-    $html .= '<tr><td>';
-    $html .= 'Privilegios: ';
-    $html .= '</td><td>';
-    if ($perfil->privileges() == 0){
-        $html.= 'Administrador';
-    }else{
-        $html.= 'Usuario';
-    }
-    $html .= '</td></tr>';
-
-    $html .= '</table><a href = "editProfile.php"> <button class="btnprof"> Modifica tus datos </button></a></p></div>';
-
-    return $html;
-}
-
-/*
- * funcion que procesa las peticiones de cambio de datos proporcionadas por el usuario.
- * Devuelve true si todos se realizan de manera correcta, false en caso contrario.
- */
-function cambiarDatos($email): bool
-{
-
-    $bool = true;
-
-    $perfil = Usuario::buscaUsuario($email);
-
-
-    $password = isset($_POST["password"]) ? $_POST["password"] : null;
-    $password2 = isset($_POST["password2"]) ? $_POST["password2"] : null;
-    if($password!=null){
-        if($password==$password2){
-            $bool = $perfil->cambiaPassword($password);
-        }else{
-            return false;
-        }
-    }
-
-    $username = isset($_POST["name"]) ? $_POST["name"] : null;
-    if($username!=null){
-        $bool = $perfil->cambiaName($username);
-    }
-
-    $last = isset($_POST["surname"]) ? $_POST["surname"] : null;
-    if($last!=null){
-        $bool = $perfil->cambiaSurname($last);
-    }
-
-    if($bool==true)
-        $perfil->actualizarSesion();
-
-
-    return $bool;
-}
