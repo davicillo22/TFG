@@ -69,7 +69,7 @@ if($hayResultado){
     
 </div>
 <link rel="stylesheet" href="css/tableStyle.css">
-<div style="width: 1500px; height: 103px; overflow: auto; margin: 0 auto; margin-top: 30px;">
+<div style="width: 1500px; height: 110px; overflow: auto; margin: 0 auto; margin-top: 30px;">
 EOS;
 }
 $contenidoPrincipal .= $tabla;

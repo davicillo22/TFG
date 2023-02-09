@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mediomod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bbdd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bbdd.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/editPatient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
       <workItem from="1675872123713" duration="11261000" />
       <workItem from="1675898530655" duration="1044000" />
       <workItem from="1675902758952" duration="1975000" />
-      <workItem from="1675945449129" duration="19738000" />
+      <workItem from="1675945449129" duration="23473000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675972148042</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="mediomod">
+      <created>1675975316328</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675975316328</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
