@@ -55,10 +55,6 @@ if (mysqli_num_rows($result) > 0) {
     }
 
     $tabla .= "</table>";
-} else {
-    $tabla .= "<h1>0 results</h1>";
-    $tabla .= "<a href='tablaPacientes.php' class='btn btn-success btn-lg'>Volver</a>";
-    $hayResultado=false;
 }
 
 // Close the connection
@@ -73,7 +69,7 @@ if($hayResultado){
     
 </div>
 <link rel="stylesheet" href="css/tableStyle.css">
-<div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
+<div style="width: 1500px; height: 103px; overflow: auto; margin: 0 auto; margin-top: 30px;">
 EOS;
 }
 $contenidoPrincipal .= $tabla;

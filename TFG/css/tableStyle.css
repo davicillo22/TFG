@@ -28,7 +28,20 @@
 		border-top: 1px solid #6c757d;
 		background-color: #FFFFFF;
 	}
-	
+
+	.add-patient-button {
+		padding: 10px 20px;
+		background-color: #4CAF50;
+		color: white;
+		border-radius: 4px;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	.add-patient-button:hover {
+		background-color: #3e8e41;
+	}
+
 	.search-container {
 	  display: flex;
 	  align-items: center;

@@ -18,6 +18,9 @@ $contenidoPrincipal= <<<EOS
 </div>
 <div style="width: 1500px; height: 600px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 2px solid black;">
 EOS;
+$addPatientButton = "<div style='width: 1500px; height: 60px; overflow: auto; margin: 0 auto; margin-top: 15px; '>
+    <a class='btn btn-success btn-lg' href='addPatient.php'>Add Patient</a>
+</div>";
 
 $tabla = "";
 
@@ -62,14 +65,13 @@ if (mysqli_num_rows($result) > 0) {
   $tabla .= "<div>0 results</div>";
 }
 
-
-
-
 // Close the connection
 mysqli_close($conn);
 
 $contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
+$contenidoPrincipal .= $addPatientButton;
+
 
 
 require __DIR__.'/includes/layout.php';

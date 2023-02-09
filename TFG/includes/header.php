@@ -47,13 +47,14 @@
                         <li class="appointment-btn"><a href="tablaPacientes.php" class="smoothScroll">Pacientes</a></li>
                         <li class="appointment-btn"><a href="calculator.php" class="smoothScroll">Calculadora</a></li>
                         <li class="appointment-btn"><a href="profile.php" class="smoothScroll">Mi perfil</a></li>
-                        <li class="appointment-btn"><a href="logout.php" class="smoothScroll">Cerrar Sesión</a></li>
+
                     <?php
                     if ($_SESSION["privileges"] == 0){
                         echo '<li class="appointment-btn"><a href="register.php" class="smoothScroll">Crear cuenta</a></li>';
                     }
                     }
                     ?>
+                    <li class="appointment-btn"><a href="logout.php" class="smoothScroll">Cerrar Sesión</a></li>
                 </ul>
             </div>
 
