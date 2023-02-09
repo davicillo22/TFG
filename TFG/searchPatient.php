@@ -31,9 +31,6 @@ $sql = "SELECT * FROM patients WHERE NHIS = $id";
 $result = mysqli_query($conn, $sql);
 $patients = [];
 
-
-
-
 $tabla = "";
 
 if (mysqli_num_rows($result) > 0) {

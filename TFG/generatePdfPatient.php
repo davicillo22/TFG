@@ -1,7 +1,6 @@
 <?php
 require('fpdf/fpdf.php');
 
-//require 'searchPatient.php';
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
@@ -19,13 +18,14 @@ $query = "SELECT * FROM patients WHERE NHIS = $id";
 $result = mysqli_query($conn, $query);
 
 
-$result = mysqli_query($conn, $query);
-
 if (!$result) {
     // Mostrar un mensaje de error si la consulta falla
     echo "Error: " . mysqli_error($conn);
     exit;
 }
+
+$str ="";
+
 // Creación del PDF
 $pdf = new FPDF();
 $pdf->AddPage();
@@ -188,7 +188,9 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Cell(30, 10, $col['TSEGUI']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'NOTAS');
-    $pdf->Cell(30, 10, $col['NOTAS']);
+    $str = iconv('UTF-8', 'windows-1252', $col['NOTAS']);
+
+    $pdf->Cell(30, 10, $str);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'AY');
     $pdf->Cell(30, 10, $col['AY']);
@@ -221,3 +223,5 @@ while ($col = mysqli_fetch_array($result)) {
 
 $pdf->Output();
 mysqli_free_result($result);
+
+require __DIR__.'/includes/layout.php';
