@@ -16,12 +16,15 @@ if (!$conn) {
 $hayResultado=true;
 $contenidoPrincipal="";
 
-
-$id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
-if($id==null){
-    header('location: tablaPacientes.php');
-
+if (empty($_GET)) {
+    $id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
+    if($id==null){
+        header('location: tablaPacientes.php');
+    }
 }
+else
+    $id=$_GET["id"];
+
 $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 
@@ -68,7 +71,7 @@ if($hayResultado){
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
    <a href="generatePdfPatient.php?$id=variable1" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
-    <a href="editPatient.php" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
+    <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
     <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
     
 </div>

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="tablaput">
+    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="corrects">
+      <change afterPath="$PROJECT_DIR$/procesarEditPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bbdd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bbdd.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/editPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchPatient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,21 +32,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/TFGit/TFG/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/TFGit/TFG",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TFGit\TFG" />
       <recent name="C:\xampp\htdocs\TFGit\TFG\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -66,7 +67,8 @@
       <workItem from="1675800512180" duration="1484000" />
       <workItem from="1675872123713" duration="11261000" />
       <workItem from="1675898530655" duration="1044000" />
-      <workItem from="1675902758952" duration="1667000" />
+      <workItem from="1675902758952" duration="1975000" />
+      <workItem from="1675945449129" duration="1026000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -110,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675899572356</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="corrects">
+      <created>1675904708700</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675904708700</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +143,7 @@
     <MESSAGE value="deletePat" />
     <MESSAGE value="delete completo" />
     <MESSAGE value="tablaput" />
-    <option name="LAST_COMMIT_MESSAGE" value="tablaput" />
+    <MESSAGE value="corrects" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrects" />
   </component>
 </project>

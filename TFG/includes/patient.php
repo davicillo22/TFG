@@ -75,7 +75,7 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
     }
 
     /*
- * funcion que entra en la base de datos para dar de alta un nuevo usuario, dados todos los campos necesarios
+ * funcion que entra en la base de datos para dar de alta un nuevo paciente, dados todos los campos necesarios
  */
     public static function registrarPatient($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
                                             $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
@@ -83,7 +83,7 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
     {
         $fechacir=date('Y-m-d', strtotime($fechacir));
         $fechafin=date('Y-m-d', strtotime($fechafin));
-        $conn = getConexionBD();//corregir %s %d cuando se arregle tema fechas y varchars, añadir otro %d al final para NHIS
+        $conn = getConexionBD();
 
             $query = sprintf("INSERT INTO `patients` (`fechacir`, `edad`, `etnia`, `obeso`, `hta`, `dm`, `tabaco`, `hereda`, `tactor`, `psapre`, `psalt`, `tduppre`, `ecotr`, `nbiopsia`, `histo`
                             ,`gleason1`, `ncilpos`, `bilat`, `porcent`, `iperin`, `ilinf`, `ivascu`, `tnm1`, `histo2`, `gleason2`, `bilat2`, `localiz`, `multifoc`, `volumen`, `extracap`, `vvss`, `iperin2`, `ilinf2`, `ivascu2`, `pinag`, `margen`,
