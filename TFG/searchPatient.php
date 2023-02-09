@@ -70,7 +70,7 @@ if($hayResultado){
     $contenidoPrincipal.= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
-   <a href="generatePdfPatient.php?$id=variable1" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
+   <a href="generatePdfPatient.php?id=$id" class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
     <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
     <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
     

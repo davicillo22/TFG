@@ -8,7 +8,7 @@ require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Pdf-Patient';
 
-$id = $_GET["variable1"];
+$id = $_GET["id"];
 
 // Conexión a la base de datos
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
