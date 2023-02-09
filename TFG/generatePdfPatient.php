@@ -31,7 +31,6 @@ $pdf = new FPDF();
 $pdf->AddPage();
 
 
-
 // Datos de la tabla
 $pdf->SetFont('Arial', '', 12);
 while ($col = mysqli_fetch_array($result)) {
@@ -194,8 +193,8 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Cell(30, 10, 'AY');
     $pdf->Cell(30, 10, $col['AY']);
     $pdf->Ln();
-    $pdf->Cell(30, 10, 'CAPRA');
-    $pdf->Cell(30, 10, $col['CAPRA']);
+    $pdf->Cell(30, 10, 'CAPRA-S');
+    $pdf->Cell(30, 10, $col['CAPRA-S']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'RA');
     $pdf->Cell(30, 10, $col['RA']);
