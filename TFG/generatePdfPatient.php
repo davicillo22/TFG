@@ -196,7 +196,7 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Ln();
 
     $pdf->Cell(30, 10, 'CAPRA-S');
-    $pdf->Cell(30, 10, $col['CAPRA-S']);
+    $pdf->Cell(30, 10, $col['CAPRA_S']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'RA');
     $pdf->Cell(30, 10, $col['RA']);
@@ -208,13 +208,13 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Cell(30, 10, $col['ERG']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'KI-67');
-    $pdf->Cell(30, 10, $col['KI-67']);
+    $pdf->Cell(30, 10, $col['KI_67']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'SPINK1');
     $pdf->Cell(30, 10, $col['SPINK1']);
     $pdf->Ln();
     $pdf->Cell(30, 10, 'C-MYC');
-    $pdf->Cell(30, 10, $col['C-MYC']);
+    $pdf->Cell(30, 10, $col['C_MYC']);
     $pdf->Ln();
 
 }
