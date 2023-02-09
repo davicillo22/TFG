@@ -43,10 +43,10 @@ if (mysqli_num_rows($result) > 0) {
     $tabla .= "</tr>";
 
     // Loop through the results and print each row
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($rowT = mysqli_fetch_assoc($result)) {
         $tabla .= "<tr>";
         foreach ($column_names as $column_name) {
-            $tabla .= "<td>" . $row[$column_name->name] . "</td>";
+            $tabla .= "<td>" . $rowT[$column_name->name] . "</td>";
         }
         $tabla .= "</tr>";
     }
@@ -54,25 +54,50 @@ if (mysqli_num_rows($result) > 0) {
     $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
 
+
     $result = mysqli_query($conn, $sql);
     //inputs para modificar cada campo
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($rowT = mysqli_fetch_assoc($result)) {
+        $fechacirAnterior=$rowT['FECHACIR'];
+        $edadAnterior=$rowT['EDAD'];
+        $etniaAnterior=$rowT['ETNIA'];
+        $obesoAnterior=$rowT['OBESO'];
+        $htaAnterior=$rowT['HTA'];
+        $dmAnterior=$rowT['DM'];
+        $tabacoAnterior=$rowT['TABACO'];
+        $heredaAnterior=$rowT['HEREDA'];
+        $tactorAnterior=$rowT['TACTOR'];
+        $psapreAnterior=$rowT['PSAPRE'];
+        //... con todos
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
+        $edadAnterior=$rowT['EDAD'];
 
+        $fechafinAnterior=$rowT['FECHAFIN'];
 
             $tabla .=<<<EOS
 
-<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarEditPatient.php"><tr>
+<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarEditPatient.php?id=$id"><tr>
             <td>$id</td>
-            <td><input type="date"  min="1910-01-01" max="2022-12-31" name="fechacir" /></td>
-            <td><input type="number" min="0" max="120" name="edad" /></td>
-            <td><input type="number" min="1" max="4" name="etnia" /></td>
+            <td><input type="date"  min="1910-01-01" max="2022-12-31" name="fechacir" value=$fechacirAnterior /></td>
+            <td><input type="number" min="0" max="120" name="edad" value=$edadAnterior /></td>
+            <td><input type="number" min="1" max="4" name="etnia" value=$etniaAnterior /></td>
             <td><input type="number" min="0" max="3" name="obeso" /></td>
             <td><input type="number" min="1" max="3" name="hta" /></td>
             <td><input type="number" min="1" max="3" name="dm" /></td>
             <td><input type="number" min="0" max="5" name="tabaco" /></td>
             <td><input type="number" min="1" max="2" name="hereda" /></td>
             <td><input type="number" min="1" max="3" name="tactor" /></td>
-            <td><input type="number" min="0" max="999" step="any" name="psapre" /></td>
+            <td><input type="number" min="0" max="999" step="any" name="psapre" value=$psapreAnterior /></td>
             <td><input type="number" min="0" max="1" step="any" name="psalt" /></td>
             <td><input type="number" min="0" max="999" step="any" name="tduppre" /></td>
             <td><input type="number" min="1" max="2" name="ecotr" /></td>
@@ -107,7 +132,7 @@ if (mysqli_num_rows($result) > 0) {
             <td><input type="number" min="0" max="999" name="trbq" /></td>
             <td><input type="number" min="0" max="999" name="tdupli" /></td>
             <td><input type="number" min="0" max="999" name="t1mtx" /></td>
-            <td><input type="date" name="fechafin" min="1910-01-01" max="2022-12-31" /></td>
+            <td><input type="date" name="fechafin" min="1910-01-01" max="2022-12-31" value=$fechafinAnterior /></td>
             <td><input type="number" min="1" max="2" name="fallec" /></td>
             <td><input type="number" min="0" max="999" name="tsuperv" /></td>
             <td><input type="number" min="0" max="999" step="any" name="psafin" /></td>
