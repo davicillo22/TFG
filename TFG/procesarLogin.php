@@ -22,7 +22,6 @@ if (!checkLogin() && !checkSession()) {
 		<h1>Bienvenido/a ${_SESSION['name']}</h1>
 		<p>Usa el menú superior para navegar.</p>
 
-
 	EOS;
 }
 

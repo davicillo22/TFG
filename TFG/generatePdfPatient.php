@@ -34,6 +34,9 @@ $pdf->AddPage();
 // Datos de la tabla
 $pdf->SetFont('Arial', '', 12);
 while ($col = mysqli_fetch_array($result)) {
+    $pdf->Cell(30, 10, 'NHIS');
+    $pdf->Cell(30, 10, $col['NHIS']);
+    $pdf->Ln();
     $pdf->Cell(30, 10, 'FECHACIR');
     $pdf->Cell(30, 10, $col['FECHACIR']);
     $pdf->Ln();
@@ -213,9 +216,7 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Cell(30, 10, 'C-MYC');
     $pdf->Cell(30, 10, $col['C-MYC']);
     $pdf->Ln();
-    $pdf->Cell(30, 10, 'NHIS');
-    $pdf->Cell(30, 10, $col['NHIS']);
-    $pdf->Ln();
+
 }
 
 $pdf->Output();
