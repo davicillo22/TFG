@@ -5,7 +5,7 @@ define('BD_HOST', 'localhost');
 define('BD_NAME', 'bbdd');
 define('BD_USER', 'web_user');
 define('BD_PASS', 'web_user');
-define('RUTA_APP', '/TFG');
+define('RUTA_APP', '/TFG/TFG');
 define('RUTA_IMGS', RUTA_APP . '/images');
 define('RUTA_CSS', RUTA_APP . '/css');
 define('RUTA_JS', RUTA_APP . '/js');
