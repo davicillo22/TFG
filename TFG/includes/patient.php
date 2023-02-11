@@ -101,7 +101,6 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
         return false;
     }
 
-
     /**
      * @return mixed
      */

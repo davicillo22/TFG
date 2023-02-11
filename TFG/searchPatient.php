@@ -13,53 +13,54 @@ $conn = mysqli_connect("localhost", "root", "", "bbdd");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$hayResultado=true;
+$nhisFound=false;
 $contenidoPrincipal="";
 
-if (empty($_GET)) {
-    $id = isset($_POST["nhis"]) ? $_POST["nhis"] : null;
-    if($id==null){
-        header('location: tablaPacientes.php');
-    }
+if (isset($_POST['nhis'])) {
+    $id = $_POST['nhis'];
+} else if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 }
-else
-    $id=$_GET["id"];
+if (ctype_digit($id)) {
+    $sql = "SELECT * FROM patients WHERE NHIS = $id";
 
-$sql = "SELECT * FROM patients WHERE NHIS = $id";
+    $result = mysqli_query($conn, $sql);
+    $patients = [];
 
+    $tabla = "";
 
-$result = mysqli_query($conn, $sql);
-$patients = [];
-
-$tabla = "";
-
-if (mysqli_num_rows($result) > 0) {
-    $tabla .= "<table>";
-    $tabla .= "<tr>";
-
-    // Get the column names
-    $column_names = mysqli_fetch_fields($result);
-    foreach ($column_names as $column_name) {
-        $tabla .= "<th>" . $column_name->name . "</th>";
-    }
-
-    $tabla .= "</tr>";
-
-    // Loop through the results and print each row
-    while ($row = mysqli_fetch_assoc($result)) {
+    if (mysqli_num_rows($result) > 0) {
+        $nhisFound = true;
+        $tabla .= "<table>";
         $tabla .= "<tr>";
+
+        // Get the column names
+        $column_names = mysqli_fetch_fields($result);
         foreach ($column_names as $column_name) {
-            $tabla .= "<td>" . $row[$column_name->name] . "</td>";
+            $tabla .= "<th>" . $column_name->name . "</th>";
         }
+
         $tabla .= "</tr>";
+
+        // Loop through the results and print each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            $tabla .= "<tr>";
+            foreach ($column_names as $column_name) {
+                $tabla .= "<td>" . $row[$column_name->name] . "</td>";
+            }
+            $tabla .= "</tr>";
+        }
+
+        $tabla .= "</table>";
+    } else {
+        header("Location: tablaPacientes.php?nhisFound=$nhisFound");
     }
-
-    $tabla .= "</table>";
+}else{
+    header("Location: tablaPacientes.php?nhisFound=$nhisFound");
 }
-
 // Close the connection
 mysqli_close($conn);
-if($hayResultado){
+if($nhisFound){
     $contenidoPrincipal.= <<<EOS
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
