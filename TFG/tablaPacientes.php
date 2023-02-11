@@ -83,7 +83,7 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 
 if (!$nhisFound){
-    $contenidoPrincipal.= "<h3 class='erroneo'>NHIS no encontrado.</h3>";
+    $contenidoPrincipal.= "<h3 style='color: red;'>NHIS no encontrado.</h3><br>";
 
     $contenidoPrincipal.= "</body></html>";
 }
