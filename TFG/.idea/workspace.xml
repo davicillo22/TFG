@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mejoras tabla locuritas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tablaPacientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/tablaPacientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarAddPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarAddPatient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

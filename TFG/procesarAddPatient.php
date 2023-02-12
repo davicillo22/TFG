@@ -11,7 +11,15 @@ if(!registerPatient()){
     $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
 }else{
 
-    header( 'Location: addPatient.php' );
+    $tabla = "";
+
+
+    $tabla = "<h1>Paciente añadido con éxito</h1>";
+    $tabla .= "<a href='addPatient.php' class='btn btn-success btn-lg'>Volver</a>";
+
+
+    $contenidoPrincipal = $tabla;
+    $contenidoPrincipal .= "</div>";
 
 }
 
