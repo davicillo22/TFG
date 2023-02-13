@@ -7,6 +7,11 @@
 function registerPatient(){
     $fechacir = isset($_POST["fechacir"]) ? $_POST["fechacir"] : null;
     $edad = isset($_POST["edad"]) ? $_POST["edad"] : null;
+
+ //   $edad = $_POST['edad'];
+ //   if (!isset($edad) || $edad === "") $edad = "NULL";
+
+
     $etnia = isset($_POST["etnia"]) ? $_POST["etnia"] : null;
     $obeso = isset($_POST["obeso"]) ? $_POST["obeso"] : null;
     $hta = isset($_POST["hta"]) ? $_POST["hta"] : null;
@@ -64,8 +69,6 @@ function registerPatient(){
     $ki67 = isset($_POST["ki67"]) ? $_POST["ki67"] : null;
     $spink1 = isset($_POST["spink1"]) ? $_POST["spink1"] : null;
     $cmyc = isset($_POST["cmyc"]) ? $_POST["cmyc"] : null;
-
-
 
     if (Patient::registrarPatient($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
         $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
