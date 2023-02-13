@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mediomod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/editPatient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesarEditPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarEditPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +77,7 @@
       <workItem from="1675902758952" duration="1975000" />
       <workItem from="1675945449129" duration="23473000" />
       <workItem from="1676048834455" duration="5777000" />
-      <workItem from="1676278833333" duration="6894000" />
+      <workItem from="1676278833333" duration="8667000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -200,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676284413542</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="mediomod">
+      <created>1676288753442</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1676288753442</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
