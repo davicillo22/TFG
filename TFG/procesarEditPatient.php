@@ -19,71 +19,182 @@ $id=$_GET["id"];
 //$sql = "UPDATE `patients` SET `FECHACIR` = '%s' WHERE `patients`.`NHIS` = '%s', $conn->real_escape_string('nuevoName'), $conn->real_escape_string($this->id));";
 
 // Recibe los valores del formulario
-$fechacir = isset($_POST["fechacir"]) ? $_POST["fechacir"] : null;
-$edad = isset($_POST["edad"]) ? $_POST["edad"] : null;
-$etnia = isset($_POST["etnia"]) ? $_POST["etnia"] : null;
-$obeso = isset($_POST["obeso"]) ? $_POST["obeso"] : null;
-$hta = isset($_POST["hta"]) ? $_POST["hta"] : null;
-$dm = isset($_POST["dm"]) ? $_POST["dm"] : null;
-$tabaco = isset($_POST["tabaco"]) ? $_POST["tabaco"] : null;
-$hereda = isset($_POST["hereda"]) ? $_POST["hereda"] : null;
-$tactor = isset($_POST["tactor"]) ? $_POST["tactor"] : null;
-$psapre = isset($_POST["psapre"]) ? $_POST["psapre"] : null;
-$psalt = isset($_POST["psalt"]) ? $_POST["psalt"] : null;
-$tduppre = isset($_POST["tduppre"]) ? $_POST["tduppre"] : null;
-$ecotr = isset($_POST["ecotr"]) ? $_POST["ecotr"] : null;
-$nbiopsia = isset($_POST["nbiopsia"]) ? $_POST["nbiopsia"] : null;
-$histo = isset($_POST["histo"]) ? $_POST["histo"] : null;
-$gleason1 = isset($_POST["gleason1"]) ? $_POST["gleason1"] : null;
-$ncilpos = isset($_POST["ncilpos"]) ? $_POST["ncilpos"] : null;
-$bilat = isset($_POST["bilat"]) ? $_POST["bilat"] : null;
-$porcent = isset($_POST["porcent"]) ? $_POST["porcent"] : null;
-$iperin = isset($_POST["iperin"]) ? $_POST["iperin"] : null;
-$ilinf = isset($_POST["ilinf"]) ? $_POST["ilinf"] : null;
-$ivascu = isset($_POST["ivascu"]) ? $_POST["ivascu"] : null;
-$tnm1 = isset($_POST["tnm1"]) ? $_POST["tnm1"] : null;
-$histo2 = isset($_POST["histo2"]) ? $_POST["histo2"] : null;
-$gleason2 = isset($_POST["gleason2"]) ? $_POST["gleason2"] : null;
-$bilat2 = isset($_POST["bilat2"]) ? $_POST["bilat2"] : null;
-$localiz = isset($_POST["localiz"]) ? $_POST["localiz"] : null;
-$multifoc = isset($_POST["multifoc"]) ? $_POST["multifoc"] : null;
+$fechacir = $_POST['fechacir'];
+if (!isset($fechacir) || $fechacir === "") $fechacir = "NULL";
 
-$volumen = isset($_POST["volumen"]) ? $_POST["volumen"] : null;
-$extracap = isset($_POST["extracap"]) ? $_POST["extracap"] : null;
-$vvss = isset($_POST["vvss"]) ? $_POST["vvss"] : null;
-$iperin2 = isset($_POST["iperin2"]) ? $_POST["iperin2"] : null;
-$ilinf2 = isset($_POST["ilinf2"]) ? $_POST["ilinf2"] : null;
-$ivascu2 = isset($_POST["ivascu2"]) ? $_POST["ivascu2"] : null;
-$pinag = isset($_POST["pinag"]) ? $_POST["pinag"] : null;
-$margen = isset($_POST["margen"]) ? $_POST["margen"] : null;
-$tnm2 = isset($_POST["tnm2"]) ? $_POST["tnm2"] : null;
-$psapos = isset($_POST["psapos"]) ? $_POST["psapos"] : null;
-$rtpadyu = isset($_POST["rtpadyu"]) ? $_POST["rtpadyu"] : null;
-$rtpmes = isset($_POST["rtpmes"]) ? $_POST["rtpmes"] : null;
-$rbq = isset($_POST["rbq"]) ? $_POST["rbq"] : null;
-$trbq = isset($_POST["trbq"]) ? $_POST["trbq"] : null;
+$edad = $_POST['edad'];
+if (!isset($edad) || $edad === "") $edad = "NULL";
 
-$tdupli = isset($_POST["tdupli"]) ? $_POST["tdupli"] : null;
-$t1mtx = isset($_POST["t1mtx"]) ? $_POST["t1mtx"] : null;
-$fechafin = isset($_POST["fechafin"]) ? $_POST["fechafin"] : null;
-$fallec = isset($_POST["fallec"]) ? $_POST["fallec"] : null;
-$tsuperv = isset($_POST["tsuperv"]) ? $_POST["tsuperv"] : null;
-$psafin = isset($_POST["psafin"]) ? $_POST["psafin"] : null;
-$tsegui = isset($_POST["tsegui"]) ? $_POST["tsegui"] : null;
-$notas = isset($_POST["notas"]) ? $_POST["notas"] : null;
-$capras = isset($_POST["capras"]) ? $_POST["capras"] : null;
-$ra = isset($_POST["ra"]) ? $_POST["ra"] : null;
-$pten = isset($_POST["pten"]) ? $_POST["pten"] : null;
-$erg = isset($_POST["erg"]) ? $_POST["erg"] : null;
-$ki67 = isset($_POST["ki67"]) ? $_POST["ki67"] : null;
-$spink1 = isset($_POST["spink1"]) ? $_POST["spink1"] : null;
-$cmyc = isset($_POST["cmyc"]) ? $_POST["cmyc"] : null;
+
+$etnia = $_POST['etnia'];
+if (!isset($etnia) || $etnia === "") $etnia = "NULL";
+
+$obeso = $_POST['obeso'];
+if (!isset($obeso) || $obeso === "") $obeso = "NULL";
+
+$hta = $_POST['hta'];
+if (!isset($hta) || $hta === "") $hta = "NULL";
+
+$dm = $_POST['dm'];
+if (!isset($dm) || $dm === "") $dm = "NULL";
+
+$tabaco = $_POST['tabaco'];
+if (!isset($tabaco) || $tabaco === "") $tabaco = "NULL";
+
+$hereda = $_POST['hereda'];
+if (!isset($hereda) || $hereda === "") $hereda = "NULL";
+
+$tactor = $_POST['tactor'];
+if (!isset($tactor) || $tactor === "") $tactor = "NULL";
+
+$psapre = $_POST['psapre'];
+if (!isset($psapre) || $psapre === "") $psapre = "NULL";
+
+$psalt = $_POST['psalt'];
+if (!isset($psalt) || $psalt === "") $psalt = "NULL";
+
+$tduppre = $_POST['tduppre'];
+if (!isset($tduppre) || $tduppre === "") $tduppre = "NULL";
+
+$ecotr = $_POST['ecotr'];
+if (!isset($ecotr) || $ecotr === "") $ecotr = "NULL";
+
+$nbiopsia = $_POST['nbiopsia'];
+if (!isset($nbiopsia) || $nbiopsia === "") $nbiopsia = "NULL";
+
+$histo = $_POST['histo'];
+if (!isset($histo) || $histo === "") $histo = "NULL";
+
+$gleason1 = $_POST['gleason1'];
+if (!isset($gleason1) || $gleason1 === "") $gleason1 = "NULL";
+
+$ncilpos = $_POST['ncilpos'];
+if (!isset($ncilpos) || $ncilpos === "") $ncilpos = "NULL";
+
+$bilat = $_POST['bilat'];
+if (!isset($bilat) || $bilat === "") $bilat = "NULL";
+
+$porcent = $_POST['porcent'];
+if (!isset($porcent) || $porcent === "") $porcent = "NULL";
+
+$iperin = $_POST['iperin'];
+if (!isset($iperin) || $iperin === "") $iperin = "NULL";
+
+$ilinf = $_POST['ilinf'];
+if (!isset($ilinf) || $ilinf === "") $ilinf = "NULL";
+
+$ivascu = $_POST['ivascu'];
+if (!isset($ivascu) || $ivascu === "") $ivascu = "NULL";
+
+$tnm1 = $_POST['tnm1'];
+if (!isset($tnm1) || $tnm1 === "") $tnm1 = "NULL";
+
+$histo2 = $_POST['histo2'];
+if (!isset($histo2) || $histo2 === "") $histo2 = "NULL";
+
+$gleason2 = $_POST['gleason2'];
+if (!isset($gleason2) || $gleason2 === "") $gleason2 = "NULL";
+
+$bilat2 = $_POST['bilat2'];
+if (!isset($bilat2) || $bilat2 === "") $bilat2 = "NULL";
+
+$localiz = $_POST['localiz'];
+if (!isset($localiz) || $localiz === "") $localiz = "NULL";
+
+$multifoc = $_POST['multifoc'];
+if (!isset($multifoc) || $multifoc === "") $multifoc = "NULL";
+
+$volumen = $_POST['volumen'];
+if (!isset($volumen) || $volumen === "") $volumen = "NULL";
+
+$extracap = $_POST['extracap'];
+if (!isset($extracap) || $extracap === "") $extracap = "NULL";
+
+$vvss = $_POST['vvss'];
+if (!isset($vvss) || $vvss === "") $vvss = "NULL";
+
+$iperin2 = $_POST['iperin2'];
+if (!isset($iperin2) || $iperin2 === "") $iperin2 = "NULL";
+
+$ilinf2 = $_POST['ilinf2'];
+if (!isset($ilinf2) || $ilinf2 === "") $ilinf2 = "NULL";
+
+$ivascu2 = $_POST['ivascu2'];
+if (!isset($ivascu2) || $ivascu2 === "") $ivascu2 = "NULL";
+
+$pinag = $_POST['pinag'];
+if (!isset($pinag) || $pinag === "") $pinag = "NULL";
+
+$margen = $_POST['margen'];
+if (!isset($margen) || $margen === "") $margen = "NULL";
+
+$tnm2 = $_POST['tnm2'];
+if (!isset($tnm2) || $tnm2 === "") $tnm2 = "NULL";
+
+$psapos = $_POST['psapos'];
+if (!isset($psapos) || $psapos === "") $psapos = "NULL";
+
+$rtpadyu = $_POST['rtpadyu'];
+if (!isset($rtpadyu) || $rtpadyu === "") $rtpadyu = "NULL";
+
+$rtpmes = $_POST['rtpmes'];
+if (!isset($rtpmes) || $rtpmes === "") $rtpmes = "NULL";
+
+$rbq = $_POST['rbq'];
+if (!isset($rbq) || $rbq === "") $rbq = "NULL";
+
+$trbq = $_POST['trbq'];
+if (!isset($trbq) || $trbq === "") $trbq = "NULL";
+
+$tdupli = $_POST['tdupli'];
+if (!isset($tdupli) || $tdupli === "") $tdupli = "NULL";
+
+$t1mtx = $_POST['t1mtx'];
+if (!isset($t1mtx) || $t1mtx === "") $t1mtx = "NULL";
+
+$fechafin = $_POST['fechafin'];
+if (!isset($fechafin) || $fechafin === "") $fechafin = "NULL";
+
+$fallec = $_POST['fallec'];
+if (!isset($fallec) || $fallec === "") $fallec = "NULL";
+
+$tsuperv = $_POST['tsuperv'];
+if (!isset($tsuperv) || $tsuperv === "") $tsuperv = "NULL";
+
+$psafin = $_POST['psafin'];
+if (!isset($psafin) || $psafin === "") $psafin = "NULL";
+
+$tsegui = $_POST['tsegui'];
+if (!isset($tsegui) || $tsegui === "") $tsegui = "NULL";
+
+$notas = $_POST['notas'];
+if (!isset($notas) || $notas === "") $notas = "NULL";
+
+$capras = $_POST['capras'];
+if (!isset($capras) || $capras === "") $capras = "NULL";
+
+$ra = $_POST['ra'];
+if (!isset($ra) || $ra === "") $ra = "NULL";
+
+$pten = $_POST['pten'];
+if (!isset($pten) || $pten === "") $pten = "NULL";
+
+$erg = $_POST['erg'];
+if (!isset($erg) || $erg === "") $erg = "NULL";
+
+$ki67 = $_POST['ki67'];
+if (!isset($ki67) || $ki67 === "") $ki67 = "NULL";
+
+$spink1 = $_POST['spink1'];
+if (!isset($spink1) || $spink1 === "") $spink1 = "NULL";
+
+$cmyc = $_POST['cmyc'];
+if (!isset($cmyc) || $cmyc === "") $cmyc = "NULL";
 
 
 // Construye la consulta SQL
-//$sql = "UPDATE table_name SET FECHACIR='$field1', field2='$field2', field3='$field3' WHERE `patients`.`NHIS`=$id";
 
-$sql = "UPDATE patients SET fechacir = '$fechacir', edad = '$edad', etnia = '$etnia', obeso = '$obeso', hta = '$hta', dm = '$dm', tabaco = '$tabaco', hereda = '$hereda', tactor = '$tactor', psapre = '$psapre', psalt = '$psalt',
+$sql = "UPDATE patients SET fechacir = '$fechacir', edad = $edad, etnia = '$etnia', obeso = '$obeso', hta = '$hta', dm = '$dm', tabaco = '$tabaco', hereda = '$hereda', tactor = '$tactor', psapre = '$psapre', psalt = '$psalt',
                     tduppre = '$tduppre', ecotr = '$ecotr', nbiopsia = '$nbiopsia', histo = '$histo', gleason1 = '$gleason1', ncilpos = '$ncilpos', bilat = '$bilat',
                     porcent = '$porcent', iperin = '$iperin', ilinf = '$ilinf', ivascu = '$ivascu', tnm1 = '$tnm1', histo2 = '$histo2', gleason2 = '$gleason2', bilat2 = '$bilat2',
                     localiz = '$localiz', multifoc = '$multifoc', volumen = '$volumen', extracap = '$extracap', vvss = '$vvss', iperin2 = '$iperin2', ilinf2 = '$ilinf2', 
@@ -91,7 +202,7 @@ $sql = "UPDATE patients SET fechacir = '$fechacir', edad = '$edad', etnia = '$et
                     ,tdupli = '$tdupli',t1mtx = '$t1mtx',fechafin = '$fechafin',fallec = '$fallec',tsuperv = '$tsuperv',psafin = '$psafin',tsegui = '$tsegui',notas = '$notas',capra_s = '$capras',
                      ra = '$ra',pten = '$pten',erg = '$erg',ki_67 = '$ki67', spink1 = '$spink1' ,c_myc = '$cmyc'
                 WHERE `patients`.`NHIS`=$id";
-
+//var_dump($sql);
 if (mysqli_query($conn, $sql)) {
     echo "Modificación de paciente exitosa";
 } else {
