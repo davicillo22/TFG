@@ -26,7 +26,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>EDAD:</td>
-            <td><input type="number" min="0" max="120" name="edad" /></td>
+            <td><input type="number" min="0" max="120" name="edad" value="18" /></td>
             </tr>
             
             <tr>
