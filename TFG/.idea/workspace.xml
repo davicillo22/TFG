@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +78,7 @@
       <workItem from="1675902758952" duration="1975000" />
       <workItem from="1675945449129" duration="23473000" />
       <workItem from="1676048834455" duration="5777000" />
+      <workItem from="1676278833333" duration="4424000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>

@@ -12,12 +12,12 @@ $contenidoPrincipal= <<<EOS
 <div class="screen-1">
 
 
-<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">
+
 
 <h2>Añade los datos del nuevo paciente</h2>
       
             <table class="formula">
-            
+ <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">           
             <tr>
             <td>FECHACIR:</td>
             <td><input type="date"  min="1950-01-01" max="2023-02-13" name="fechacir" value="2000-01-01" /></td>
@@ -232,7 +232,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>TDUPLI:</td>
-            <td><input type="number" min="0" max="999" name="tdupli" /></td>
+            <td><input type="number" min="0" max="999" name="tdupli" step="any" /></td>
             </tr>
             
             <tr>
@@ -307,12 +307,14 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td><input type="submit" name="enviar" value= "Enviar" class="btn btn-primary btn-block btn-large"/></td>
-            <td><a href = "addPatient.php"> <button class="cancel"> Cancelar </button></a></td>
-            </tr>
+
             
-            </table>
+            
 			
 </form>
+            <td><a href = "tablaPacientes.php"> <button class="cancel"> Cancelar </button></a></td>
+            </tr>
+</table>
 </div>
 EOS;
 

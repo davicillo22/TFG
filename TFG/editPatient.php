@@ -163,7 +163,7 @@ if (mysqli_num_rows($result) > 0) {
             <td><input type="number" min="0" max="999" name="rtpmes" value=$rtpmesAnterior /></td>
             <td><input type="number" min="1" max="3" name="rbq" value=$rbqAnterior /></td>
             <td><input type="number" min="0" max="999" name="trbq" value=$trbqAnterior /></td>
-            <td><input type="number" min="0" max="999" name="tdupli" value=$tdupliAnterior /></td>
+            <td><input type="number" min="0" max="999" name="tdupli" step="any" value=$tdupliAnterior /></td>
             <td><input type="number" min="0" max="999" name="t1mtx" value=$t1mtxAnterior /></td>
             <td><input type="date" name="fechafin" min="1910-01-01" max="2022-12-31" value=$fechafinAnterior /></td>
             <td><input type="number" min="1" max="2" name="fallec" value=$fallecAnterior /></td>
