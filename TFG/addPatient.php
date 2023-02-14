@@ -4,34 +4,56 @@ require_once __DIR__.'/includes/config.php';
 require_once __DIR__.'/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
-$tituloPagina = 'Add Patient';
-//datos paciente en vez de datos usuario
-// $contenidoPrincipal=datosUsuario($_SESSION["email"]);
-$contenidoPrincipal= <<<EOS
-<link rel="stylesheet" href="css/style.css">
-<div class="screen-1">
+$tituloPagina = 'Añadir Paciente';
+
+$noerror =true;
+if (!empty($_GET)) {
+    $noerror=$_GET["noerror"];
+}
 
 
 
 
-<h2>Añade los datos del nuevo paciente</h2>
+    $contenidoPrincipal= <<<EOS
+        <link rel="stylesheet" href="css/style.css">
+        <div class="screen-1">
+        <h2>Añade los datos del nuevo paciente</h2>
+ 
+ EOS;
+
+if(!$noerror){
+    $contenidoPrincipal.= <<<EOS
+    <h3 class='erroneo'>NHIS duplicado, introduce otro diferente</h3>
+EOS;
+
+}
+$textoFecha= date('Y-m-d');
+
+$contenidoPrincipal.= <<<EOS
+
+
       
             <table class="formula">
- <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">           
+ <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">    
+            <tr>
+            <td>NHIS:</td>
+            <td><input type="number"  min="1" max="9999999" name="nhis" required /></td>
+            </tr>
+        
             <tr>
             <td>FECHACIR:</td>
-            <td><input type="date"  min="1950-01-01" max="2023-02-13" name="fechacir" value="2000-01-01" /></td>
+            <td><input type="date"  min="1990-01-01" max='$textoFecha' value='$textoFecha' name="fechacir"  required /></td>
             </tr>
              
             
             <tr>
             <td>EDAD:</td>
-            <td><input type="number" min="0" max="120" name="edad" value="18" /></td>
+            <td><input type="number" min="0" max="120" name="edad" /></td>
             </tr>
             
             <tr>
             <td>ETNIA:</td>
-            <td><input type="number" min="1" max="4" value="1" name="etnia" /></td>
+            <td><input type="number" min="1" max="4"  name="etnia" /></td>
             </tr>
             
             <tr>
@@ -41,12 +63,12 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>HTA:</td>
-            <td><input type="number" min="1" max="3" name="hta" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="hta"  /></td>
             </tr>
             
             <tr>
             <td>DM:</td>
-            <td><input type="number" min="1" max="3" name="dm" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="dm"  /></td>
             </tr>
             
             <tr>
@@ -56,12 +78,12 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>HEREDA:</td>
-            <td><input type="number" min="1" max="2" name="hereda" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="hereda"  /></td>
             </tr>
             
             <tr>
             <td>TACTOR:</td>
-            <td><input type="number" min="1" max="3" name="tactor" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="tactor"  /></td>
             </tr>
             
             
@@ -82,7 +104,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>ECOTR:</td>
-            <td><input type="number" min="1" max="2" name="ecotr" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="ecotr"  /></td>
             </tr>
             
             <tr>
@@ -92,7 +114,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>HISTO:</td>
-            <td><input type="number" min="1" max="2" name="histo" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="histo"  /></td>
             </tr>
             
             <tr>
@@ -102,12 +124,12 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>NCILPOS:</td>
-            <td><input type="number" min="1" max="3" name="ncilpos" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="ncilpos"  /></td>
             </tr>
             
             <tr>
             <td>BILAT:</td>
-            <td><input type="number" min="1" max="2" name="bilat" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="bilat"  /></td>
             </tr>
             
             <tr>
@@ -117,27 +139,27 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>IPERIN:</td>
-            <td><input type="number" min="1" max="3" name="iperin" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="iperin"  /></td>
             </tr>
             
             <tr>
             <td>ILINF:</td>
-            <td><input type="number" min="1" max="3" name="ilinf" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="ilinf"  /></td>
             </tr>
             
             <tr>
             <td>IVASCU:</td>
-            <td><input type="number" min="1" max="3" name="ivascu" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="ivascu"  /></td>
             </tr>
             
             <tr>
             <td>TNM1:</td>
-            <td><input type="number" min="1" max="3" name="tnm1" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="tnm1"  /></td>
             </tr>
             
             <tr>
             <td>HISTO2:</td>
-            <td><input type="number" min="1" max="2" name="histo2" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="histo2"  /></td>
             </tr>
             
             <tr>
@@ -147,62 +169,62 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>BILAT2:</td>
-            <td><input type="number" min="1" max="2" name="bilat2" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="bilat2"  /></td>
             </tr>
             
             <tr>
             <td>LOCALIZ:</td>
-            <td><input type="number" min="1" max="4" name="localiz" value="1" /></td>
+            <td><input type="number" min="1" max="4" name="localiz"  /></td>
             </tr>
             
             <tr>
             <td>MULTIFOC:</td>
-            <td><input type="number" min="1" max="2" name="multifoc" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="multifoc"  /></td>
             </tr>
             
             <tr>
             <td>VOLUMEN:</td>
-            <td><input type="number" min="1" max="100" name="volumen" value="1" /></td>
+            <td><input type="number" min="1" max="100" name="volumen"  /></td>
             </tr>
             
             <tr>
             <td>EXTRACAP:</td>
-            <td><input type="number" min="1" max="2" name="extracap" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="extracap" /></td>
             </tr>
             
             <tr>
             <td>VVSS:</td>
-            <td><input type="number" min="1" max="3" name="vvss" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="vvss"  /></td>
             </tr>
             
             <tr>
             <td>IPERIN2:</td>
-            <td><input type="number" min="1" max="3" name="iperin2" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="iperin2"  /></td>
             </tr>
             
             <tr>
             <td>ILINF2:</td>
-            <td><input type="number" min="1" max="3" name="ilinf2" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="ilinf2"  /></td>
             </tr>
             
             <tr>
             <td>IVASCU2:</td>
-            <td><input type="number" min="1" max="3" name="ivascu2" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="ivascu2"  /></td>
             </tr>
             
             <tr>
             <td>PINAG:</td>
-            <td><input type="number" min="1" max="3" name="pinag" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="pinag" /></td>
             </tr>
             
             <tr>
             <td>MARGEN:</td>
-            <td><input type="number" min="1" max="3" name="margen" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="margen" /></td>
             </tr>
             
             <tr>
             <td>TNM2:</td>
-            <td><input type="number" min="1" max="5" name="tnm2" value="1" /></td>
+            <td><input type="number" min="1" max="5" name="tnm2" /></td>
             </tr>
             
             <tr>
@@ -212,7 +234,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>RTPADYU:</td>
-            <td><input type="number" min="1" max="2" name="rtpadyu" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="rtpadyu" /></td>
             </tr>
             
             <tr>
@@ -222,7 +244,7 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>RBQ:</td>
-            <td><input type="number" min="1" max="3" name="rbq" value="1" /></td>
+            <td><input type="number" min="1" max="3" name="rbq" /></td>
             </tr>
             
             <tr>
@@ -242,12 +264,12 @@ $contenidoPrincipal= <<<EOS
             
             <tr>
             <td>FECHAFIN:</td>
-            <td><input type="date" name="fechafin" min="1910-01-01" max="2023-02-13" value="2023-02-13" /></td>
+            <td><input type="date" name="fechafin" min="1990-01-01" max='$textoFecha' value='$textoFecha' required /></td>
             </tr>
             
             <tr>
             <td>FALLEC:</td>
-            <td><input type="number" min="1" max="2" name="fallec" value="1" /></td>
+            <td><input type="number" min="1" max="2" name="fallec"  /></td>
             </tr>
             
             <tr>
