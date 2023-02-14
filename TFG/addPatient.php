@@ -289,7 +289,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>NOTAS:</td>
-            <td><input type="text" name="notas"/></td>
+            <td><input type="text" name="notas" value=""/></td>
             </tr>
                  
             <tr>

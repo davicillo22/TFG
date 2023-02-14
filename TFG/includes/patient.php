@@ -78,34 +78,34 @@ $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx
     /*
  * funcion que entra en la base de datos para dar de alta un nuevo usuario, dados todos los campos necesarios
  */
-    public static function registrarPatient($nhis, $fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
+    public static function registrarPatient($modo, $nhis, $fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
                                             $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
                                             $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc): bool
     {
 
         $conn = getConexionBD();//corregir %s %d cuando se arregle tema fechas y varchars, añadir otro %d al final para NHIS
 
-
+        if($modo=="registrar"){
             $query = sprintf("INSERT INTO `patients` (`nhis`,`fechacir`, `edad`, `etnia`, `obeso`, `hta`, `dm`, `tabaco`, `hereda`, `tactor`, `psapre`, `psalt`, `tduppre`, `ecotr`, `nbiopsia`, `histo`
                             ,`gleason1`, `ncilpos`, `bilat`, `porcent`, `iperin`, `ilinf`, `ivascu`, `tnm1`, `histo2`, `gleason2`, `bilat2`, `localiz`, `multifoc`, `volumen`, `extracap`, `vvss`, `iperin2`, `ilinf2`, `ivascu2`, `pinag`, `margen`,
                        `tnm2`, `psapos`, `rtpadyu`, `rtpmes`, `rbq`, `trbq`, `tdupli`, `t1mtx`, `fechafin`, `fallec`, `tsuperv`, `psafin`, `tsegui`, `notas`, `capra_s`, `ra`, `pten`, `erg`, `ki_67`, `spink1`, `c_myc`)
                 VALUES (%s,'%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                         %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                         %s, %s, %s, %s, %s, %s, %s, '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", $nhis, $conn->real_escape_string($fechacir),
-               $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $conn->real_escape_string($psapre), $conn->real_escape_string($psalt), $conn->real_escape_string($tduppre), $ecotr, $nbiopsia, $histo, $gleason1,
+                $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $conn->real_escape_string($psapre), $conn->real_escape_string($psalt), $conn->real_escape_string($tduppre), $ecotr, $nbiopsia, $histo, $gleason1,
                 $ncilpos, $bilat, $conn->real_escape_string($porcent), $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $conn->real_escape_string($volumen), $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
                 $pinag, $margen, $tnm2, $conn->real_escape_string($psapos), $rtpadyu, $rtpmes, $rbq, $trbq, $conn->real_escape_string($tdupli), $t1mtx, $conn->real_escape_string($fechafin), $fallec, $tsuperv, $conn->real_escape_string($psafin), $tsegui, $conn->real_escape_string($notas), $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
-           //var_dump($query);
+        }
 
-     //   $sql = "UPDATE patients SET fechacir = '$fechacir', edad = $edad, etnia = '$etnia', obeso = '$obeso', hta = '$hta', dm = '$dm', tabaco = '$tabaco', hereda = '$hereda', tactor = '$tactor', psapre = '$psapre', psalt = '$psalt',
-     //               tduppre = '$tduppre', ecotr = '$ecotr', nbiopsia = '$nbiopsia', histo = '$histo', gleason1 = '$gleason1', ncilpos = '$ncilpos', bilat = '$bilat',
-      //              porcent = '$porcent', iperin = '$iperin', ilinf = '$ilinf', ivascu = '$ivascu', tnm1 = '$tnm1', histo2 = '$histo2', gleason2 = '$gleason2', bilat2 = '$bilat2',
-       //             localiz = '$localiz', multifoc = '$multifoc', volumen = '$volumen', extracap = '$extracap', vvss = '$vvss', iperin2 = '$iperin2', ilinf2 = '$ilinf2',
-        //            ivascu2 = '$ivascu2', pinag = '$pinag', margen = '$margen', tnm2 = '$tnm2', psapos = '$psapos', rtpadyu = '$rtpadyu', rtpmes = '$rtpmes', rbq = '$rbq', trbq = '$trbq', tdupli = '$tdupli'
-         //           ,tdupli = '$tdupli',t1mtx = '$t1mtx',fechafin = '$fechafin',fallec = '$fallec',tsuperv = '$tsuperv',psafin = '$psafin',tsegui = '$tsegui',notas = '$notas',capra_s = '$capras',
-          //           ra = '$ra',pten = '$pten',erg = '$erg',ki_67 = '$ki67', spink1 = '$spink1' ,c_myc = '$cmyc'
-           //     WHERE `patients`.`NHIS`=$id";
-
+        if($modo=="modificar") {
+            $query = "UPDATE patients SET fechacir = '$fechacir', edad = $edad, etnia = $etnia, obeso = $obeso, hta = $hta, dm = $dm, tabaco = $tabaco, hereda = $hereda, tactor = $tactor, psapre = $psapre, psalt = $psalt,
+                    tduppre = $tduppre, ecotr = $ecotr, nbiopsia = $nbiopsia, histo = $histo, gleason1 = $gleason1, ncilpos = $ncilpos, bilat = $bilat,
+                    porcent = $porcent, iperin = $iperin, ilinf = $ilinf, ivascu = $ivascu, tnm1 = $tnm1, histo2 = $histo2, gleason2 = $gleason2, bilat2 = $bilat2,
+                    localiz = $localiz, multifoc = $multifoc, volumen = $volumen, extracap = $extracap, vvss = $vvss, iperin2 = $iperin2, ilinf2 = $ilinf2,
+                    ivascu2 = $ivascu2, pinag = $pinag, margen = $margen, tnm2 = $tnm2, psapos = $psapos, rtpadyu = $rtpadyu, rtpmes = $rtpmes, rbq = $rbq, trbq = $trbq, tdupli = $tdupli ,tdupli = $tdupli,t1mtx = $t1mtx,fechafin = '$fechafin',fallec = $fallec,tsuperv = $tsuperv,psafin = $psafin,tsegui = $tsegui,notas = '$notas',capra_s = $capras, ra = $ra,pten = $pten,erg = $erg,ki_67 = $ki67, spink1 = $spink1 ,c_myc = $cmyc
+                WHERE `patients`.`NHIS`= $nhis";
+        }
+        //var_dump($query);
             if ($conn->query($query) === TRUE) {
                 return true;
             }

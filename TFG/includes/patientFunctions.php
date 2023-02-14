@@ -4,10 +4,12 @@
  * funcion que recopila los datos del formulario de añadir Paciente.
  * Procesa la solicitud; si esta es correcta devuelve true o false en caso contrario.
  */
-function registerPatient()
+function registerPatient($modo, $nhis)
 {
 
-    $nhis = $_POST['nhis'];
+    if($modo=="registrar")
+        $nhis = $_POST['nhis'];
+
     $noerror=true;
 
     $conn = getConexionBD();
@@ -17,12 +19,11 @@ function registerPatient()
     if ($resultado) {
         $row = mysqli_fetch_assoc($resultado);
         $count = $row['count'];
-        if ($count > 0) {
+        if ($count > 0 && $modo=="registrar") {
             $noerror=false;
-            echo "NHIS duplicado, usa uno diferente";
             header("Location: addPatient.php?noerror=$noerror");
             return false;
-        } else {
+        } else if($count == 0 || $modo =="modificar") {
 
             $fechacir = $_POST['fechacir'];
 
@@ -202,7 +203,7 @@ function registerPatient()
             if ($fechafin !== "NULL")
                 $fechafin = date('Y-m-d', strtotime($fechafin));
 
-            if (Patient::registrarPatient($nhis, $fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
+            if (Patient::registrarPatient($modo, $nhis, $fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
                 $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
                 $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc))
 

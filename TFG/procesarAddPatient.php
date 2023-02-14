@@ -7,7 +7,7 @@ require_once __DIR__ . '/includes/patient.php';
 $tituloPagina = 'AddPatient';
 
 
-if(!registerPatient()){
+if(!registerPatient("registrar", NULL)){
     $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
 }else{
 

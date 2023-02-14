@@ -9,6 +9,8 @@
       <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarAddPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarAddPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarEditPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarEditPatient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +82,7 @@
       <workItem from="1675945449129" duration="23473000" />
       <workItem from="1676048834455" duration="5777000" />
       <workItem from="1676278833333" duration="8853000" />
-      <workItem from="1676389765676" duration="4613000" />
+      <workItem from="1676389765676" duration="7862000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -215,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676328148025</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="mediomod">
+      <created>1676394625345</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1676394625345</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
