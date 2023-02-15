@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/9575b918a2.css" crossorigin="anonymous">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/tooplate-style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -25,6 +27,7 @@
 <!--<img class="centerBanner" src="images/recursos/banner_logo.png" height="133" width="970" alt=""/>-->
 
     <!-- MENU -->
+
     <section class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -34,8 +37,9 @@
                     <span class="icon icon-bar"></span>
                 </button>
 
-                <!-- lOGO TEXT HERE al index, no al procesarLogin-->
-                <a href="procesarLogin.php" class="navbar-brand"><i class="fa fa-h-square"></i>Risk Calculator</a>
+                <!-- lOGO TEXT HERE al index, <i class="fa-sharp fa-regular fa-staff-snake"></i>  <i class="fa fa-heartbeat" aria-hidden="true"></i>-->
+                <a href="procesarLogin.php" class="navbar-brand"> <i class="fa fa-heartbeat" aria-hidden="true"></i>  Risk Calculator</a>
+
             </div>
 
             <!-- MENU LINKS -->
