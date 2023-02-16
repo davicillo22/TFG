@@ -116,12 +116,13 @@ if (mysqli_num_rows($result) > 0) {
         $spink1Anterior=isset($rowT['SPINK1']) ? $rowT['SPINK1']:null;
         $c_mycAnterior=isset($rowT['C_MYC']) ? $rowT['C_MYC']:null;
 
+        $textoFecha= date('Y-m-d');
 
             $tabla .=<<<EOS
 
 <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarEditPatient.php?id=$id"><tr>
             <td>$id</td>
-            <td><input type="date"  min="1910-01-01" max="2022-12-31" name="fechacir" value=$fechacirAnterior /></td>
+            <td><input type="date" min="1990-01-01" max='$textoFecha' name="fechacir" value=$fechacirAnterior /></td>
             <td><input type="number" min="0" max="120" name="edad" value=$edadAnterior /></td>
             <td><input type="number" min="1" max="4" name="etnia" value=$etniaAnterior /></td>
             <td><input type="number" min="0" max="3" name="obeso" value=$obesoAnterior /></td>
@@ -163,9 +164,9 @@ if (mysqli_num_rows($result) > 0) {
             <td><input type="number" min="0" max="999" name="rtpmes" value=$rtpmesAnterior /></td>
             <td><input type="number" min="1" max="3" name="rbq" value=$rbqAnterior /></td>
             <td><input type="number" min="0" max="999" name="trbq" value=$trbqAnterior /></td>
-            <td><input type="number" min="0" max="999" name="tdupli" value=$tdupliAnterior /></td>
+            <td><input type="number" min="0" max="999" name="tdupli" step="any" value=$tdupliAnterior /></td>
             <td><input type="number" min="0" max="999" name="t1mtx" value=$t1mtxAnterior /></td>
-            <td><input type="date" name="fechafin" min="1910-01-01" max="2022-12-31" value=$fechafinAnterior /></td>
+            <td><input type="date" name="fechafin" min="1990-01-01" max='$textoFecha' value=$fechafinAnterior /></td>
             <td><input type="number" min="1" max="2" name="fallec" value=$fallecAnterior /></td>
             <td><input type="number" min="0" max="999" name="tsuperv" value=$tsupervAnterior /></td>
             <td><input type="number" min="0" max="999" step="any" name="psafin" value=$psafinAnterior /></td>

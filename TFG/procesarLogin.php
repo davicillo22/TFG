@@ -18,7 +18,7 @@ if (!checkLogin() && !checkSession()) {
 	EOS;
 } else {
     $contenidoPrincipal=  <<<EOS
-	
+
 		<h1>Bienvenido/a ${_SESSION['name']}</h1>
 		<p>Usa el menú superior para navegar.</p>
 
