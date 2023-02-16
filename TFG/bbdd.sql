@@ -28,64 +28,64 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `patients` (
-  `NHIS` int(7) NOT NULL,
-  `FECHACIR` date DEFAULT NULL,
-  `EDAD` int(2) DEFAULT NULL,
-  `ETNIA` int(1) DEFAULT NULL,
-  `OBESO` int(1) DEFAULT NULL,
-  `HTA` int(1) DEFAULT NULL,
-  `DM` int(1) DEFAULT NULL,
-  `TABACO` int(1) DEFAULT NULL,
-  `HEREDA` int(1) DEFAULT NULL,
-  `TACTOR` int(1) DEFAULT NULL,
-  `PSAPRE` decimal(4,2) DEFAULT NULL,
-  `PSALT` decimal(3,2) DEFAULT NULL,
-  `TDUPPRE` decimal(5,2) DEFAULT NULL,
-  `ECOTR` int(1) DEFAULT NULL,
-  `NBIOPSIA` int(1) DEFAULT NULL,
-  `HISTO` int(1) DEFAULT NULL,
-  `GLEASON1` int(1) DEFAULT NULL,
-  `NCILPOS` int(2) DEFAULT NULL,
-  `BILAT` int(1) DEFAULT NULL,
-  `PORCENT` decimal(4,2) DEFAULT NULL,
-  `IPERIN` int(1) DEFAULT NULL,
-  `ILINF` int(1) DEFAULT NULL,
-  `IVASCU` int(1) DEFAULT NULL,
-  `TNM1` int(1) DEFAULT NULL,
-  `HISTO2` int(1) DEFAULT NULL,
-  `GLEASON2` int(1) DEFAULT NULL,
-  `BILAT2` int(1) DEFAULT NULL,
-  `LOCALIZ` int(1) DEFAULT NULL,
-  `MULTIFOC` int(1) DEFAULT NULL,
-  `VOLUMEN` decimal(4,2) DEFAULT NULL,
-  `EXTRACAP` int(1) DEFAULT NULL,
-  `VVSS` int(1) DEFAULT NULL,
-  `IPERIN2` int(1) DEFAULT NULL,
-  `ILINF2` int(1) DEFAULT NULL,
-  `IVASCU2` int(1) DEFAULT NULL,
-  `PINAG` int(1) DEFAULT NULL,
-  `MARGEN` int(1) DEFAULT NULL,
-  `TNM2` int(1) DEFAULT NULL,
-  `PSAPOS` decimal(4,2) DEFAULT NULL,
-  `RTPADYU` int(1) DEFAULT NULL,
-  `RTPMES` int(2) DEFAULT NULL,
-  `RBQ` int(1) DEFAULT NULL,
-  `TRBQ` int(3) DEFAULT NULL,
-  `TDUPLI` decimal(4,2) DEFAULT NULL,
-  `T1MTX` int(2) DEFAULT NULL,
-  `FECHAFIN` date DEFAULT NULL,
-  `FALLEC` int(1) DEFAULT NULL,
-  `TSUPERV` int(2) DEFAULT NULL,
-  `PSAFIN` decimal(5,2) DEFAULT NULL,
-  `TSEGUI` int(3) DEFAULT NULL,
-  `NOTAS` varchar(17) DEFAULT NULL,
-  `CAPRA_S` int(2) DEFAULT NULL,
-  `RA` int(1) DEFAULT NULL,
-  `PTEN` int(1) DEFAULT NULL,
-  `ERG` int(1) DEFAULT NULL,
-  `KI_67` int(1) DEFAULT NULL,
-  `SPINK1` int(1) DEFAULT NULL,
-  `C_MYC` int(1) DEFAULT NULL
+                            `NHIS` int(7) NOT NULL,
+                            `FECHACIR` date DEFAULT NULL,
+                            `EDAD` int(2) DEFAULT NULL,
+                            `ETNIA` int(1) DEFAULT NULL,
+                            `OBESO` int(1) DEFAULT NULL,
+                            `HTA` int(1) DEFAULT NULL,
+                            `DM` int(1) DEFAULT NULL,
+                            `TABACO` int(1) DEFAULT NULL,
+                            `HEREDA` int(1) DEFAULT NULL,
+                            `TACTOR` int(1) DEFAULT NULL,
+                            `PSAPRE` decimal(4,2) DEFAULT NULL,
+                            `PSALT` decimal(3,2) DEFAULT NULL,
+                            `TDUPPRE` decimal(5,2) DEFAULT NULL,
+                            `ECOTR` int(1) DEFAULT NULL,
+                            `NBIOPSIA` int(1) DEFAULT NULL,
+                            `HISTO` int(1) DEFAULT NULL,
+                            `GLEASON1` int(1) DEFAULT NULL,
+                            `NCILPOS` int(2) DEFAULT NULL,
+                            `BILAT` int(1) DEFAULT NULL,
+                            `PORCENT` decimal(4,2) DEFAULT NULL,
+                            `IPERIN` int(1) DEFAULT NULL,
+                            `ILINF` int(1) DEFAULT NULL,
+                            `IVASCU` int(1) DEFAULT NULL,
+                            `TNM1` int(1) DEFAULT NULL,
+                            `HISTO2` int(1) DEFAULT NULL,
+                            `GLEASON2` int(1) DEFAULT NULL,
+                            `BILAT2` int(1) DEFAULT NULL,
+                            `LOCALIZ` int(1) DEFAULT NULL,
+                            `MULTIFOC` int(1) DEFAULT NULL,
+                            `VOLUMEN` decimal(4,2) DEFAULT NULL,
+                            `EXTRACAP` int(1) DEFAULT NULL,
+                            `VVSS` int(1) DEFAULT NULL,
+                            `IPERIN2` int(1) DEFAULT NULL,
+                            `ILINF2` int(1) DEFAULT NULL,
+                            `IVASCU2` int(1) DEFAULT NULL,
+                            `PINAG` int(1) DEFAULT NULL,
+                            `MARGEN` int(1) DEFAULT NULL,
+                            `TNM2` int(1) DEFAULT NULL,
+                            `PSAPOS` decimal(4,2) DEFAULT NULL,
+                            `RTPADYU` int(1) DEFAULT NULL,
+                            `RTPMES` int(2) DEFAULT NULL,
+                            `RBQ` int(1) DEFAULT NULL,
+                            `TRBQ` int(3) DEFAULT NULL,
+                            `TDUPLI` decimal(4,2) DEFAULT NULL,
+                            `T1MTX` int(2) DEFAULT NULL,
+                            `FECHAFIN` date DEFAULT NULL,
+                            `FALLEC` int(1) DEFAULT NULL,
+                            `TSUPERV` int(2) DEFAULT NULL,
+                            `PSAFIN` decimal(5,2) DEFAULT NULL,
+                            `TSEGUI` int(3) DEFAULT NULL,
+                            `NOTAS` varchar(17) DEFAULT NULL,
+                            `CAPRA_S` int(2) DEFAULT NULL,
+                            `RA` int(1) DEFAULT NULL,
+                            `PTEN` int(1) DEFAULT NULL,
+                            `ERG` int(1) DEFAULT NULL,
+                            `KI_67` int(1) DEFAULT NULL,
+                            `SPINK1` int(1) DEFAULT NULL,
+                            `C_MYC` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -371,12 +371,12 @@ INSERT INTO `patients` (`NHIS`, `FECHACIR`, `EDAD`, `ETNIA`, `OBESO`, `HTA`, `DM
 --
 
 CREATE TABLE `users` (
-  `id` int(50) UNSIGNED NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `surname` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `privileges` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
+                         `id` int(50) UNSIGNED NOT NULL,
+                         `name` varchar(50) NOT NULL,
+                         `surname` varchar(50) NOT NULL,
+                         `email` varchar(50) NOT NULL,
+                         `password` varchar(50) NOT NULL,
+                         `privileges` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -396,13 +396,13 @@ INSERT INTO `users` (`id`, `name`, `surname`, `email`, `password`, `privileges`)
 -- Indices de la tabla `patients`
 --
 ALTER TABLE `patients`
-  ADD PRIMARY KEY (`NHIS`);
+    ADD PRIMARY KEY (`NHIS`);
 
 --
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -412,13 +412,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `NHIS` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1016213;
+    MODIFY `NHIS` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1016213;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+    MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -216,7 +216,6 @@ while ($col = mysqli_fetch_array($result)) {
     $pdf->Cell(30, 10, 'C-MYC');
     $pdf->Cell(30, 10, $col['C_MYC']);
     $pdf->Ln();
-
 }
 
 $pdf->Output();

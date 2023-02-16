@@ -10,7 +10,7 @@ if (empty($_GET)) {
     $nhisFound=true;
 }
 else {
-    $nhisFound = $_GET["nhisFound"];
+    $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : true;
 }
 
 $contenidoPrincipal= <<<'EOS'
@@ -162,6 +162,11 @@ $addPatientButton = "<div style='width: 1500px; height: 60px; overflow: auto; ma
 
 $tabla = "";
 
+
+// Create variables for sorting
+$sort_col = isset($_GET['sort_col']) ? $_GET['sort_col'] : '';
+$sort_order = isset($_GET['sort_order']) ? $_GET['sort_order'] : 'asc';
+
 // Connect to the database
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
 
@@ -172,6 +177,9 @@ if (!$conn) {
 
 // Write the SQL query
 $sql = "SELECT * FROM patients";
+if (!empty($sort_col)) {
+    $sql .= " ORDER BY ".$sort_col." ".$sort_order;
+}
 
 // Execute the query
 $result = mysqli_query($conn, $sql);
@@ -181,13 +189,22 @@ if (mysqli_num_rows($result) > 0) {
   $tabla .= "<table>";
   $tabla .= "<tr>";
 
-  // Get the column names
-  $column_names = mysqli_fetch_fields($result);
-  foreach ($column_names as $column_name) {
-    $tabla .= "<th>" . $column_name->name . "</th>";
-  }
+    // Get the column names
+    $column_names = mysqli_fetch_fields($result);
+    foreach ($column_names as $column_name) {
+        // Check if this is the current sort column
+        if ($column_name->name == $sort_col) {
+            // Switch the sort order
+            $sort_order = ($sort_order == 'asc') ? 'desc' : 'asc';
+            // Add sorting link with arrow icon
+            $tabla .= "<th><a href='?sort_col=".$column_name->name."&sort_order=".$sort_order."'>".$column_name->name." <i class='fa fa-arrow-".($sort_order == 'asc' ? 'up' : 'down')."'></i></a></th>";
+        } else {
+            // Add sorting link without arrow icon
+            $tabla .= "<th><a href='?sort_col=".$column_name->name."&sort_order=asc'>".$column_name->name."</a></th>";
+        }
+    }
 
-  $tabla .= "</tr>";
+    $tabla .= "</tr>";
 
   // Loop through the results and print each row
   while ($row = mysqli_fetch_assoc($result)) {
