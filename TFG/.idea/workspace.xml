@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mediomod">
+    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mejoras tabla locuritas">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2023_20_13__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_08_02_2023_20_13__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_02_2023_23_30__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_02_2023_23_30__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesarLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tablaPacientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/tablaPacientes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,12 +53,16 @@
       <recent name="C:\xampp\htdocs\TFGit\TFG" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.tablaPacientes.php">
     <configuration name="procesarEditPatient.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/procesarEditPatient.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="tablaPacientes.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/tablaPacientes.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.tablaPacientes.php" />
         <item itemvalue="PHP Script.procesarEditPatient.php" />
       </list>
     </recent_temporary>
@@ -78,9 +83,6 @@
       <workItem from="1675902758952" duration="1975000" />
       <workItem from="1675945449129" duration="23473000" />
       <workItem from="1676048834455" duration="5777000" />
-      <workItem from="1676278833333" duration="8853000" />
-      <workItem from="1676389765676" duration="7862000" />
-      <workItem from="1676478501659" duration="3076000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -180,49 +182,7 @@
       <option name="project" value="LOCAL" />
       <updated>1676130889119</updated>
     </task>
-    <task id="LOCAL-00015" summary="mediomod">
-      <created>1676242228006</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1676242228006</updated>
-    </task>
-    <task id="LOCAL-00016" summary="mediomod">
-      <created>1676242235912</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1676242235912</updated>
-    </task>
-    <task id="LOCAL-00017" summary="mediomod">
-      <created>1676284413542</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1676284413542</updated>
-    </task>
-    <task id="LOCAL-00018" summary="mediomod">
-      <created>1676288753442</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1676288753442</updated>
-    </task>
-    <task id="LOCAL-00019" summary="mediomod">
-      <created>1676328148025</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1676328148025</updated>
-    </task>
-    <task id="LOCAL-00020" summary="mediomod">
-      <created>1676394625345</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1676394625345</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,9 +208,9 @@
     <MESSAGE value="tablaput" />
     <MESSAGE value="corrects" />
     <MESSAGE value="mod" />
+    <MESSAGE value="mediomod" />
     <MESSAGE value="NOSE" />
     <MESSAGE value="mejoras tabla locuritas" />
-    <MESSAGE value="mediomod" />
-    <option name="LAST_COMMIT_MESSAGE" value="mediomod" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejoras tabla locuritas" />
   </component>
 </project>
