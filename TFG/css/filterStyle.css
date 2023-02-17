@@ -1,0 +1,60 @@
+form {
+
+	display: flex;
+	max-width: 500px;
+	margin: 10px auto;
+	padding: 20px;
+	background-color: #d5ded2;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+label {
+	display: block;
+	margin-bottom: 10px;
+	color: #888;
+	font-size: 14px;
+}
+select {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+
+ input[type="text"]{
+	display: flex;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+
+}
+ input[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+
+	 height: 10%;
+
+}
+ input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+ input[type="submit"][name="union"] {
+	background-color: #8bc34a;
+	margin-left: 10px;
+}
+input[type="submit"][name="union"]:hover {
+	background-color: #6b9b37;
+}
