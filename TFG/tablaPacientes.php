@@ -37,7 +37,9 @@ if (isset($_POST['submit']) || $_POST['submit2']) {
         $_SESSION['filtros'] = array();
     }
 
-    array_push($_SESSION['filtros'], $condicion);
+    if(isset($_POST['submit2']))
+        array_push($_SESSION['filtros'], $condicion);
+
     $filtrosActivados=true;
     var_dump($_SESSION['filtros']);
 }
@@ -295,7 +297,7 @@ $contenidoPrincipal.= <<<EOS
         <option value="contains">Contiene</option>
     </select>
     <input style="height: 2%;" type="text"  name="valor" required>
-    <input style="margin-right: 10px"  type="submit" name="submit" value="Filtrar">
+    <input style="margin-right: 20px; margin-left: 10px"  type="submit" name="submit" value="Filtrar">
     
         <select name="union">
         <option value="and">Y</option>
@@ -304,14 +306,14 @@ $contenidoPrincipal.= <<<EOS
 EOS;
 if ($disableAgregar){
     $contenidoPrincipal.= <<<EOS
-    <input style="background-color: gray" type="submit" name="submit2" value="Agregar filtro" disabled>
-    <input style="background-color: gray" type="submit" name="borrar" value="Borrar" disabled formnovalidate>
+    <input style="background-color: gray; margin-left: 10px" type="submit" name="submit2" value="Agregar filtro" disabled>
+    <input style="background-color: gray; margin-left: 10px" type="submit" name="borrar" value="Borrar" disabled formnovalidate>
     EOS;
 }
 else
     $contenidoPrincipal.= <<<EOS
-    <input  type="submit" name="submit2" value="Agregar filtro">
-    <input type="submit" name="borrar" value="Borrar" formnovalidate>
+    <input style="margin-left: 10px" type="submit" name="submit2" value="Agregar filtro">
+    <input style="margin-left: 10px"  type="submit" name="borrar" value="Borrar" formnovalidate>
     EOS;
 
 $contenidoPrincipal.= <<<EOS
