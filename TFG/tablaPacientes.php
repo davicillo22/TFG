@@ -5,6 +5,7 @@ require_once __DIR__.'/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Patient Table';
+error_reporting(1);
 
 if (empty($_GET)) {
     $nhisFound=true;
@@ -13,9 +14,15 @@ else {
     $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : true;
 }
 
+$disableFiltrar=false;
+$disableAgregar=true;
+$filtrosActivados=false;
+$condicion="";
 
+if (isset($_POST['submit']) || $_POST['submit2']) {
+    if (isset($_POST['submit']))
+        $disableAgregar=false;
 
-if (isset($_POST['submit'])) {
     $columna = $_POST['columna'];
     $operacion = $_POST['operacion'];
     $valor = $_POST['valor'];
@@ -31,9 +38,15 @@ if (isset($_POST['submit'])) {
     }
 
     array_push($_SESSION['filtros'], $condicion);
+    $filtrosActivados=true;
+    var_dump($_SESSION['filtros']);
 }
 
-if (isset($_POST['union'])) {
+
+
+if (isset($_POST['union']) && isset($_POST['submit2'])) {
+    $filtrosActivados=true;
+    $disableAgregar=false;
     $union = $_POST['union'];
 
     if (!isset($_SESSION['condiciones'])) {
@@ -45,19 +58,31 @@ if (isset($_POST['union'])) {
     unset($_SESSION['filtros']);
 }
 
+var_dump($_POST['union']);
 if (isset($_SESSION['condiciones'])) {
-    $condicion = implode(" AND ", $_SESSION['condiciones']);
-} else {
+    if($_POST['union'] == "and")
+      $condicion = implode(" AND ", $_SESSION['condiciones']);
+    else
+        $condicion = implode(" OR ", $_SESSION['condiciones']);
+} else if(empty($condicion)) { //fumi
     $condicion = '1=1';
 }
 //conectamos con la bbdd
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
 
 // construir consulta SQL
-$sql = "SELECT * FROM patients WHERE $condicion";
-
+if(isset($_POST['borrar'])){
+    $sqlFiltered = "SELECT * FROM patients";
+    unset($_SESSION['filtros']);
+    unset($_SESSION['condiciones']);
+}
+else if($filtrosActivados)
+    $sqlFiltered = "SELECT * FROM patients WHERE $condicion";
+else
+    $sqlFiltered = "SELECT * FROM patients";
+var_dump($condicion);
 // ejecutar consulta
-$result = $conn->query($sql);
+    $resultFiltered = $conn->query($sqlFiltered);
 
 // manejar resultados - FALTARÍA QUE SE APLIQUEN LOS FILTROS EN LA TABLA
 
@@ -105,7 +130,7 @@ $contenidoPrincipal= <<<EOS
 EOS;
 
 
-$addPatientButton = "<div style='width: 1500px; height: 60px; overflow: auto; margin: 0 auto; margin-top: 15px; '>
+$addPatientButton = "<div style='width: 1500px; height: 60px; overflow: auto; margin: 0 auto; margin-top: 15px;'>
     <a class='btn btn-success btn-lg' href='addPatient.php'>Add Patient</a>
 </div>";
 
@@ -131,7 +156,10 @@ if (!empty($sort_col)) {
 }
 
 // Execute the query
-$result = mysqli_query($conn, $sql);
+if(!$filtrosActivados)
+    $result = mysqli_query($conn, $sql);
+else
+    $result = $resultFiltered;
 
 // Check if the query was successful
 if (mysqli_num_rows($result) > 0) {
@@ -176,20 +204,30 @@ if (mysqli_num_rows($result) > 0) {
 
   $tabla .= "</table>";
 } else {
-  $tabla .= "<div>0 results</div>";
+    $disableAgregar=false;
+  $tabla .= "<h3 style='margin-left: 39%; padding: 200px'>0 resultados</h3>";
 }
 
 // Close the connection
 mysqli_close($conn);
+$textoConsulta = $sqlFiltered;
 
+if (isset($_SESSION['filtros']) && !isset($_SERVER['HTTP_REFERER'])) {
+    unset($_SESSION['filtros']);
+}
+if (isset($_SESSION['condiciones']) && !isset($_SERVER['HTTP_REFERER'])) {
+    unset($_SESSION['condiciones']);
+}
 
 $contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
+
 $contenidoPrincipal.= <<<EOS
 <link rel="stylesheet" href="css/filterStyle.css">
-<div >
-<h3 style="margin-left: 40%; margin-top: 2%;" >Filtrar Pacientes</h3>
-<form  method="post" action="procesarFiltros.php">
+<div>
+<h3 style="margin-left: 30% " >Filtrar Pacientes</h3>
+<h4 style="margin-left: 30% ">Consulta: $textoConsulta</h4>
+<form  method="post" action="tablaPacientes.php">
     <select name="columna">
         <option value="fechacir">Fechacir</option>
         <option value="edad">Edad</option>
@@ -256,20 +294,32 @@ $contenidoPrincipal.= <<<EOS
         <option value=">">Mayor que</option>
         <option value="contains">Contiene</option>
     </select>
-    <input style="height: 2%;" type="text"  name="valor">
-    <input  type="submit" name="submit" value="Filtrar">
-</form>
-
-<form  method="post" action="procesarFiltros.php">
-    <select name="union">
+    <input style="height: 2%;" type="text"  name="valor" required>
+    <input style="margin-right: 10px"  type="submit" name="submit" value="Filtrar">
+    
+        <select name="union">
         <option value="and">Y</option>
         <option value="or">Ó</option>
     </select>
-    <input type="submit" name="submit" value="Agregar filtro">
-</form>
+EOS;
+if ($disableAgregar){
+    $contenidoPrincipal.= <<<EOS
+    <input style="background-color: gray" type="submit" name="submit2" value="Agregar filtro" disabled>
+    <input style="background-color: gray" type="submit" name="borrar" value="Borrar" disabled formnovalidate>
+    EOS;
+}
+else
+    $contenidoPrincipal.= <<<EOS
+    <input  type="submit" name="submit2" value="Agregar filtro">
+    <input type="submit" name="borrar" value="Borrar" formnovalidate>
+    EOS;
+
+$contenidoPrincipal.= <<<EOS
+</form> 
+
 
 </div>
-</body></html>
+</body>
 EOS;
 
 

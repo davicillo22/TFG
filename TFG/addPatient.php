@@ -5,7 +5,8 @@ require_once __DIR__.'/includes/patient.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Añadir Paciente';
-
+unset($_SESSION["filtros"]);
+unset($_SESSION["condiciones"]);
 $noerror =true;
 if (!empty($_GET)) {
     $noerror=$_GET["noerror"];

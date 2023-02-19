@@ -1,7 +1,7 @@
 form {
 
 	display: flex;
-	max-width: 500px;
+	max-width: 1000px;
 	margin: 10px auto;
 	padding: 20px;
 	background-color: #d5ded2;
@@ -9,6 +9,11 @@ form {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
 }
+h4{
+	font-size: large;
+	margin-left: 40%;
+}
+
 label {
 	display: block;
 	margin-bottom: 10px;
