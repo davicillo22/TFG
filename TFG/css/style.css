@@ -14,7 +14,12 @@ input[type=submit] {
   cursor: pointer;
 }
 
-
+p.welcome-message {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
 
 input[type=submit]:hover {
   background-color: #2d6b2f;
