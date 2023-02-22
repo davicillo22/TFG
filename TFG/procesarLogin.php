@@ -17,6 +17,8 @@ if (!checkLogin() && !checkSession()) {
     EOS;
 } else {
     $contenidoPrincipal .=  <<<EOS
+       <body>
+       <link rel='stylesheet' href="css/style.css">
         <h1>Calculadora de riesgo en pacientes oncológicos</h1>
         <h2>Bienvenido/a ${_SESSION['name']}</h2>
         <p class="welcome-message">¡Ha iniciado sesión en nuestra calculadora de riesgo médico sobre el cáncer! Esta herramienta le ayudará a evaluar su riesgo de desarrollar cáncer en función de una serie de factores de riesgo conocidos. Por favor, siga las instrucciones a continuación para realizar su cálculo de riesgo.</p>
@@ -27,7 +29,9 @@ if (!checkLogin() && !checkSession()) {
             <li>Botón "Mi perfil": Para visualizar sus datos o modificarlos.</li>
             <li>Botón "Cerrar sesión": Para cerrar su sesión.</li>
         </ul>
+        </body>
     EOS;
+
 }
 
 require __DIR__ . '/includes/layout.php';

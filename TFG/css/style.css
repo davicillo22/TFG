@@ -52,20 +52,22 @@ table.formula tr{
   border-color: #2d8a1e #ffffff;
 }
 
-
 body {
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-
-
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   justify-content: center;
   align-items: center;
-  background: #FFFFFF;
   height: 100vh;
   font-size: medium;
+  background-image: url('../images/textura-verde-pared.jpg');
 }
+
+.fondo {
+  background-image: url('../images/textura-verde-pared.jpg');
+}
+
 h1, h2, h3{
   justify-content: center;
   align-items: center;

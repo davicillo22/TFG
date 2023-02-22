@@ -101,6 +101,7 @@ if (!$nhisFound){
 
 $contenidoPrincipal= <<<EOS
 <link rel="stylesheet" href="css/tableStyle.css">
+
 <style>
 		/* Estilo para el placeholder del input text */
 		::-webkit-input-placeholder { /* Para navegadores basados en Webkit */
