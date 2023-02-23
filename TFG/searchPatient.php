@@ -67,8 +67,8 @@ if($nhisFound){
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
    <a href="generatePdfPatient.php?id=$id" target=”_blank” class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
-    <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
-    <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
+   <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
+   <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
     
 </div>
 <link rel="stylesheet" href="css/tableStyle.css">

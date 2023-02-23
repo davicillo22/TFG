@@ -195,7 +195,7 @@ if (mysqli_num_rows($result) > 0) {
     $i = 0;
     foreach ($column_names as $column_name) {
         if ($i == 0){
-            $tabla .= "<td><a style='color: blue;' href='searchPatient.php?id=" . $row[$column_name->name] . "'>" . $row[$column_name->name] . "</a></td>";
+            $tabla .= "<td><a style='color: #2078ac;' href='searchPatient.php?id=" . $row[$column_name->name] . "'>" . $row[$column_name->name] . "</a></td>";
         }
         else{
             $tabla .= "<td>" . $row[$column_name->name] . "</td>";
