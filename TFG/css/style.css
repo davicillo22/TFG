@@ -5,7 +5,7 @@
 input[type=submit] {
   font-size: medium;
   width: 50%;
-  background-color: #4CAF50;
+  background-color: #2078ac;
   color: white;
   padding: 7px 10px;
   margin: 8px 0;
@@ -22,7 +22,7 @@ p.welcome-message {
 }
 
 input[type=submit]:hover {
-  background-color: #2d6b2f;
+  background-color: #2078ac;
 }
 
 table.formula {
@@ -41,7 +41,7 @@ table.formula td {
   padding-top: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: #2d8a1e #ffffff;
+  border-color: #2078ac #ffffff;
   font-size: large;
 }
 
@@ -49,7 +49,7 @@ table.formula tr{
   padding: 1px;
   border-width: 1px;
   border-style: solid;
-  border-color: #2d8a1e #ffffff;
+  border-color: #2078ac #ffffff;
 }
 
 body {
@@ -57,21 +57,45 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
   height: 100vh;
   font-size: medium;
-  background-image: url('../images/textura-verde-pared.jpg');
+  text-align: left;
 }
+
+
 
 .fondo {
-  background-image: url('../images/textura-verde-pared.jpg');
+  background-image: url('../images/fondo1.jpg');
 }
 
-h1, h2, h3{
+.footer {
+  padding-top: 600px;
+  text-align: center;
+}
+.footer-title{
+  padding-top: 10px;
+  color: #2078ac;
+  font-weight: bold;
+}
+.footer-text{
+  color:  #2078ac;
+
+}
+
+h2{
+  color: whitesmoke; /* Color de texto blanco */
+  font-size: 2.5em; /* Tamaño de fuente */
+  font-weight: bold; /* Estilo en negrita */
+  text-align: left; /* Alinear el texto en el centro */
+  padding-top: 5px;
+  padding-left: 20px;/* Añadir un espacio en la parte superior del texto */
+}
+
+h1, h3{
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -191,7 +215,7 @@ button {
   cursor: pointer;
   font-size: medium;
   width: 10%;
-  background-color: #4CAF50;
+  background-color: #2078ac;
   color: white;
   padding: 7px 10px;
   margin: 8px 0;
@@ -203,14 +227,14 @@ button {
 }
 
 button:hover {
-  background-color: #2d6b2f;
+  background-color: #2078ac;
 }
 
 .btnprof {
   cursor: pointer;
   font-size: medium;
   width: 70%;
-  background-color: #4CAF50;
+  background-color: #2078ac;
   color: white;
   padding: 7px 10px;
   margin: 8px 0;
@@ -224,7 +248,7 @@ button:hover {
 button.cancel{
   font-size: medium;
   width: 50%;
-  background-color: #4CAF50;
+  background-color: #2078ac;
   color: white;
   padding: 7px 10px;
   margin: 8px 0;
@@ -237,5 +261,5 @@ button.cancel{
 }
 
 button.cancel:hover {
-  background-color: #2d6b2f;
+  background-color: #2078ac;
 }

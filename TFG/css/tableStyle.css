@@ -9,7 +9,7 @@
 		text-align: center;
 	  }
 	  th {
-		background-color: #4CAF50;
+		background-color: #2078ac;
 		color: white;
 		border-bottom: 1px solid #6c757d;
 		position: static;
@@ -31,7 +31,7 @@
 
 	.add-patient-button {
 		padding: 10px 20px;
-		background-color: #4CAF50;
+		background-color: #2078ac;
 		color: white;
 		border-radius: 4px;
 		text-decoration: none;
@@ -39,13 +39,13 @@
 	}
 
 	.add-patient-button:hover {
-		background-color: #3e8e41;
+		background-color: #2078ac;
 	}
 
 	.search-container {
 	  display: flex;
 	  align-items: center;
-	  background-color: #4CAF50;
+	  background-color: #2078ac;
 	  padding: 10px 20px;
 	  border-radius: 5px;
 	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -67,7 +67,7 @@
 	  font-size: 16px;
 	  font-family: ca, sans-serif;
 	  background-color: white;
-	  color: #4CAF50;
+	  color: #2078ac;
 	  border: none;
 	  border-radius: 0 5px 5px 0;
 	  cursor: pointer;

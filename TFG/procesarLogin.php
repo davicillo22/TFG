@@ -16,22 +16,29 @@ if (!checkLogin() && !checkSession()) {
         <p><a href="login.php"><button>Volver</button></a></p>
     EOS;
 } else {
-    $contenidoPrincipal .=  <<<EOS
-       <body>
-       <link rel='stylesheet' href="css/style.css">
-        <h1>Calculadora de riesgo en pacientes oncológicos</h1>
-        <h2>Bienvenido/a ${_SESSION['name']}</h2>
-        <p class="welcome-message">¡Ha iniciado sesión en nuestra calculadora de riesgo médico sobre el cáncer! Esta herramienta le ayudará a evaluar su riesgo de desarrollar cáncer en función de una serie de factores de riesgo conocidos. Por favor, siga las instrucciones a continuación para realizar su cálculo de riesgo.</p>
-        <p>Usando el menú superior puede navegar por las siguientes opciones:</p>
-        <ul>
-            <li>Botón "Pacientes": Para visualizar los pacientes, filtrarlos, añadir nuevos...</li>
-            <li>Botón "Calculadora": A través de este espacio puede calcular mediante varios algoritmos con learning machine las probabilidades de ...</li>
-            <li>Botón "Mi perfil": Para visualizar sus datos o modificarlos.</li>
-            <li>Botón "Cerrar sesión": Para cerrar su sesión.</li>
-        </ul>
+    $contenidoPrincipal .= <<<EOS
+        <body>
+            <link rel='stylesheet' href="css/style.css">
+            <h2>Bienvenido/a ${_SESSION['name']}</h2>
+            
+            <footer class="footer">
+                
+                
+                 <p class="footer-text">
+                 <a class="footer-text" href="mailto:ofroiz@ucm.es">Contacto</a> |
+                 <a class="footer-text" href="https://www.cancer.gov/es">Recursos sobre el cáncer</a> 
+                    
+                 </p>
+                <p class="footer-text">
+                    <a class="footer-text" href="#">Política de privacidad</a> |
+                    <a class="footer-text" href="#">Términos y condiciones</a>
+                </p>
+                <p class="footer-text">&copy; 2023 Calculadora de Riesgo para pacientes oncológicos.</p>
+                
+                <p class="footer-title">Todos los derechos reservados a Exotic Company.
+            </footer>
         </body>
     EOS;
-
 }
 
 require __DIR__ . '/includes/layout.php';
