@@ -2,16 +2,21 @@
   font-family: "Poppins";
 }
 
-input[type=submit] {
-  font-size: medium;
-  width: 50%;
+input[type="submit"] {
   background-color: #2078ac;
-  color: white;
-  padding: 7px 10px;
-  margin: 8px 0;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
+
+  height: 10%;
+
+}
+input[type="submit"]:hover {
+  background-color: #4fa5d5;
+  color: #ffffff;
 }
 
 p.welcome-message {
@@ -19,10 +24,6 @@ p.welcome-message {
   color: #333;
   line-height: 1.5;
   margin-bottom: 20px;
-}
-
-input[type=submit]:hover {
-  background-color: #2078ac;
 }
 
 table.formula {
@@ -246,20 +247,26 @@ button:hover {
 }
 
 button.cancel{
-  font-size: medium;
+
   width: 50%;
+  height: 100%;
   background-color: #2078ac;
   color: white;
-  padding: 7px 10px;
+
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+
   cursor: pointer;
   alignment: right;
   align-items: end;
-  margin-left: 25%;
+
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+
 }
 
 button.cancel:hover {
-  background-color: #2078ac;
+  background-color: #4fa5d5;
+  color: white;
 }

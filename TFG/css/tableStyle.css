@@ -17,6 +17,8 @@
 		  width: 1%;
 		  white-space: nowrap;
 	  }
+
+
 	  td {
 		background-color: #f2f2f2;
 		border-bottom: 1px solid #6c757d;
@@ -75,4 +77,23 @@
 
 	.search-container button:hover {
 	  background-color: #f2f2f2;
+	}
+
+	a {
+		background-color: transparent;
+		color: black; /* Agregamos esta línea para que el texto del enlace sea negro */
+	}
+	a:hover{
+		outline:0;
+		background-color: transparent; /* Cambiamos el color de fondo cuando el mouse está encima del enlace */
+		color: white;
+	}
+
+	td a{
+		color: #2078ac;
+	}
+
+	td a:hover{
+		font-weight: bolder;
+		color: #043754;
 	}

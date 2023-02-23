@@ -54,7 +54,8 @@ select {
 
 }
  input[type="submit"]:hover {
-	background-color: #2078ac;
+	 background-color: #4fa5d5;
+	 color: #ffffff;
 }
  input[type="submit"][name="union"] {
 	background-color: #2078ac;

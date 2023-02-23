@@ -20,8 +20,17 @@ $filtrosActivados=false;
 $condicion="";
 
 if (isset($_POST['submit']) || $_POST['submit2']) {
-    if (isset($_POST['submit']))
+
+
+    if(isset($_POST['submit'])){
+        unset($_SESSION['condiciones']);
+        unset($_SESSION['filtros']);
+        unset($_SESSION['andArray']);
+        unset($_SESSION['orArray']);
         $disableAgregar=false;
+        $_SESSION['andArray'] = array();
+        $_SESSION['orArray'] = array();
+    }
 
     $columna = $_POST['columna'];
     $operacion = $_POST['operacion'];
@@ -37,10 +46,12 @@ if (isset($_POST['submit']) || $_POST['submit2']) {
         $_SESSION['filtros'] = array();
     }
 
-    if(isset($_POST['submit2']))
+
         array_push($_SESSION['filtros'], $condicion);
 
     $filtrosActivados=true;
+
+    echo "Filtros:";
     var_dump($_SESSION['filtros']);
 }
 
@@ -55,20 +66,39 @@ if (isset($_POST['union']) && isset($_POST['submit2'])) {
         $_SESSION['condiciones'] = array();
     }
 
+
+
     $condicion = implode(" $union ", $_SESSION['filtros']);
     array_push($_SESSION['condiciones'], $condicion);
     unset($_SESSION['filtros']);
 }
 
-var_dump($_POST['union']);
-if (isset($_SESSION['condiciones'])) {
-    if($_POST['union'] == "and")
-      $condicion = implode(" AND ", $_SESSION['condiciones']);
-    else
-        $condicion = implode(" OR ", $_SESSION['condiciones']);
-} else if(empty($condicion)) { //fumi
+echo "Condiciones: ";
+var_dump($_SESSION['condiciones']);
+if (isset($_SESSION['condiciones']) && isset($_POST['submit2'])) {
+    if($_POST['union'] == "and"){
+        array_push($_SESSION['andArray'], $condicion);
+    }
+
+    else if($_POST['union'] == "or"){
+        array_push($_SESSION['orArray'], $condicion);
+    }
+    if(count($_SESSION['andArray']) > 0)
+    $condicionAnd = implode(" AND ", $_SESSION['andArray']);
+    if(count($_SESSION['orArray']) > 0)
+    $condicionOr = implode(" OR ", $_SESSION['orArray']);
+    if(count($_SESSION['andArray']) > 0 && count($_SESSION['orArray']) > 0)
+    $condicion = $condicionAnd . ' AND ' . $condicionOr;
+    else if (count($_SESSION['andArray']) > 0 &&  count($_SESSION['orArray'])==0)
+        $condicion = implode(" AND ", $_SESSION['andArray']);
+    else if(count($_SESSION['orArray']) > 0 &&  count($_SESSION['andArray'])==0)
+        $condicion = implode(" OR ", $_SESSION['orArray']);
+} else if(empty($condicion)) {
     $condicion = '1=1';
 }
+
+
+
 //conectamos con la bbdd
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
 
@@ -82,7 +112,7 @@ else if($filtrosActivados)
     $sqlFiltered = "SELECT * FROM patients WHERE $condicion";
 else
     $sqlFiltered = "SELECT * FROM patients";
-var_dump($condicion);
+var_dump($sqlFiltered);
 // ejecutar consulta
     $resultFiltered = $conn->query($sqlFiltered);
 
@@ -127,7 +157,7 @@ $contenidoPrincipal= <<<EOS
 
 </div> 
 <div style="width: 1500px; height: 466px; overflow: auto; margin: 0 auto; margin-top: 40px; margin-bottom: -480px;">
-  <a class='btn btn-success btn-lg' href='addPatient.php'>Add Patient</a>
+  <a class='btn btn-success btn-lg' href='addPatient.php'>Añadir Paciente</a>
   </div>
 
 EOS;
@@ -195,7 +225,7 @@ if (mysqli_num_rows($result) > 0) {
     $i = 0;
     foreach ($column_names as $column_name) {
         if ($i == 0){
-            $tabla .= "<td><a style='color: #2078ac;' href='searchPatient.php?id=" . $row[$column_name->name] . "'>" . $row[$column_name->name] . "</a></td>";
+            $tabla .= "<td><a href='searchPatient.php?id=" . $row[$column_name->name] . "'>" . $row[$column_name->name] . "</a></td>";
         }
         else{
             $tabla .= "<td>" . $row[$column_name->name] . "</td>";
@@ -214,13 +244,6 @@ if (mysqli_num_rows($result) > 0) {
 // Close the connection
 mysqli_close($conn);
 $textoConsulta = $sqlFiltered;
-
-if (isset($_SESSION['filtros']) && !isset($_SERVER['HTTP_REFERER'])) {
-    unset($_SESSION['filtros']);
-}
-if (isset($_SESSION['condiciones']) && !isset($_SERVER['HTTP_REFERER'])) {
-    unset($_SESSION['condiciones']);
-}
 
 $contenidoPrincipal .= $tabla;
 $contenidoPrincipal .= "</div>";
