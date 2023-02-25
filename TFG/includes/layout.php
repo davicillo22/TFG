@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <title><?= $tituloPagina ?></title>
-    <link rel="icon" type="image/png" href="images/favicon.png"/>
+    <link rel="icon" type="image/png" href="includes/faico2.png"/>
 </head>
 <body>
 <div id="contenedor">
