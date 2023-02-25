@@ -72,7 +72,7 @@ function logout() {
  */
 function datosUsuario($email): string
 {
-    $html = '<link rel="stylesheet" href="css/style.css"><div class="screen-1"><p><table class="formula">';
+    $html = '<link rel="stylesheet" href="css/style.css"><div class="screen-1"><table class="formula">';
     $perfil = Usuario::buscaUsuario($email);
     $html .='<thead><td colspan="2"> Datos del usuario</td></thead>';
 
@@ -104,7 +104,7 @@ function datosUsuario($email): string
     }
     $html .= '</td></tr>';
 
-    $html .= '</table><a href = "editProfile.php"> <button class="btnprof"> Modifica tus datos </button></a></p></div>';
+    $html .= '</table><a href = "editProfile.php"> <button class="btnprof"> Modifica tus datos </button></a></div>';
 
     return $html;
 }

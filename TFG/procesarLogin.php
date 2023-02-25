@@ -17,7 +17,7 @@ if (!checkLogin() && !checkSession()) {
     EOS;
 } else {
     $contenidoPrincipal .= <<<EOS
-        <body>
+        <body class="fondo">
             <link rel='stylesheet' href="css/style.css">
             <h2>Bienvenido/a ${_SESSION['name']}</h2>
             

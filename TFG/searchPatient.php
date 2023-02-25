@@ -64,6 +64,7 @@ if (ctype_digit($id)) {
 mysqli_close($conn);
 if($nhisFound){
     $contenidoPrincipal.= <<<EOS
+<link rel="stylesheet" href="css/tableStyle.css">
 <div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
    <a href="generatePdfPatient.php?id=$id" target=”_blank” class="btn btn-success btn-lg">Crear pdf del paciente $id</a>

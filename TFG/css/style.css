@@ -68,6 +68,8 @@ body {
 
 .fondo {
   background-image: url('../images/fondo1.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .footer {
@@ -263,6 +265,7 @@ button.cancel{
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
+
 
 }
 

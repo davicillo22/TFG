@@ -7,7 +7,7 @@
     <title><?= $tituloPagina ?></title>
     <link rel="icon" type="image/png" href="images/favicon.png"/>
 </head>
-<body class="fondo">
+<body>
 <div id="contenedor">
     <?php
 
