@@ -29,6 +29,10 @@ $result = mysqli_query($conn, $sql);
 
 
 $tabla = "";
+$tabla.=<<<EOS
+<div style="width: 50%; overflow-x: scroll; overflow-y: hidden; margin: 0 auto; border: 1px solid black; margin-top: 2%; font-size: large;">
+EOS;
+
 
 if (mysqli_num_rows($result) > 0) {
     $tabla .= "<table>";
@@ -120,7 +124,9 @@ if (mysqli_num_rows($result) > 0) {
 
             $tabla .=<<<EOS
 
-<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarEditPatient.php?id=$id"><tr>
+<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarEditPatient.php?id=$id">
+
+<tr>
             <td>$id</td>
             <td><input type="date" min="1990-01-01" max='$textoFecha' name="fechacir" value=$fechacirAnterior /></td>
             <td><input type="number" min="0" max="120" name="edad" value=$edadAnterior /></td>
@@ -181,16 +187,22 @@ if (mysqli_num_rows($result) > 0) {
             <td><input type="number" min="0" max="1" name="cmyc" value=$c_mycAnterior /></td>
          
 </tr>
+
+</table>
+</div>
+<div style="width: 10%; margin: 0 auto">
+<table>
 <tr >
 <td class="fin"><input class="btn btn-success btn-lg" type="submit" name="Editado" value="Guardar Datos" /></td>
 <td class="fin"><a href='searchPatient.php?id=$id' class='btn btn-success btn-lg'>Volver</a></td>
 </tr>
+</table>
+</div>
 </form>
 <link rel="stylesheet" href="css/tableStyle.css">
 EOS;
     }
 
-    $tabla .= "</table>";
 } else {
     $tabla .= "<h1>0 results</h1>";
     $tabla .= "<a href='tablaPacientes.php' class='btn btn-success btn-lg'>Volver</a>";
@@ -199,14 +211,8 @@ EOS;
 
 // Close the connection
 mysqli_close($conn);
-if($hayResultado){
-    $contenidoPrincipal.= <<<EOS
 
-
-<div style="width: 1500px; height: 200px; overflow: auto; margin: 0 auto; margin-top: 30px; outline: 0px solid black;">
-EOS;
-}
 $contenidoPrincipal .= $tabla;
-$contenidoPrincipal .= "</div>";
+
 
 require __DIR__.'/includes/layout.php';

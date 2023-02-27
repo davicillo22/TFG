@@ -32,8 +32,25 @@ if (ctype_digit($id)) {
     $tabla = "";
 
     if (mysqli_num_rows($result) > 0) {
+        $contenidoPrincipal.= <<<EOS
+            <link rel="stylesheet" href="css/tableStyle.css">
+            <div style="width: 100%; height: 50px; margin-left: 32%; margin-top: 35px">
+            
+            <a href="generatePdfPatient.php?id=$id" target=”_blank” class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
+            <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
+            <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
+            
+            </div>
+            <link rel="stylesheet" href="css/tableStyle.css">
+            <div style="width: 50%; height: 110px; overflow-x: scroll; overflow-y: hidden; margin: 0 auto; margin-top: 30px; boder: 1px solid black;">
+
+            <div style="overflow-x: scroll; overflow-y: hidden; border: 1px solid black; font-size: medium; width:50%; height: 10%; position: absolute ">
+
+        EOS;
+
+
         $nhisFound = true;
-        $tabla .= "<table>";
+        $tabla .= "<table style='height: 100px;'>";
         $tabla .= "<tr>";
 
         // Get the column names
@@ -62,21 +79,8 @@ if (ctype_digit($id)) {
 }
 // Close the connection
 mysqli_close($conn);
-if($nhisFound){
-    $contenidoPrincipal.= <<<EOS
-<link rel="stylesheet" href="css/tableStyle.css">
-<div style="width: 1500px; height: 50px; margin: 0 auto; margin-top: 50px;">
 
-   <a href="generatePdfPatient.php?id=$id" target=”_blank” class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
-   <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>
-   <a href="deletePatient.php?id=$id" class="btn btn-success btn-lg">Borrar paciente $id</a>
-    
-</div>
-<link rel="stylesheet" href="css/tableStyle.css">
-<div style="width: 1500px; height: 110px; overflow: auto; margin: 0 auto; margin-top: 30px;">
-EOS;
-}
 $contenidoPrincipal .= $tabla;
-$contenidoPrincipal .= "</div>";
+$contenidoPrincipal .= "</div></div>";
 
 require __DIR__.'/includes/layout.php';

@@ -3,6 +3,16 @@
 		width: 100%;
 		font-family: Arial, sans-serif;
 	  }
+
+	.table modifi{
+		width: 100%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
 	  th, td {
 		/*border: 1px solid #6c757d;*/
 		padding: 10px;
@@ -28,8 +38,9 @@
 
 	.fin{
 		border: 0px solid #6c757d;
-		border-top: 1px solid #6c757d;
+		border-top: 0px solid #6c757d;
 		background-color: #FFFFFF;
+
 	}
 
 	.add-patient-button {
