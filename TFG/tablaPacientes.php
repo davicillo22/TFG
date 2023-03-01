@@ -51,8 +51,8 @@ if (isset($_POST['submit']) || $_POST['submit2']) {
 
     $filtrosActivados=true;
 
-    echo "Filtros:";
-    var_dump($_SESSION['filtros']);
+    //echo "Filtros:";
+    //var_dump($_SESSION['filtros']);
 }
 
 
@@ -73,8 +73,8 @@ if (isset($_POST['union']) && isset($_POST['submit2'])) {
     unset($_SESSION['filtros']);
 }
 
-echo "Condiciones: ";
-var_dump($_SESSION['condiciones']);
+//echo "Condiciones: ";
+//var_dump($_SESSION['condiciones']);
 if (isset($_SESSION['condiciones']) && isset($_POST['submit2'])) {
     if($_POST['union'] == "and"){
         array_push($_SESSION['andArray'], $condicion);
@@ -112,7 +112,7 @@ else if($filtrosActivados)
     $sqlFiltered = "SELECT * FROM patients WHERE $condicion";
 else
     $sqlFiltered = "SELECT * FROM patients";
-var_dump($sqlFiltered);
+//var_dump($sqlFiltered);
 // ejecutar consulta
     $resultFiltered = $conn->query($sqlFiltered);
 
