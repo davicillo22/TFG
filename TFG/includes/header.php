@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://kit.fontawesome.com/9575b918a2.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/component.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/tooplate-style.css">
@@ -43,14 +45,14 @@
             </div>
 
             <!-- MENU LINKS -->
-            <div class="collapse navbar-collapse">
+            <div class="cl-effect-7">
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                     if (isset($_SESSION["login"]) && $_SESSION["login"]){
                     ?>
-                        <li class="appointment-btn"><a href="tablaPacientes.php" class="smoothScroll">Pacientes</a></li>
-                        <li class="appointment-btn"><a href="calculator.php" class="smoothScroll">Calculadora</a></li>
-                        <li class="appointment-btn"><a href="profile.php" class="smoothScroll">Mi perfil</a></li>
+                        <li class="appointment-btn"><a href="tablaPacientes.php">Pacientes</a></li>
+                        <li class="appointment-btn"><a href="calculator.php">Calculadora</a></li>
+                        <li class="appointment-btn"><a href="profile.php">Mi perfil</a></li>
 
                     <?php
                     if ($_SESSION["privileges"] == 0){
