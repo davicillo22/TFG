@@ -45,7 +45,7 @@
             </div>
 
             <!-- MENU LINKS -->
-            <div class="cl-effect-7">
+            <div class="cl-effect-1">
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                     if (isset($_SESSION["login"]) && $_SESSION["login"]){

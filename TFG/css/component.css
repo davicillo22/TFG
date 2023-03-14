@@ -40,7 +40,7 @@ nav a:focus {
 }
 
 .cl-effect-1 a::before {
-	margin-right: 10px;
+	margin-right: 0px;
 	content: '[';
 	-webkit-transform: translateX(20px);
 	-moz-transform: translateX(20px);
@@ -48,8 +48,8 @@ nav a:focus {
 }
 
 .cl-effect-1 a::after {
-	margin-left: 10px;
-	content: ']';
+	margin-left: 0px;
+	content: '] ';
 	-webkit-transform: translateX(-20px);
 	-moz-transform: translateX(-20px);
 	transform: translateX(-20px);
@@ -63,6 +63,7 @@ nav a:focus {
 	-webkit-transform: translateX(0px);
 	-moz-transform: translateX(0px);
 	transform: translateX(0px);
+	color: #0051ff;
 }
 
 /* Effect 2: 3D rolling links, idea from http://hakim.se/thoughts/rolling-links */
@@ -591,13 +592,14 @@ nav a:focus {
 	position: absolute;
 	width: 45px;
 	height: 2px;
-	background: #666;
+	background: #443886;
 	content: '';
 	opacity: 0.2;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 	pointer-events: none;
+	color: #3b5998;
 }
 
 .cl-effect-14 a::before {
@@ -635,6 +637,7 @@ nav a:focus {
 	-webkit-transform: rotate(0deg) translateX(-50%);
 	-moz-transform: rotate(0deg) translateX(-50%);
 	transform: rotate(0deg) translateX(-50%);
+
 }
 
 .cl-effect-14 a:hover::after,
@@ -942,7 +945,7 @@ nav a:focus {
 }
 
 /* Effect 21: borders slight translate */
-.cl-effect-21 a {
+.cl-effect-21 a{
 	padding: 10px;
 	color: #237546;
 	font-weight: 700;
