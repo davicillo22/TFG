@@ -333,14 +333,15 @@ http://www.tooplate.com/view/2098-health
     color: #000000;
     font-weight: 600;
     padding-top: 12px;
-    padding-bottom: 12px;
-    font-size: medium;
+    padding-bottom:12px;
+    font-size: large;
   }
 
   .navbar-default .navbar-nav li.appointment-btn a:hover {
     background: #ffffff;
     color: #4d33d9 !important;
-    font-size: 21px !important;
+    font-size: 22px !important;
+    margin: 1px -10px 0 -30px;
   }
 
   .navbar-default .navbar-nav li a {
