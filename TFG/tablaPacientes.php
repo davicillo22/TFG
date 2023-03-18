@@ -25,18 +25,12 @@ if (isset($_POST['submit']) || $_POST['submit2']) {
 
     if(isset($_POST['submit'])){
         unset($_SESSION['condiciones']);
-        unset($_SESSION['condicionesTexto']);
         unset($_SESSION['filtros']);
-        unset($_SESSION['filtrosTexto']);
         unset($_SESSION['andArray']);
         unset($_SESSION['orArray']);
-        unset($_SESSION['andArrayTexto']);
-        unset($_SESSION['orArrayTexto']);
         $disableAgregar=false;
         $_SESSION['andArray'] = array();
         $_SESSION['orArray'] = array();
-        $_SESSION['andArrayTexto'] = array();
-        $_SESSION['orArrayTexto'] = array();
     }
 
     $columna = $_POST['columna'];
@@ -47,17 +41,14 @@ if (isset($_POST['submit']) || $_POST['submit2']) {
         $condicion = "LOWER($columna) LIKE LOWER('%$valor%')";
     } else {
         $condicion = "$columna $operacion '$valor'";
-        $condicionTexto = "$columna $operacion $valor";
     }
 
     if (!isset($_SESSION['filtros'])) {
         $_SESSION['filtros'] = array();
-        $_SESSION['filtrosTexto'] = array();
     }
 
 
         array_push($_SESSION['filtros'], $condicion);
-        array_push($_SESSION['filtrosTexto'], $condicionTexto);
 
     $filtrosActivados=true;
 
@@ -74,7 +65,6 @@ if (isset($_POST['union']) && isset($_POST['submit2'])) {
 
     if (!isset($_SESSION['condiciones'])) {
         $_SESSION['condiciones'] = array();
-        $_SESSION['condicionesTexto'] = array();
     }
 
 
@@ -82,11 +72,8 @@ if (isset($_POST['union']) && isset($_POST['submit2'])) {
 
     $condicion = implode(" $union ", $_SESSION['filtros']);
     array_push($_SESSION['condiciones'], $condicion);
-    $condicionTexto = implode(" $union ", $_SESSION['filtrosTexto']);
-    array_push($_SESSION['condicionesTexto'], $condicionTexto);
 
     unset($_SESSION['filtros']);
-    unset($_SESSION['filtrosTexto']);
 }
 
 //echo "Condiciones: ";
@@ -94,34 +81,26 @@ if (isset($_POST['union']) && isset($_POST['submit2'])) {
 if (isset($_SESSION['condiciones']) && isset($_POST['submit2'])) {
     if ($_POST['union'] == "and") {
         array_push($_SESSION['andArray'], $condicion);
-        array_push($_SESSION['andArrayTexto'], $condicionTexto);
     } else if ($_POST['union'] == "or") {
         array_push($_SESSION['orArray'], $condicion);
-        array_push($_SESSION['orArrayTexto'], $condicionTexto);
     }
     if (count($_SESSION['andArray']) > 0) {
         $condicionAnd = implode(" AND ", $_SESSION['andArray']);
-        $condicionAndTexto = implode(" y ", $_SESSION['andArrayTexto']);
     }
     if (count($_SESSION['orArray']) > 0) {
         $condicionOr = implode(" OR ", $_SESSION['orArray']);
-        $condicionOrTexto = implode(" o ", $_SESSION['orArrayTexto']);
     }
     if (count($_SESSION['andArray']) > 0 && count($_SESSION['orArray']) > 0) {
         if($_POST['union'] == "or"){
             $condicion = $condicionAnd . ' OR ' . $condicionOr;
-            $condicionTexto = $condicionAndTexto . ' o ' . $condicionOrTexto;
         }
         if($_POST['union'] == "and"){
             $condicion = $condicionAnd . ' AND ' . $condicionOr;
-            $condicionTexto = $condicionAndTexto . ' y ' . $condicionOrTexto;
         }
     } else if (count($_SESSION['andArray']) > 0 && count($_SESSION['orArray']) == 0) {
         $condicion = implode(" AND ", $_SESSION['andArray']);
-        $condicionTexto = implode(" y ", $_SESSION['andArrayTexto']);
     } else if (count($_SESSION['orArray']) > 0 && count($_SESSION['andArray']) == 0) {
         $condicion = implode(" OR ", $_SESSION['orArray']);
-        $condicionTexto = implode(" o ", $_SESSION['orArrayTexto']);
     } else if (empty($condicion)) {
         $condicion = '1=1';
     }
@@ -135,12 +114,9 @@ if (isset($_SESSION['condiciones']) && isset($_POST['submit2'])) {
         $sqlFiltered = "SELECT * FROM patients";
         unset($_SESSION['filtros']);
         unset($_SESSION['condiciones']);
-        unset($_SESSION['filtrosTexto']);
-        unset($_SESSION['condicionesTexto']);
         unset($condicionAnd);
         unset($condicionOr);
-        unset($condicionAndTexto);
-        unset($condicionOrTexto);
+
     } else if ($filtrosActivados) {
         $sqlFiltered = "SELECT * FROM patients WHERE $condicion";
     } else
@@ -150,12 +126,15 @@ var_dump($sqlFiltered);
 // ejecutar consulta
     $resultFiltered = $conn->query($sqlFiltered);
 
+$nueva_consulta2 = str_ireplace("and", "y", $condicion);
+$nueva_consulta = str_ireplace("or", "o", $nueva_consulta2);
+
 //Texto de ayuda para mostrar la consulta creada a partir de los filtros seleccionados
     if ($sqlFiltered == "SELECT * FROM patients")
         $textoConsulta = "Mostrar todos los pacientes";
     else {
-        var_dump($condicionTexto);
-        $textoConsulta = "Mostrar pacientes con " . $condicionTexto;
+        var_dump($nueva_consulta);
+        $textoConsulta = "Mostrar pacientes con " . $nueva_consulta;
     }
 
 
@@ -240,7 +219,7 @@ EOS;
         $tabla .= <<<EOS
         <div style="width: 1500px; height: 466px; overflow: auto; margin: 0 auto; margin-top: 80px; outline: 3px solid black;">
         EOS;
-        $tabla .= "<table style='font-size: 16px'>";
+        $tabla .= "<table id='tabla-datos' style='font-size: 16px'>";
         $tabla .= "<tr>";
 
         // Get the column names
@@ -251,7 +230,7 @@ EOS;
                 // Switch the sort order
                 $sort_order = ($sort_order == 'asc') ? 'desc' : 'asc';
                 // Add sorting link with arrow icon
-                $tabla .= "<th ><a href='?sort_col=" . $column_name->name . "&sort_order=" . $sort_order . "'>" . $column_name->name . " <i class='fa fa-arrow-" . ($sort_order == 'asc' ? 'up' : 'down') . "'></i></a></th>";
+                $tabla .= "<th ><a style='color: white' href='?sort_col=" . $column_name->name . "&sort_order=" . $sort_order . "'>" . $column_name->name . " <i class='fa fa-arrow-" . ($sort_order == 'asc' ? 'up' : 'down') . "'></i></a></th>";
             } else {
                 // Add sorting link without arrow icon
                 $tabla .= "<th><a href='?sort_col=" . $column_name->name . "&sort_order=asc'>" . $column_name->name . "</a></th>";
@@ -361,7 +340,7 @@ EOS;
         <option value="contains">Contiene</option>
     </select>
     <input style="height: 2%;" type="text"  name="valor" required>
-    <input style="margin-right: 20px; margin-left: 10px"  type="submit" name="submit" value="Filtrar">
+    <input id="btn-actualizar-datos" style="margin-right: 20px; margin-left: 10px"  type="submit" name="submit" value="Filtrar">
     
         <select name="union">
         <option value="and">Y</option>
