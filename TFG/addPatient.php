@@ -33,7 +33,7 @@ $textoFecha= date('Y-m-d');
 $contenidoPrincipal.= <<<EOS
 
 
-      
+      <h3 style="margin-top: -105px">Añade los datos del nuevo paciente</h3>
             <table class="formula">
  <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">    
             <tr>

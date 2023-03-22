@@ -121,7 +121,7 @@ if (isset($_SESSION['condiciones']) && isset($_POST['submit2'])) {
         $sqlFiltered = "SELECT * FROM patients WHERE $condicion";
     } else
         $sqlFiltered = "SELECT * FROM patients";
-var_dump($sqlFiltered);
+//var_dump($sqlFiltered);
 
 // ejecutar consulta
     $resultFiltered = $conn->query($sqlFiltered);
@@ -133,7 +133,7 @@ $nueva_consulta = str_ireplace("or", "o", $nueva_consulta2);
     if ($sqlFiltered == "SELECT * FROM patients")
         $textoConsulta = "Mostrar todos los pacientes";
     else {
-        var_dump($nueva_consulta);
+       // var_dump($nueva_consulta);
         $textoConsulta = "Mostrar pacientes con " . $nueva_consulta;
     }
 
@@ -219,7 +219,7 @@ EOS;
         $tabla .= <<<EOS
         <div style="width: 1500px; height: 466px; overflow: auto; margin: 0 auto; margin-top: 80px; outline: 3px solid black;">
         EOS;
-        $tabla .= "<table id='tabla-datos' style='font-size: 16px'>";
+        $tabla .= "<table style='font-size: 16px'>";
         $tabla .= "<tr>";
 
         // Get the column names
@@ -340,7 +340,7 @@ EOS;
         <option value="contains">Contiene</option>
     </select>
     <input style="height: 2%;" type="text"  name="valor" required>
-    <input id="btn-actualizar-datos" style="margin-right: 20px; margin-left: 10px"  type="submit" name="submit" value="Filtrar">
+    <input  style="margin-right: 20px; margin-left: 10px"  type="submit" name="submit" value="Filtrar">
     
         <select name="union">
         <option value="and">Y</option>
