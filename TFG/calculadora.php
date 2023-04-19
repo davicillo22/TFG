@@ -17,9 +17,9 @@ $contenidoPrincipal.=<<<EOS
         margin-bottom: 1em;
     }
     h2 {
-      color: #000000; /* color del texto */
-      text-align: center; /* alineación del texto */
-      opacity: 1; /* opacidad del texto */
+      color: #000000;
+      text-align: center; 
+      opacity: 1; 
     }
 </style>
 
@@ -44,7 +44,7 @@ $contenidoPrincipal.=<<<EOS
 
 <div id="caja-opciones"></div>
 
-<div style="text-align:center;">
+<div id ="boton" style="text-align:center;">
   <button type="submit">Enviar formulario</button>
 </div>
 
@@ -53,6 +53,7 @@ $contenidoPrincipal.=<<<EOS
     const selector2 = document.getElementById("selector2");
     const cajaTexto = document.getElementById("caja-texto");
     const cajaOpciones = document.getElementById("caja-opciones");
+    const boton = document.getElementById("boton");
     
     selector1.addEventListener("change", () => {
         if (selector1.value === "nhis") {
