@@ -18,7 +18,7 @@ if (!empty($_GET)) {
     $contenidoPrincipal= <<<EOS
         <link rel="stylesheet" href="css/style.css">
         <div class="screen-1">
-        <h2>Añade los datos del nuevo paciente</h2>
+        <h2>Inserta los datos del paciente</h2>
  
  EOS;
 
@@ -33,7 +33,7 @@ $textoFecha= date('Y-m-d');
 $contenidoPrincipal.= <<<EOS
 
 
-      <h3 style="margin-top: -105px">Añade los datos del nuevo paciente</h3>
+      <h3 style="margin-top: -105px">Inserta los datos del paciente</h3>
             <table class="formula">
  <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">    
             <tr>
