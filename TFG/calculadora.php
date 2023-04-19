@@ -76,24 +76,56 @@ $contenidoPrincipal.=<<<EOS
                     <option value="op5">Tabaco</option>
                 </select>
             `;
-        } else if (selector2.value === "Regresión logística") {
+        } if (selector2.value === "Regresión logística") {
             cajaOpciones.innerHTML = `
                 <h2>Selecciona la variable a estudiar:</h2>
                 <select>
                     <option value="">Selecciona una opción</option>
-                    <option value="op6">VVSS</option>
-                    <option value="op7">TRBQ</option>
-                    <option value="op8">Etnia</option>
+                    <option value="VVSS">VVSS</option>
+                    <option value="TRBQ">TRBQ</option>
+                    <option value="Etnia">Etnia</option>
                 </select>
+                <div id="opciones-reg-log"></div>
             `;
+            const opcionesRegLog = document.getElementById("opciones-reg-log");
+            const selectRegLog = cajaOpciones.querySelector("select");
+        
+            selectRegLog.addEventListener("change", () => {
+                 if (selectRegLog.value === "VVSS") {
+                   
+                      var xhr = new XMLHttpRequest();
+                      xhr.open("GET", 'includes/apiVVSS.php', true);
+                      xhr.send();
+                    
+                      xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                          console.log(xhr.responseText);
+                        }
+                      }  
+                } else if (selectRegLog.value === "TRBQ") {
+                    opcionesRegLog.innerHTML = `
+                        <h2>Opciones para TRBQ:</h2>
+                        <input type="checkbox" name="trbq-opciones[]" value="opcion1"> Opción 1
+                        <br>
+                        <input type="checkbox" name="trbq-opciones[]" value="opcion2"> Opción 2
+                    `;
+                } else if (selectRegLog.value === "Etnia") {
+                    opcionesRegLog.innerHTML = `
+                        <h2>Opciones para Etnia:</h2>
+                        <input type="text" name="etnia-opcion">
+                    `;
+                } else {
+                    opcionesRegLog.innerHTML = '';
+                }
+            });
         }else if (selector2.value === "Regresión de Cox (modelo de los riesgos proporcionales)") {
             cajaOpciones.innerHTML = `
                 <h2>Selecciona la variable a estudiar:</h2>
                 <select>
                     <option value="">Selecciona una opción</option>
-                    <option value="op6">TSuperv</option>
-                    <option value="op7">Tmuertos</option>
-                    <option value="op8">Obeso</option>
+                    <option value="TSuperv">TSuperv</option>
+                    <option value="Tmuertos">Tmuertos</option>
+                    <option value="Obeso">Obeso</option>
                 </select>
             `; 
         } else {
