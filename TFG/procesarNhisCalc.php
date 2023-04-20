@@ -229,25 +229,22 @@
         }
 // Construir la cadena de consulta con los parámetros
 if ($prob2 === null) {
-    $params = http_build_query(array(
+    $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
-        'prob1' => $prob1
-    ));
+        'prob1' => is_numeric($prob1) ? $prob1 : 0
+    );
 } else {
-    $params = http_build_query(array(
+    $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
-        'prob1' => $prob1,
-        'prob2' => $prob2
-    ));
+        'prob1' => is_numeric($prob1) ? $prob1 : 0,
+        'prob2' => is_numeric($prob2) ? $prob2 : 0
+    );
 }
 
-// Construir la URL con la cadena de consulta
-$url = "resultados.php?" . $params;
-
-// Hacer la llamada a la clase resultados.php
-$response = file_get_contents($url);
+$url = "resultados.php?" . http_build_query($params);
+$response = file_get_contents(urlencode($url));
 
 // Close the connection
 mysqli_close($conn);
