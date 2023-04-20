@@ -60,17 +60,17 @@ $contenidoPrincipal = <<<EOS
           <select name="algoritmos" id="algoritmos" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona un algoritmo</option>
             <option value="algoritmo1">Arboles aleatorios</option>
-            <option value="algoritmo2">Regresión logística</option>
-            <option value="algoritmo3">Regresión de Cox</option>
+            <option value="regresion">Regresión logística</option>
+            <option value="cox">Regresión de Cox</option>
           </select>
           <select name="variables" id="variables" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona una variable</option>
-            <option value="variable1" class="algoritmo1 algoritmo2">Extracap</option>
-            <option value="variable2" class="algoritmo1 algoritmo2">Margen</option>
-            <option value="variable3" class="algoritmo1 algoritmo2">Tnm2</option>
-            <option value="variable4" class="algoritmo1 algoritmo2">Vvss</option>
-            <option value="variable5" class="algoritmo3">Rbq pre</option>
-            <option value="variable6" class="algoritmo3">Rbq post</option>
+            <option value="extracap" class="algoritmo1 algoritmo2">Extracap</option>
+            <option value="margen" class="algoritmo1 algoritmo2">Margen</option>
+            <option value="tnm2" class="algoritmo1 algoritmo2">Tnm2</option>
+            <option value="vvss" class="algoritmo1 algoritmo2">Vvss</option>
+            <option value="rbqPre" class="algoritmo3">Rbq pre</option>
+            <option value="rbqPost" class="algoritmo3">Rbq post</option>
           </select>
           <button class="buttonExotic" id="botonBuscarNhis">Calcular</button>
        </form>
@@ -265,17 +265,17 @@ $contenidoPrincipal = <<<EOS
         <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona un algoritmo</option>
             <option value="algoritmo1">Arboles aleatorios</option>
-            <option value="algoritmo2">Regresión logística</option>
-            <option value="algoritmo3">Regresión de Cox</option>
+            <option value="regresion">Regresión logística</option>
+            <option value="cox">Regresión de Cox</option>
           </select>
-          <select name="variables1" id="variables1" required style="margin-top: 10px;">
+          <select name="variables1" id="variables1" required style="margin-top: 10px;margin-bottom: 10px;">
             <option value="" disabled selected>Selecciona una variable</option>
-            <option value="variable1" class="algoritmo1 algoritmo2">Extracap</option>
-            <option value="variable2" class="algoritmo1 algoritmo2">Margen</option>
-            <option value="variable3" class="algoritmo1 algoritmo2">Tnm2</option>
-            <option value="variable4" class="algoritmo1 algoritmo2">Vvss</option>
-            <option value="variable5" class="algoritmo3">Rbq pre</option>
-            <option value="variable6" class="algoritmo3">Rbq post</option>
+            <option value="extracap" class="algoritmo1 regresion">Extracap</option>
+            <option value="margen" class="algoritmo1 regresion">Margen</option>
+            <option value="tnm2" class="algoritmo1 regresion">Tnm2</option>
+            <option value="vvss" class="algoritmo1 regresion">Vvss</option>
+            <option value="rbqPre" class="cox">Rbq pre</option>
+            <option value="rbqPost" class="cox">Rbq post</option>
           </select>
         </div>
       <input type="submit" name="Calcular" value= "Calcular" class="btn btn-primary btn-block btn-large"/>
@@ -333,12 +333,12 @@ $contenidoPrincipal = <<<EOS
         }
     
         // Mostrar las opciones correspondientes al valor seleccionado en el primer select
-        if (selectedValue === "algoritmo1" || selectedValue === "algoritmo2") {
-          document.querySelectorAll(".algoritmo1, .algoritmo2").forEach(option => {
+        if (selectedValue === "algoritmo1" || selectedValue === "regresion") {
+          document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
             option.classList.remove("hidden");
           });
-        } else if (selectedValue === "algoritmo3") {
-          document.querySelectorAll(".algoritmo3").forEach(option => {
+        } else if (selectedValue === "cox") {
+          document.querySelectorAll(".cox").forEach(option => {
             option.classList.remove("hidden");
           });
         }
@@ -360,12 +360,12 @@ $contenidoPrincipal = <<<EOS
         }
     
         // Mostrar las opciones correspondientes al valor seleccionado en el primer select
-        if (selectedValue1 === "algoritmo1" || selectedValue1 === "algoritmo2") {
-          document.querySelectorAll(".algoritmo1, .algoritmo2").forEach(option => {
+        if (selectedValue1 === "algoritmo1" || selectedValue1 === "regresion") {
+          document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
             option.classList.remove("hidden");
           });
-        } else if (selectedValue1 === "algoritmo3") {
-          document.querySelectorAll(".algoritmo3").forEach(option => {
+        } else if (selectedValue1 === "cox") {
+          document.querySelectorAll(".cox").forEach(option => {
             option.classList.remove("hidden");
           });
         }

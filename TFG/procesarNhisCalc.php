@@ -1,5 +1,7 @@
 <?php
-
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         require_once __DIR__ . '/includes/config.php';
         require_once __DIR__ . '/includes/patient.php';
         require_once __DIR__ . '/includes/usuarios.php';
@@ -21,7 +23,7 @@
         $nhisFound="false";
         if (isset($_POST['nhis'])) {
             $id = $_POST['nhis'];
-            $modoNhis=true;
+
         } else if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
@@ -34,46 +36,45 @@
         // Fetch the column names and add them to the array
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $column_names[] = $row2['COLUMN_NAME'];
+
         }
-
         //Esta region de codigo es solo para MODO NHIS
-        if($modoNhis){
-            if (ctype_digit($id)) {
-                $sql = "SELECT * FROM patients WHERE NHIS = $id";
-                $result = mysqli_query($conn, $sql);
+        if (ctype_digit($id)) {
+            $sql = "SELECT * FROM patients WHERE NHIS = $id";
+            $result = mysqli_query($conn, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
-                    $nhisFound = "true";
+            if (mysqli_num_rows($result) > 0) {
+                $nhisFound = "true";
+                $modoNhis=true;
 
-
-                    $row = mysqli_fetch_assoc($result);
-                    $pacienteNHIS = array_values($row);
-                }else {
-                    header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
-                }
-            }else{
+                $row = mysqli_fetch_assoc($result);
+                $pacienteNHIS = array_values($row);
+            }else {
                 header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
             }
+                header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
         }
-
 
         $archivo = fopen('dataPatientPREV.csv', 'w');
         fputcsv($archivo, $column_names);
 
         if ($modoNhis){
             fputcsv($archivo, $pacienteNHIS);
+            $algoritmo = $_POST['algoritmos'];
+            $variable = $_POST['variables'];
         } else{
+            $pacientePOST[] = generaArray();
 
-            $pacientePOST = generaArray();
-            var_dump($pacientePOST);
             fputcsv($archivo, $pacientePOST);
+
+            $algoritmo = $_POST['algoritmos1'];
+            $variable = $_POST['variables1'];
         }
         fclose($archivo);
         // Llamada al script de Python que limpia el CSV y genera un nuevo CSV limpio
-        shell_exec("python globalClean.py");
-
-        $algoritmo = $_POST['algoritmos'];
-        $variable = $_POST['variables'];
+        set_time_limit(300);
+        $hola = shell_exec("python globalClean.py");
+        var_dump($hola);
 
         if($algoritmo == 'cox'){
             if($variable == 'rbqPre'){
@@ -84,8 +85,8 @@
                 // Decodificar el resultado JSON a un objeto de PHP
                 $result = json_decode($json_result);
                 // Asignar las probabilidades a variables de PHP
-                $rbq_5_years_pre = $result->rbq_5_years_pre;
-                $rbq_10_years_pre = $result->rbq_10_years_pre;
+                $prob1 = $result->rbq_5_years_pre;
+                $prob2 = $result->rbq_10_years_pre;
 
             }else if($variable == 'rbqPost'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
@@ -95,8 +96,8 @@
                 // Decodificar el resultado JSON a un objeto de PHP
                 $result = json_decode($json_result);
                 // Asignar las probabilidades a variables de PHP
-                $rbq_5_years_post = $result->rbq_5_years_post;
-                $rbq_10_years_post = $result->rbq_10_years_post;
+                $prob1 = $result->rbq_5_years_post;
+                $prob2 = $result->rbq_10_years_post;
             }
         }else{
             if ($variable == 'extracap') {
@@ -107,9 +108,11 @@
                 // Asignar las probabilidades a variables de PHP
 
                 if ($algoritmo == 'regresion') {
-                    $lr_probability = $result->lr_probability;
+                    $prob1 = $result->lr_probability;
+                    $prob2 = null;
                 } else {
-                    $rf_probability = $result->rf_probability;
+                    $prob1 = $result->rf_probability;
+                    $prob2 = null;
                 }
             } else if ($variable == 'margen') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -119,9 +122,11 @@
                 // Asignar las probabilidades a variables de PHP
 
                 if ($algoritmo == 'regresion') {
-                    $lr_probability = $result->lr_probability;
+                    $prob1 = $result->lr_probability;
+                    $prob2 = null;
                 } else {
-                    $rf_probability = $result->rf_probability;
+                    $prob1 = $result->rf_probability;
+                    $prob2 = null;
                 }
             } else if ($variable == 'tnm2') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -131,9 +136,11 @@
                 // Asignar las probabilidades a variables de PHP
 
                 if ($algoritmo == 'regresion') {
-                    $lr_probability = $result->lr_probability;
+                    $prob1 = $result->lr_probability;
+                    $prob2 = null;
                 } else {
-                    $rf_probability = $result->rf_probability;
+                    $prob1 = $result->rf_probability;
+                    $prob2 = null;
                 }
             } else if ($variable == 'vvss') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -143,12 +150,16 @@
                 // Asignar las probabilidades a variables de PHP
 
                 if ($algoritmo == 'regresion') {
-                    $lr_probability = $result->lr_probability;
+                    $prob1 = $result->lr_probability;
+                    $prob2 = null;
                 } else {
-                    $rf_probability = $result->rf_probability;
+                    $prob1 = $result->rf_probability;
+                    $prob2 = null;
                 }
             }
         }
+
+
 
         function generaArray (){
             $fechacir = $_POST['fechacir'];
@@ -215,6 +226,26 @@
                 $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
 
         }
+
+// Construir la cadena de consulta con los parámetros
+if ($prob2 === null) {
+    $params = array(
+        'algoritmo' => $algoritmo,
+        'variable' => $variable,
+        'prob1' => strval($prob1)
+    );
+} else {
+    $params = array(
+        'algoritmo' => $algoritmo,
+        'variable' => $variable,
+        'prob1' => strval($prob1),
+        'prob2' => strval($prob2)
+    );
+}
+
+$query_string = http_build_query($params);
+
+//header("Location: resultados.php?$query_string");
 
 // Close the connection
 mysqli_close($conn);
