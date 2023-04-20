@@ -1,5 +1,7 @@
 <?php
-
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         require_once __DIR__ . '/includes/config.php';
         require_once __DIR__ . '/includes/patient.php';
         require_once __DIR__ . '/includes/usuarios.php';
@@ -30,14 +32,12 @@
         $result2 = mysqli_query($conn, $sqlEncabezado);
         // Create an empty array to store column names
         $column_names = array();
-        var_dump($result2);
 
         // Fetch the column names and add them to the array
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $column_names[] = $row2['COLUMN_NAME'];
-            //var_dump($column_names);
+
         }
-        echo 'hola';
         //Esta region de codigo es solo para MODO NHIS
         if (ctype_digit($id)) {
             $sql = "SELECT * FROM patients WHERE NHIS = $id";
@@ -63,7 +63,6 @@
             $algoritmo = $_POST['algoritmos'];
             $variable = $_POST['variables'];
         } else{
-
             $pacientePOST[] = generaArray();
 
             fputcsv($archivo, $pacientePOST);
@@ -73,9 +72,9 @@
         }
         fclose($archivo);
         // Llamada al script de Python que limpia el CSV y genera un nuevo CSV limpio
-        shell_exec("python globalClean.py");
-
-
+        set_time_limit(300);
+        $hola = shell_exec("python globalClean.py");
+        var_dump($hola);
 
         if($algoritmo == 'cox'){
             if($variable == 'rbqPre'){
@@ -227,24 +226,26 @@
                 $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
 
         }
+
 // Construir la cadena de consulta con los parámetros
 if ($prob2 === null) {
     $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
-        'prob1' => is_numeric($prob1) ? $prob1 : 0
+        'prob1' => strval($prob1)
     );
 } else {
     $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
-        'prob1' => is_numeric($prob1) ? $prob1 : 0,
-        'prob2' => is_numeric($prob2) ? $prob2 : 0
+        'prob1' => strval($prob1),
+        'prob2' => strval($prob2)
     );
 }
 
-$url = "resultados.php?" . http_build_query($params);
-$response = file_get_contents(urlencode($url));
+$query_string = http_build_query($params);
+
+//header("Location: resultados.php?$query_string");
 
 // Close the connection
 mysqli_close($conn);

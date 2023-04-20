@@ -17,8 +17,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$algoritmo = "regresion";//$_GET['algoritmo'];
-$variable = "margen";//$_GET['variable'];
+$algoritmo = $_GET['algoritmo'];
+$variable = $_GET['variable'];
 $prob1 = $_GET['prob1'];
 $prob2 = isset($_GET['prob2']) ? $_GET['prob2'] : null;
 ?>
@@ -138,12 +138,11 @@ if($algoritmo == 'cox'){
         }
     }else if ($variable == 'margen') {
         if ($algoritmo == 'regresion') {
-            $lr_probability = $_POST['prob1'];
             ?>
             <table class="formula">
                 <tr>
                     <td><h3>Regresion logística :</h3></td>
-                    <td><h3><?php echo $lr_probability; ?></h3></td>
+                    <td><h3><?php echo $prob1; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -164,11 +163,10 @@ if($algoritmo == 'cox'){
             </table>
             <?php
         }else {
-            $rf_probability = $_POST['prob1'];
         ?><table class="formula">
         <tr>
             <td><h3>Árboles aleatorios :</h3></td>
-            <td><h3><?php echo $rf_probability; ?></h3></td>
+            <td><h3><?php echo $prob1; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>F1:</h3></td>

@@ -268,7 +268,7 @@ $contenidoPrincipal = <<<EOS
             <option value="regresion">Regresión logística</option>
             <option value="cox">Regresión de Cox</option>
           </select>
-          <select name="variables1" id="variables1" required style="margin-top: 10px;">
+          <select name="variables1" id="variables1" required style="margin-top: 10px;margin-bottom: 10px;">
             <option value="" disabled selected>Selecciona una variable</option>
             <option value="extracap" class="algoritmo1 regresion">Extracap</option>
             <option value="margen" class="algoritmo1 regresion">Margen</option>
