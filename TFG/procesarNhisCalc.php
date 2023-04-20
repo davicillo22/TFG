@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/patient.php';
-require_once __DIR__ . '/includes/usuarios.php';
+        require_once __DIR__ . '/includes/config.php';
+        require_once __DIR__ . '/includes/patient.php';
+        require_once __DIR__ . '/includes/usuarios.php';
 
-$tituloPagina = 'Nhis-Prediction';
+        $tituloPagina = 'Nhis-Prediction';
 
         $contenidoPrincipal="";
 
@@ -55,59 +55,96 @@ $tituloPagina = 'Nhis-Prediction';
                 header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
         }
 
-        $archivo = fopen("pacienteNuevo2.csv", "w");
-        fputcsv($archivo, $encabezados);
-        fputcsv($archivo, $paciente);
+        $archivo = fopen('dataPatientPREV.csv', 'w');
+        fputcsv($archivo, $column_names);
+
+        if ($modoNhis){
+            fputcsv($archivo, $pacienteNHIS);
+        } else{
+
+            $pacientePOST[] = generaArray();
+
+            fputcsv($archivo, $pacientePOST);
+        }
         fclose($archivo);
+        // Llamada al script de Python que limpia el CSV y genera un nuevo CSV limpio
+        shell_exec("python globalClean.py");
 
         $algoritmo = $_POST['algoritmos'];
         $variable = $_POST['variables'];
 
-        if($algoritmo == 'algoritmo3'){
-            if($variable == 'variable5'){
+        if($algoritmo == 'cox'){
+            if($variable == 'rbqPre'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
                 //llamada al php de muestra de resutlados con el output de script.py
-            }else if($variable == 'variable6'){
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python RBQPREprob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
+                $rbq_5_years_pre = $result->rbq_5_years_pre;
+                $rbq_10_years_pre = $result->rbq_10_years_pre;
+
+            }else if($variable == 'rbqPost'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
                 //llamada al php de muestra de resutlados con el output de script.py
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python RBQPOSTprob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
+                $rbq_5_years_post = $result->rbq_5_years_post;
+                $rbq_10_years_post = $result->rbq_10_years_post;
             }
         }else{
-            if($variable == 'variable1'){
-                if($algoritmo == 'algoritmo2'){
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
-                }else{
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
-                }
+            if ($variable == 'extracap') {
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python EXTRACAPprob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
 
-            }else if($variable == 'variable2'){
-                if($algoritmo == 'algoritmo2'){
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
-                }else{
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
+                if ($algoritmo == 'regresion') {
+                    $lr_probability = $result->lr_probability;
+                } else {
+                    $rf_probability = $result->rf_probability;
                 }
+            } else if ($variable == 'margen') {
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python MARGENprob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
 
-            }else if($variable == 'variable3'){
-                if($algoritmo == 'algoritmo2'){
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
-                }else{
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
+                if ($algoritmo == 'regresion') {
+                    $lr_probability = $result->lr_probability;
+                } else {
+                    $rf_probability = $result->rf_probability;
                 }
+            } else if ($variable == 'tnm2') {
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python TNM2prob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
 
-            }else if($variable == 'variable4'){
-                if($algoritmo == 'algoritmo2'){
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
-                }else{
-                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
-                    //llamada al php de muestra de resutlados con el output de script.py
+                if ($algoritmo == 'regresion') {
+                    $lr_probability = $result->lr_probability;
+                } else {
+                    $rf_probability = $result->rf_probability;
                 }
+            } else if ($variable == 'vvss') {
+                // Ejecutar el script de Python y obtener el resultado en formato JSON
+                $json_result = shell_exec("python VVSSprob.py");
+                // Decodificar el resultado JSON a un objeto de PHP
+                $result = json_decode($json_result);
+                // Asignar las probabilidades a variables de PHP
 
+                if ($algoritmo == 'regresion') {
+                    $lr_probability = $result->lr_probability;
+                } else {
+                    $rf_probability = $result->rf_probability;
+                }
             }
         }
 
