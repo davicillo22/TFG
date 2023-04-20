@@ -245,7 +245,7 @@ if ($prob2 === null) {
 
 $query_string = http_build_query($params);
 
-//header("Location: resultados.php?$query_string");
+header("Location: resultados.php?$query_string");
 
 // Close the connection
 mysqli_close($conn);
