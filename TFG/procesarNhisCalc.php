@@ -21,7 +21,7 @@
         $nhisFound="false";
         if (isset($_POST['nhis'])) {
             $id = $_POST['nhis'];
-
+            $modoNhis=true;
         } else if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
@@ -30,30 +30,32 @@
         $result2 = mysqli_query($conn, $sqlEncabezado);
         // Create an empty array to store column names
         $column_names = array();
-        var_dump($result2);
 
         // Fetch the column names and add them to the array
         while ($row2 = mysqli_fetch_assoc($result2)) {
             $column_names[] = $row2['COLUMN_NAME'];
-            //var_dump($column_names);
         }
-        echo 'hola';
+
         //Esta region de codigo es solo para MODO NHIS
-        if (ctype_digit($id)) {
-            $sql = "SELECT * FROM patients WHERE NHIS = $id";
-            $result = mysqli_query($conn, $sql);
+        if($modoNhis){
+            if (ctype_digit($id)) {
+                $sql = "SELECT * FROM patients WHERE NHIS = $id";
+                $result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
-                $nhisFound = "true";
-                $modoNhis=true;
+                if (mysqli_num_rows($result) > 0) {
+                    $nhisFound = "true";
 
-                $row = mysqli_fetch_assoc($result);
-                $pacienteNHIS = array_values($row);
-            }else {
+
+                    $row = mysqli_fetch_assoc($result);
+                    $pacienteNHIS = array_values($row);
+                }else {
+                    header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
+                }
+            }else{
                 header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
             }
-                header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
         }
+
 
         $archivo = fopen('dataPatientPREV.csv', 'w');
         fputcsv($archivo, $column_names);
@@ -62,8 +64,8 @@
             fputcsv($archivo, $pacienteNHIS);
         } else{
 
-            $pacientePOST[] = generaArray();
-
+            $pacientePOST = generaArray();
+            var_dump($pacientePOST);
             fputcsv($archivo, $pacientePOST);
         }
         fclose($archivo);
