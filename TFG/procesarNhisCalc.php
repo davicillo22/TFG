@@ -30,10 +30,7 @@ if (ctype_digit($id)) {
 
     if (mysqli_num_rows($result) > 0) {
         $nhisFound = "true";
-        $contenidoPrincipal.= <<<EOS
-            <span style='width: 100%; display: flex; margin-top: 1%'> <h3 style="margin-right: 20px;">Se ha generado un CSV a partir de los datos del paciente. Se procederá a la predicción...   </h3> <a href='calculadoraMilla.php' class='btn btn-success btn-lg'>Volver</a> </span>
 
-        EOS;
 
         //creacion csv
         $row = mysqli_fetch_assoc($result);
@@ -44,6 +41,57 @@ if (ctype_digit($id)) {
         fputcsv($archivo, $encabezados);
         fputcsv($archivo, $paciente);
         fclose($archivo);
+
+        $algoritmo = $_POST['algoritmos'];
+        $variable = $_POST['variables'];
+
+        if($algoritmo == 'algoritmo3'){
+            if($variable == 'variable5'){
+                //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                //llamada al php de muestra de resutlados con el output de script.py
+            }else if($variable == 'variable6'){
+                //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                //llamada al php de muestra de resutlados con el output de script.py
+            }
+        }else{
+            if($variable == 'variable1'){
+                if($algoritmo == 'algoritmo2'){
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }else{
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }
+
+            }else if($variable == 'variable2'){
+                if($algoritmo == 'algoritmo2'){
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }else{
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }
+
+            }else if($variable == 'variable3'){
+                if($algoritmo == 'algoritmo2'){
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }else{
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }
+
+            }else if($variable == 'variable4'){
+                if($algoritmo == 'algoritmo2'){
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }else{
+                    //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
+                    //llamada al php de muestra de resutlados con el output de script.py
+                }
+
+            }
+        }
 
 
         echo "";
