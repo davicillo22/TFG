@@ -82,7 +82,7 @@ $contenidoPrincipal = <<<EOS
 <div class="center-div">
 <h3>Inserta los datos del paciente</h3>
 </div>
-<form method= "post" action="procesarFormCalc.php">
+<form method= "post" action="procesarNhisCalc.php">
    <table class="formula">
     <tr>
         <td>FECHACIR:</td>
