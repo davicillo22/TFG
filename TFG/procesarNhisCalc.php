@@ -23,6 +23,7 @@
         $nhisFound="false";
         if (isset($_POST['nhis'])) {
             $id = $_POST['nhis'];
+            $modoNhis=true;
 
         } else if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -39,21 +40,26 @@
 
         }
         //Esta region de codigo es solo para MODO NHIS
+    if($modoNhis){
         if (ctype_digit($id)) {
             $sql = "SELECT * FROM patients WHERE NHIS = $id";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
                 $nhisFound = "true";
-                $modoNhis=true;
+
 
                 $row = mysqli_fetch_assoc($result);
                 $pacienteNHIS = array_values($row);
             }else {
                 header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
             }
-                header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
         }
+        else{
+            header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
+        }
+    }
+
 
         $archivo = fopen('dataPatientPREV.csv', 'w');
         fputcsv($archivo, $column_names);
@@ -63,7 +69,7 @@
             $algoritmo = $_POST['algoritmos'];
             $variable = $_POST['variables'];
         } else{
-            $pacientePOST[] = generaArray();
+            $pacientePOST = generaArray();
 
             fputcsv($archivo, $pacientePOST);
 
@@ -81,18 +87,19 @@
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
                 //llamada al php de muestra de resutlados con el output de script.py
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
-                $json_result = shell_exec("python RBQPREprob.py");
+                $json_result = shell_exec("python TRBQPREprob.py");
                 // Decodificar el resultado JSON a un objeto de PHP
                 $result = json_decode($json_result);
                 // Asignar las probabilidades a variables de PHP
                 $prob1 = $result->rbq_5_years_pre;
                 $prob2 = $result->rbq_10_years_pre;
+                var_dump($json_result);
 
             }else if($variable == 'rbqPost'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
                 //llamada al php de muestra de resutlados con el output de script.py
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
-                $json_result = shell_exec("python RBQPOSTprob.py");
+                $json_result = shell_exec("python TRBQPOSTprob.py");
                 // Decodificar el resultado JSON a un objeto de PHP
                 $result = json_decode($json_result);
                 // Asignar las probabilidades a variables de PHP
@@ -244,7 +251,6 @@ if ($prob2 === null) {
 }
 
 $query_string = http_build_query($params);
-
 //header("Location: resultados.php?$query_string");
 
 // Close the connection

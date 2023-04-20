@@ -69,8 +69,8 @@ $contenidoPrincipal = <<<EOS
             <option value="margen" class="algoritmo1 algoritmo2">Margen</option>
             <option value="tnm2" class="algoritmo1 algoritmo2">Tnm2</option>
             <option value="vvss" class="algoritmo1 algoritmo2">Vvss</option>
-            <option value="rbqPre" class="algoritmo3">Rbq pre</option>
-            <option value="rbqPost" class="algoritmo3">Rbq post</option>
+            <option value="rbqPre" class="cox">Rbq pre</option>
+            <option value="rbqPost" class="cox">Rbq post</option>
           </select>
           <button class="buttonExotic" id="botonBuscarNhis">Calcular</button>
        </form>
@@ -78,7 +78,7 @@ $contenidoPrincipal = <<<EOS
 </div>
 
 
-<div id="divDatos" style="display:$displayDiv">
+<div id="divDatos" style="display:none">
 <div class="center-div">
 <h3>Inserta los datos del paciente</h3>
 </div>
