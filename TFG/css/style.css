@@ -233,6 +233,29 @@ button:hover {
   background-color: #2078ac;
 }
 
+.buttonExotic {
+  cursor: pointer;
+  font-size: medium;
+  width: 10%;
+  background-color: #2078ac;
+  color: white;
+  padding: 7px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  alignment: center;
+  align-items: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width:100%;
+}
+
+.buttonExotic:hover {
+  background-color: #4fa5d5;
+  width:100%;
+}
+
 .btnprof {
   cursor: pointer;
   font-size: medium;
@@ -246,6 +269,14 @@ button:hover {
   cursor: pointer;
   alignment: center;
   align-items: center;
+}
+
+.center-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 button.cancel{

@@ -172,7 +172,7 @@ $nueva_consulta = str_ireplace("or", "o", $nueva_consulta2);
     <form class="search-container"  action="searchPatient.php" method="post">
   
         <input  type="text" name="nhis" id="idInput" placeholder='$textoBusqueda'>
-        <button id="searchBtn">Search</button>
+        <button id="searchBtn">Búsqueda</button>
     </form>
 
 </div> 
