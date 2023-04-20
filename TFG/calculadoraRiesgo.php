@@ -262,13 +262,13 @@ $contenidoPrincipal = <<<EOS
     </tr>
 </table>
         <div class="center-div">
-        <select name="algoritmos" id="algoritmos" required style="margin-top: 10px;">
+        <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona un algoritmo</option>
             <option value="algoritmo1">Arboles aleatorios</option>
             <option value="algoritmo2">Regresión logística</option>
             <option value="algoritmo3">Regresión de Cox</option>
           </select>
-          <select name="variables" id="variables" required style="margin-top: 10px;">
+          <select name="variables1" id="variables1" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona una variable</option>
             <option value="variable1" class="algoritmo1 algoritmo2">Extracap</option>
             <option value="variable2" class="algoritmo1 algoritmo2">Margen</option>
@@ -338,6 +338,33 @@ $contenidoPrincipal = <<<EOS
             option.classList.remove("hidden");
           });
         } else if (selectedValue === "algoritmo3") {
+          document.querySelectorAll(".algoritmo3").forEach(option => {
+            option.classList.remove("hidden");
+          });
+        }
+      });
+      
+    const algoritmosSelect1 = document.querySelector("#algoritmos1");
+    const variablesSelect1 = document.querySelector("#variables1");
+    
+       algoritmosSelect1.addEventListener("change", function() {
+        // Obtener el valor seleccionado en el primer select
+        const selectedValue1 = this.value;
+    
+        // Obtener todos los options del segundo select
+        const variablesOptions1 = variablesSelect1.options;
+    
+        // Recorrer todos los options del segundo select y ocultarlos
+        for (let i = 0; i < variablesOptions1.length; i++) {
+          variablesOptions1[i].classList.add("hidden");
+        }
+    
+        // Mostrar las opciones correspondientes al valor seleccionado en el primer select
+        if (selectedValue1 === "algoritmo1" || selectedValue1 === "algoritmo2") {
+          document.querySelectorAll(".algoritmo1, .algoritmo2").forEach(option => {
+            option.classList.remove("hidden");
+          });
+        } else if (selectedValue1 === "algoritmo3") {
           document.querySelectorAll(".algoritmo3").forEach(option => {
             option.classList.remove("hidden");
           });

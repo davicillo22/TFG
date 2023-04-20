@@ -6,36 +6,54 @@ require_once __DIR__ . '/includes/usuarios.php';
 
 $tituloPagina = 'Nhis-Prediction';
 
-$contenidoPrincipal="";
+        $contenidoPrincipal="";
 
-// Connect to the database
-$conn = mysqli_connect("localhost", "root", "", "bbdd");
+        // Connect to the database
+        $conn = mysqli_connect("localhost", "root", "", "bbdd");
 
-// Check the connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+        // Check the connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
-$nhisFound="false";
-if (isset($_POST['nhis'])) {
-    $id = $_POST['nhis'];
-} else if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-}
+        $modoNhis=false;
 
-if (ctype_digit($id)) {
-    $sql = "SELECT * FROM patients WHERE NHIS = $id";
+        $nhisFound="false";
+        if (isset($_POST['nhis'])) {
+            $id = $_POST['nhis'];
 
-    $result = mysqli_query($conn, $sql);
+        } else if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        }
 
-    if (mysqli_num_rows($result) > 0) {
-        $nhisFound = "true";
+        $sqlEncabezado = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='patients'";
+        $result2 = mysqli_query($conn, $sqlEncabezado);
+        // Create an empty array to store column names
+        $column_names = array();
+        var_dump($result2);
 
+        // Fetch the column names and add them to the array
+        while ($row2 = mysqli_fetch_assoc($result2)) {
+            $column_names[] = $row2['COLUMN_NAME'];
+            //var_dump($column_names);
+        }
+        echo 'hola';
+        //Esta region de codigo es solo para MODO NHIS
+        if (ctype_digit($id)) {
+            $sql = "SELECT * FROM patients WHERE NHIS = $id";
+            $result = mysqli_query($conn, $sql);
 
-        //creacion csv
-        $row = mysqli_fetch_assoc($result);
-        $encabezados = array_keys($row);
-        $paciente = array_values($row);
+            if (mysqli_num_rows($result) > 0) {
+                $nhisFound = "true";
+                $modoNhis=true;
+
+                $row = mysqli_fetch_assoc($result);
+                $pacienteNHIS = array_values($row);
+            }else {
+                header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
+            }
+                header("Location: calculadoraRiesgo.php?nhisFound=$nhisFound");
+        }
 
         $archivo = fopen("pacienteNuevo2.csv", "w");
         fputcsv($archivo, $encabezados);
@@ -93,14 +111,71 @@ if (ctype_digit($id)) {
             }
         }
 
+        function generaArray (){
+            $fechacir = $_POST['fechacir'];
+            $edad = $_POST['edad'];
+            var_dump($edad);
+            $etnia = $_POST['etnia'];
+            $obeso = $_POST['obeso'];
+            $hta = $_POST['hta'];
+            $dm = $_POST['dm'];
+            $tabaco = $_POST['tabaco'];
+            $hereda = $_POST['hereda'];
+            $tactor = $_POST['tactor'];
+            $psapre = $_POST['psapre'];
+            $psalt = $_POST['psalt'];
+            $tduppre = $_POST['tduppre'];
+            $ecotr = $_POST['ecotr'];
+            $nbiopsia = $_POST['nbiopsia'];
+            $histo = $_POST['histo'];
+            $gleason1 = $_POST['gleason1'];
+            $ncilpos = $_POST['ncilpos'];
+            $bilat = $_POST['bilat'];
+            $porcent = $_POST['porcent'];
+            $iperin = $_POST['iperin'];
+            $ilinf = $_POST['ilinf'];
+            $ivascu = $_POST['ivascu'];
+            $tnm1 = $_POST['tnm1'];
+            $histo2 = $_POST['histo2'];
+            $gleason2 = $_POST['gleason2'];
+            $bilat2 = $_POST['bilat2'];
+            $localiz = $_POST['localiz'];
+            $multifoc = $_POST['multifoc'];
+            $volumen = $_POST['volumen'];
+            $extracap = $_POST['extracap'];
+            $vvss = $_POST['vvss'];
+            $iperin2 = $_POST['iperin2'];
+            $ilinf2 = $_POST['ilinf2'];
+            $ivascu2 = $_POST['ivascu2'];
+            $pinag = $_POST['pinag'];
+            $margen = $_POST['margen'];
+            $tnm2 = $_POST['tnm2'];
+            $psapos = $_POST['psapos'];
+            $rtpadyu = $_POST['rtpadyu'];
+            $rtpmes = $_POST['rtpmes'];
+            $rbq = $_POST['rbq'];
+            $trbq = $_POST['trbq'];
+            $tdupli = $_POST['tdupli'];
+            $t1mtx = $_POST['t1mtx'];
+            $fechafin = $_POST['fechafin'];
+            $fallec = $_POST['fallec'];
+            $tsuperv = $_POST['tsuperv'];
+            $psafin = $_POST['psafin'];
+            $tsegui = $_POST['tsegui'];
+            $notas = $_POST['notas'];
+            $capras = $_POST['capras'];
+            $ra = $_POST['ra'];
+            $pten = $_POST['pten'];
+            $erg = $_POST['erg'];
+            $ki67 = $_POST['ki67'];
+            $spink1 = $_POST['spink1'];
+            $cmyc = $_POST['cmyc'];
 
-        echo "";
-    } else {
-        header("Location: calculadoraMilla.php?nhisFound=$nhisFound");
-    }
-}else{
-    header("Location: calculadoraMilla.php?nhisFound=$nhisFound");
-}
+            return array($fechacir, $edad, $etnia, $obeso, $hta, $dm, $tabaco, $hereda, $tactor, $psapre, $psalt, $tduppre, $ecotr, $nbiopsia, $histo, $gleason1,
+                $ncilpos, $bilat, $porcent, $iperin, $ilinf, $ivascu, $tnm1, $histo2, $gleason2, $bilat2, $localiz, $multifoc, $volumen, $extracap, $vvss, $iperin2, $ilinf2, $ivascu2,
+                $pinag, $margen, $tnm2, $psapos, $rtpadyu, $rtpmes, $rbq, $trbq, $tdupli, $t1mtx, $fechafin, $fallec, $tsuperv, $psafin, $tsegui, $notas, $capras, $ra, $pten, $erg, $ki67, $spink1, $cmyc);
+
+        }
 
 // Close the connection
 mysqli_close($conn);

@@ -51,7 +51,7 @@
                     if (isset($_SESSION["login"]) && $_SESSION["login"]){
                     ?>
                         <li class="appointment-btn"><a href="tablaPacientes.php">Pacientes</a></li>
-                        <li class="appointment-btn"><a href="calculadoraMilla.php">Calculadora</a></li>
+                        <li class="appointment-btn"><a href="calculadoraRiesgo.php">Calculadora</a></li>
                         <li class="appointment-btn"><a href="profile.php">Mi perfil</a></li>
 
                     <?php
