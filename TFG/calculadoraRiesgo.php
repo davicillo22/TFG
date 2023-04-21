@@ -63,7 +63,7 @@ $contenidoPrincipal = <<<EOS
             <option value="regresion">Regresión logística</option>
             <option value="cox">Regresión de Cox</option>
           </select>
-          <select name="variables" id="variables" required style="margin-top: 10px;">
+          <select name="variables" id="variables" required style="margin-top: 10px; " disabled>
             <option value="" disabled selected>Selecciona una variable</option>
             <option value="extracap" class="algoritmo1 algoritmo2">Extracap</option>
             <option value="margen" class="algoritmo1 algoritmo2">Margen</option>
@@ -284,92 +284,72 @@ $contenidoPrincipal = <<<EOS
 
 
 </div>
+
 <script>
-    // Obtener los botones y los divs
-    const botonNhis = document.getElementById("botonNhis");
-    const botonDatos = document.getElementById("botonDatos");
-    const divNhis = document.getElementById("divNhis");
-    const divDatos = document.getElementById("divDatos");
-    const botonBuscarNhis = document.getElementById("botonBuscarNhis");
-
-    // Agregar event listeners a los botones
-    botonNhis.addEventListener("click", mostrarDivNhis);
-    botonDatos.addEventListener("click", mostrarDivDatos);
-    botonBuscarNhis.addEventListener("click", mostrarDivNhis);
-
-    // Funciones que muestran u ocultan los divs
-    function mostrarDivNhis() {
-        divNhis.style.display = "block";
-        divDatos.style.display = "none";
-        botonDatos.disabled = true;
+  const botonNhis = document.getElementById("botonNhis");
+  const botonDatos = document.getElementById("botonDatos");
+  const divNhis = document.getElementById("divNhis");
+  const divDatos = document.getElementById("divDatos");
+  const botonBuscarNhis = document.getElementById("botonBuscarNhis");
+  const algoritmosSelect = document.querySelector("#algoritmos");
+  const variablesSelect = document.querySelector("#variables");
+  
+  botonNhis.addEventListener("click", mostrarDivNhis);
+  botonDatos.addEventListener("click", mostrarDivDatos);
+  botonBuscarNhis.addEventListener("click", mostrarDivNhis);
+  algoritmosSelect.addEventListener("change", (event) => {
+    const algoritmoSeleccionado = event.target.value;
+    
+    if (algoritmoSeleccionado === "algoritmo1" || algoritmoSeleccionado === "regresion") {
+      variablesSelect.removeAttribute("disabled");
+    } else {
+      variablesSelect.setAttribute("disabled", true);
     }
+  });
+  
+  function mostrarDivNhis() {
+    divNhis.style.display = "block";
+    divDatos.style.display = "none";
+    botonDatos.disabled = true;
+  }
 
-    function mostrarDivDatos() {
-        divNhis.style.display = "none";
-        divDatos.style.display = "block";
-        botonNhis.disabled = true;
-        
+  function mostrarDivDatos() {
+    divNhis.style.display = "none";
+    divDatos.style.display = "block";
+    botonNhis.disabled = true;
+  }
+
+  function ocultarDivs() {
+    divNhis.style.display = "none";
+    divDatos.style.display = "none";
+    botonNhis.disabled = false;
+    botonDatos.disabled = false;
+  }
+  
+  algoritmosSelect.addEventListener("change", function() {
+    const selectedValue = this.value;
+    const variablesOptions = variablesSelect.options;
+    
+ // Ocultar todas las opciones de variables
+  for (let i = 0; i < variablesOptions.length; i++) {
+    variablesOptions[i].classList.add("hidden");
+    if (selectedValue === "cox") {
+      variablesSelect.removeAttribute("disabled");
+    } else {
+      variablesSelect.removeAttribute("disabled");
     }
-
-    function ocultarDivs() {
-        divNhis.style.display = "none";
-        divDatos.style.display = "none";
-        botonNhis.disabled = false;
-        botonDatos.disabled = false;
-    }
-    const algoritmosSelect = document.querySelector("#algoritmos");
-    const variablesSelect = document.querySelector("#variables");
-
-      algoritmosSelect.addEventListener("change", function() {
-        // Obtener el valor seleccionado en el primer select
-        const selectedValue = this.value;
-    
-        // Obtener todos los options del segundo select
-        const variablesOptions = variablesSelect.options;
-    
-        // Recorrer todos los options del segundo select y ocultarlos
-        for (let i = 0; i < variablesOptions.length; i++) {
-          variablesOptions[i].classList.add("hidden");
-        }
-    
-        // Mostrar las opciones correspondientes al valor seleccionado en el primer select
-        if (selectedValue === "algoritmo1" || selectedValue === "regresion") {
-          document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
-            option.classList.remove("hidden");
-          });
-        } else if (selectedValue === "cox") {
-          document.querySelectorAll(".cox").forEach(option => {
-            option.classList.remove("hidden");
-          });
-        }
-      });
-      
-    const algoritmosSelect1 = document.querySelector("#algoritmos1");
-    const variablesSelect1 = document.querySelector("#variables1");
-    
-       algoritmosSelect1.addEventListener("change", function() {
-        // Obtener el valor seleccionado en el primer select
-        const selectedValue1 = this.value;
-    
-        // Obtener todos los options del segundo select
-        const variablesOptions1 = variablesSelect1.options;
-    
-        // Recorrer todos los options del segundo select y ocultarlos
-        for (let i = 0; i < variablesOptions1.length; i++) {
-          variablesOptions1[i].classList.add("hidden");
-        }
-    
-        // Mostrar las opciones correspondientes al valor seleccionado en el primer select
-        if (selectedValue1 === "algoritmo1" || selectedValue1 === "regresion") {
-          document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
-            option.classList.remove("hidden");
-          });
-        } else if (selectedValue1 === "cox") {
-          document.querySelectorAll(".cox").forEach(option => {
-            option.classList.remove("hidden");
-          });
-        }
-      });
+  }
+  
+  if (selectedValue === "algoritmo1" || selectedValue === "regresion") {
+    document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
+      option.classList.remove("hidden");
+    });
+  } else if (selectedValue === "cox") {
+    document.querySelectorAll(".cox").forEach(option => {
+      option.classList.remove("hidden");
+    });
+  }
+});
 </script>
 <style>
   .hidden {

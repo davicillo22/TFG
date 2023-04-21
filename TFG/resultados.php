@@ -31,8 +31,8 @@ $prob2 = isset($_GET['prob2']) ? $_GET['prob2'] : null;
 if($algoritmo == 'cox'){
     if($variable == 'rbqPre'){
 
-        $rbq_5_years_pre = $_POST['prob1'];
-        $rbq_10_years_pre = $_POST['prob2'];?>
+        $rbq_5_years_pre = $_GET['prob1'];
+        $rbq_10_years_pre = $_GET['prob2'];?>
 
         <table class="formula">
             <tr>
@@ -58,8 +58,8 @@ if($algoritmo == 'cox'){
         </table>
         <?php
     }else if($variable == 'rbqPost'){
-        $rbq_5_years_post = $_POST['prob1'];
-        $rbq_10_years_post = $_POST['prob2'];?>
+        $rbq_5_years_post = $_GET['prob1'];
+        $rbq_10_years_post = $_GET['prob2'];?>
         <table class="formula">
             <tr>
                 <td><h3>RBQ a 5 años (postoperatorio):</h3></td>
@@ -87,7 +87,7 @@ if($algoritmo == 'cox'){
 }else{
     if ($variable == 'extracap') {
         if ($algoritmo == 'regresion') {
-            $lr_probability = $_POST['prob1'];?>
+            $lr_probability = $_GET['prob1'];?>
             <table class="formula">
             <tr>
                 <td><h3>Regresion logística EXTRACAP:</h3></td>
@@ -112,7 +112,7 @@ if($algoritmo == 'cox'){
             </table>
             <?php
         } else {
-            $rf_probability = $_POST['prob1'];?>
+            $rf_probability = $_GET['prob1'];?>
             <table class="formula">
             <tr>
                 <td><h3>Árboles aleatorios EXTRACAP:</h3></td>
@@ -189,7 +189,7 @@ if($algoritmo == 'cox'){
         }
     }else if ($variable == 'tnm2') {
         if ($algoritmo == 'regresion') {
-            $lr_probability = $_POST['prob1'];
+            $lr_probability = $_GET['prob1'];
 ?>
             <table class="formula">
                 <tr>
@@ -215,7 +215,7 @@ if($algoritmo == 'cox'){
             </table>
             <?php
         }else {
-            $rf_probability = $_POST['prob1'];?>
+            $rf_probability = $_GET['prob1'];?>
             <table class="formula">
                 <tr>
                     <td><h3>Árboles aleatorios :</h3></td>
@@ -242,7 +242,7 @@ if($algoritmo == 'cox'){
         }
     } else if ($variable == 'vvss') {
         if ($algoritmo == 'regresion') {
-            $lr_probability = $_POST['prob1'];?>
+            $lr_probability = $_GET['prob1'];?>
             <table class="formula">
                 <tr>
                     <td><h3>Regresión logística :</h3></td>
@@ -268,7 +268,7 @@ if($algoritmo == 'cox'){
             <?php
 
         }else {
-            $rf_probability = $_POST['prob1'];?>
+            $rf_probability = $_GET['prob1'];?>
             <table class="formula">
                 <tr>
                     <td><h3>Árboles aleatorios :</h3></td>

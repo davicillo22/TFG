@@ -79,8 +79,7 @@
         fclose($archivo);
         // Llamada al script de Python que limpia el CSV y genera un nuevo CSV limpio
         set_time_limit(300);
-        $hola = shell_exec("python globalClean.py");
-        var_dump($hola);
+        shell_exec("python globalClean.py");
 
         if($algoritmo == 'cox'){
             if($variable == 'rbqPre'){
@@ -93,7 +92,6 @@
                 // Asignar las probabilidades a variables de PHP
                 $prob1 = $result->rbq_5_years_pre;
                 $prob2 = $result->rbq_10_years_pre;
-                var_dump($json_result);
 
             }else if($variable == 'rbqPost'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
@@ -171,7 +169,6 @@
         function generaArray (){
             $fechacir = $_POST['fechacir'];
             $edad = $_POST['edad'];
-            var_dump($edad);
             $etnia = $_POST['etnia'];
             $obeso = $_POST['obeso'];
             $hta = $_POST['hta'];
@@ -251,7 +248,7 @@ if ($prob2 === null) {
 }
 
 $query_string = http_build_query($params);
-//header("Location: resultados.php?$query_string");
+header("Location: resultados.php?$query_string");
 
 // Close the connection
 mysqli_close($conn);

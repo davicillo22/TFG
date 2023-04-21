@@ -79,7 +79,7 @@ for column in missing_columns:
     data[column] = 0
     print(column)
 
-cols_catBin = ["OBESO", "TABACO","TACTOR", "GLEASON1", "NCILPOS", "BILAT", "IPERIN", "TNM1", "GLEASON2", "LOCALIZ", "EXTRACAP", "MARGEN", "TNM2", "PTEN"]
+cols_catBin = ["OBESO", "TABACO","TACTOR", "GLEASON1", "NCILPOS", "TNM1", "GLEASON2", "LOCALIZ", "EXTRACAP", "TNM2", "PTEN"]
 
 
 data=data.drop(cols_catBin, axis=1)
