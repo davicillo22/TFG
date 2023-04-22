@@ -37,11 +37,11 @@ if($algoritmo == 'cox'){
         <table class="formula">
             <tr>
                 <td><h3>RBQ a 5 años (preoperatorio):</h3></td>
-                <td><h3><?php echo $rbq_5_years_pre; ?></h3></td>
+                <td><h3><?php echo $rbq_5_years_pre . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>RBQ a 10 años (preoperatorio):</h3></td>
-                <td><h3><?php echo $rbq_10_years_pre; ?></h3></td>
+                <td><h3><?php echo $rbq_10_years_pre . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>Concordance:</h3></td>
@@ -63,11 +63,11 @@ if($algoritmo == 'cox'){
         <table class="formula">
             <tr>
                 <td><h3>RBQ a 5 años (postoperatorio):</h3></td>
-                <td><h3><?php echo $rbq_5_years_post; ?></h3></td>
+                <td><h3><?php echo $rbq_5_years_post . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>RBQ a 10 años (postoperatorio):</h3></td>
-                <td><h3><?php echo $rbq_10_years_post; ?></h3></td>
+                <td><h3><?php echo $rbq_10_years_post . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>Concordance:</h3></td>
@@ -91,7 +91,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
             <tr>
                 <td><h3>Regresion logística EXTRACAP:</h3></td>
-                <td><h3><?php echo $lr_probability; ?></h3></td>
+                <td><h3><?php echo $lr_probability . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>F1:</h3></td>
@@ -116,7 +116,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
             <tr>
                 <td><h3>Árboles aleatorios EXTRACAP:</h3></td>
-                <td><h3><?php echo $rf_probability; ?></h3></td>
+                <td><h3><?php echo $rf_probability . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>F1:</h3></td>
@@ -142,7 +142,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
                 <tr>
                     <td><h3>Regresion logística :</h3></td>
-                    <td><h3><?php echo $prob1; ?></h3></td>
+                    <td><h3><?php echo $prob1 . '%'; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -166,7 +166,7 @@ if($algoritmo == 'cox'){
         ?><table class="formula">
         <tr>
             <td><h3>Árboles aleatorios :</h3></td>
-            <td><h3><?php echo $prob1; ?></h3></td>
+            <td><h3><?php echo $prob1 . '%'; ?></h3></td>
             </tr>
             <tr>
                 <td><h3>F1:</h3></td>
@@ -194,7 +194,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
                 <tr>
                     <td><h3>Regresion logística :</h3></td>
-                    <td><h3><?php echo $lr_probability; ?></h3></td>
+                    <td><h3><?php echo $lr_probability . '%'; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -219,7 +219,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
                 <tr>
                     <td><h3>Árboles aleatorios :</h3></td>
-                    <td><h3><?php echo $rf_probability; ?></h3></td>
+                    <td><h3><?php echo $rf_probability . '%'; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -246,7 +246,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
                 <tr>
                     <td><h3>Regresión logística :</h3></td>
-                    <td><h3><?php echo $lr_probability; ?></h3></td>
+                    <td><h3><?php echo $lr_probability . '%'; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -272,7 +272,7 @@ if($algoritmo == 'cox'){
             <table class="formula">
                 <tr>
                     <td><h3>Árboles aleatorios :</h3></td>
-                    <td><h3><?php echo $rf_probability; ?></h3></td>
+                    <td><h3><?php echo $rf_probability . '%'; ?></h3></td>
                 </tr>
                 <tr>
                     <td><h3>F1:</h3></td>
@@ -295,7 +295,11 @@ if($algoritmo == 'cox'){
         }
     }
 }
+?>
 
+<div class="center-div">
+    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%'>Volver</a>
+</div>
 
 
 

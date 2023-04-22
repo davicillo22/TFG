@@ -262,13 +262,13 @@ $contenidoPrincipal = <<<EOS
     </tr>
 </table>
         <div class="center-div">
-        <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;">
+        <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;" >
             <option value="" disabled selected>Selecciona un algoritmo</option>
             <option value="algoritmo1">Arboles aleatorios</option>
             <option value="regresion">Regresión logística</option>
             <option value="cox">Regresión de Cox</option>
           </select>
-          <select name="variables1" id="variables1" required style="margin-top: 10px;margin-bottom: 10px;">
+          <select name="variables1" id="variables1" required style="margin-top: 10px;margin-bottom: 10px;" disabled>
             <option value="" disabled selected>Selecciona una variable</option>
             <option value="extracap" class="algoritmo1 regresion">Extracap</option>
             <option value="margen" class="algoritmo1 regresion">Margen</option>
@@ -278,7 +278,7 @@ $contenidoPrincipal = <<<EOS
             <option value="rbqPost" class="cox">Rbq post</option>
           </select>
         </div>
-      <input type="submit" name="Calcular" value= "Calcular" class="btn btn-primary btn-block btn-large"/>
+      <input type="submit" name="Calcular" class="buttonExotic" value= "Calcular"/>
     </form>
 </div>
 
@@ -293,6 +293,8 @@ $contenidoPrincipal = <<<EOS
   const botonBuscarNhis = document.getElementById("botonBuscarNhis");
   const algoritmosSelect = document.querySelector("#algoritmos");
   const variablesSelect = document.querySelector("#variables");
+  const algoritmosSelect2 = document.querySelector("#algoritmos1");
+  const variablesSelect2 = document.querySelector("#variables1");
   
   botonNhis.addEventListener("click", mostrarDivNhis);
   botonDatos.addEventListener("click", mostrarDivDatos);
@@ -304,6 +306,16 @@ $contenidoPrincipal = <<<EOS
       variablesSelect.removeAttribute("disabled");
     } else {
       variablesSelect.setAttribute("disabled", true);
+    }
+  });
+  
+    algoritmosSelect2.addEventListener("change", (event) => {
+    const algoritmoSeleccionado = event.target.value;
+    
+    if (algoritmoSeleccionado === "algoritmo1" || algoritmoSeleccionado === "regresion") {
+      variablesSelect2.removeAttribute("disabled");
+    } else {
+      variablesSelect2.setAttribute("disabled", true);
     }
   });
   
@@ -345,6 +357,31 @@ $contenidoPrincipal = <<<EOS
       option.classList.remove("hidden");
     });
   } else if (selectedValue === "cox") {
+    document.querySelectorAll(".cox").forEach(option => {
+      option.classList.remove("hidden");
+    });
+  }
+});
+
+algoritmosSelect2.addEventListener("change", function() {
+    const selectedValue2 = this.value;
+    const variablesOptions2 = variablesSelect2.options;
+    
+ // Ocultar todas las opciones de variables
+  for (let i = 0; i < variablesOptions2.length; i++) {
+    variablesOptions2[i].classList.add("hidden");
+    if (selectedValue2 === "cox") {
+      variablesSelect2.removeAttribute("disabled");
+    } else {
+      variablesSelect2.removeAttribute("disabled");
+    }
+  }
+  
+  if (selectedValue2 === "algoritmo1" || selectedValue2 === "regresion") {
+    document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
+      option.classList.remove("hidden");
+    });
+  } else if (selectedValue2 === "cox") {
     document.querySelectorAll(".cox").forEach(option => {
       option.classList.remove("hidden");
     });

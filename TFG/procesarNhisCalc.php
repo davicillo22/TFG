@@ -233,12 +233,15 @@
 
 // Construir la cadena de consulta con los parámetros
 if ($prob2 === null) {
+    $prob1=$prob1*100;
     $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
         'prob1' => strval($prob1)
     );
 } else {
+    $prob1=$prob1*100;
+    $prob2=$prob2*100;
     $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
