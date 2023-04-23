@@ -3,7 +3,7 @@
 require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/usuarios.php';
 
-$tituloPagina = 'Calculadora de riesgo médico sobre el cáncer';
+$tituloPagina = 'Calculadora de riesgo';
 $log = false;
 
 $contenidoPrincipal = "";

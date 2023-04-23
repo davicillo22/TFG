@@ -1,6 +1,9 @@
 * {
   font-family: "Poppins";
 }
+.articulo{
+  background: linear-gradient(to bottom, #e1eefd, #FFFFFF);
+}
 
 input[type="submit"] {
   background-color: #2078ac;
@@ -71,6 +74,7 @@ body {
   background-image: url('../images/fondo1.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+  position: relative; /* se debe establecer una posición relativa para que funcione la propiedad z-index */
 }
 
 .footer {
@@ -88,7 +92,7 @@ body {
 }
 
 h2{
-  color: whitesmoke; /* Color de texto blanco */
+  color: #0e043f; /* Color de texto blanco */
   font-size: 2.5em; /* Tamaño de fuente */
   font-weight: bold; /* Estilo en negrita */
   text-align: left; /* Alinear el texto en el centro */
@@ -113,12 +117,10 @@ h3.erroneo{
 
 .screen-1 {
   text-align: left;
-  background: #f1f7fe;
   padding: 2em;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
-  box-shadow: 0 0 2em #f3f5fa;
   gap: 2em;
   align-items: center;
 }

@@ -104,7 +104,7 @@ function datosUsuario($email): string
     }
     $html .= '</td></tr>';
 
-    $html .= '</table><a href = "editProfile.php"> <button class="btnprof"> Modifica tus datos </button></a></div>';
+    $html .= '</table><a href = "editProfile.php"> <button class="buttonExotic"> Modifica tus datos </button></a></div>';
 
     return $html;
 }

@@ -22,7 +22,7 @@ $contenidoPrincipal= <<<EOS
 
 <link rel='stylesheet' href="css/style.css">
 </head>
-<body>
+<body class="articulo">
 <!-- partial:index.partial.html -->
 <div class="screen-1">
   <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="300" viewbox="0 0 640 480" xml:space="preserve">

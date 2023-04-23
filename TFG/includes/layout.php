@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -8,7 +9,12 @@
     <link rel="icon" type="image/png" href="includes/faico2.png"/>
 </head>
 <body>
-<div id="contenedor">
+<?php
+$fondito="articulo";
+if($tituloPagina=="Calculadora de riesgo")
+    $fondito="fondo";
+?>
+<div id="contenedor" class=<?= $fondito ?>>
     <?php
 
     require(__DIR__.'/header.php');

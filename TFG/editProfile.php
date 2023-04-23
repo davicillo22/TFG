@@ -10,8 +10,8 @@ $contenidoPrincipal.= <<<EOS
 <div class="screen-1" style="padding-bottom: 50px; padding-top: 1px">
 
 
-<form method= "post" enctype="application/x-www-form-urlencoded" action="procesarProfile.php">
-<h2>Modifica tus datos</h2>
+<form style="display: flex; flex-direction: column; align-items: center;" method= "post" enctype="application/x-www-form-urlencoded" action="procesarProfile.php">
+<h2 style="display: flex; flex-direction: column; align-items: center;">Modifica tus datos</h2>
            
             <table class="editProfileTable">
             

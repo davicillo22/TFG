@@ -366,6 +366,4 @@ EOS;
 </body>
 EOS;
 
-
-
 require __DIR__.'/includes/layout.php';

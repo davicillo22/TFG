@@ -27,7 +27,7 @@ if ($nhisFound=="false") {
 $textoFecha= date('Y-m-d');
 $contenidoPrincipal = <<<EOS
 <link rel="stylesheet" href="css/style.css">
-
+<div class="screen-1">
 
 <div class="center-div">
 <h2 style="color: black">Selecciona cómo quieres insertar los datos:</h2>
@@ -284,6 +284,7 @@ $contenidoPrincipal = <<<EOS
 
 
 </div>
+</div>
 
 <script>
   const botonNhis = document.getElementById("botonNhis");
@@ -299,6 +300,7 @@ $contenidoPrincipal = <<<EOS
   botonNhis.addEventListener("click", mostrarDivNhis);
   botonDatos.addEventListener("click", mostrarDivDatos);
   botonBuscarNhis.addEventListener("click", mostrarDivNhis);
+  
   algoritmosSelect.addEventListener("change", (event) => {
     const algoritmoSeleccionado = event.target.value;
     
@@ -356,11 +358,15 @@ $contenidoPrincipal = <<<EOS
     document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
       option.classList.remove("hidden");
     });
+    variablesSelect.value = "extracap";
   } else if (selectedValue === "cox") {
     document.querySelectorAll(".cox").forEach(option => {
       option.classList.remove("hidden");
     });
+    variablesSelect.value = "rbqPre";
   }
+  
+
 });
 
 algoritmosSelect2.addEventListener("change", function() {
@@ -381,10 +387,12 @@ algoritmosSelect2.addEventListener("change", function() {
     document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
       option.classList.remove("hidden");
     });
+    variablesSelect.value = "extracap";
   } else if (selectedValue2 === "cox") {
     document.querySelectorAll(".cox").forEach(option => {
       option.classList.remove("hidden");
     });
+    variablesSelect2.value = "rbqPre";
   }
 });
 </script>
