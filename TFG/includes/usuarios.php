@@ -25,7 +25,7 @@ function registerUser(){
  * si esta es correcta devuelve true y rellena las cookies necesarias, devuelve false en caso contrario.
  */
 function checkLogin() {
-    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+    $email = isset($_POST["username"]) ? $_POST["username"] : null;
     $password = isset($_POST["password"]) ? $_POST["password"] : null;
 
     $user = Usuario::buscaUsuario($email);

@@ -20,7 +20,7 @@ $contenidoPrincipal= <<<EOS
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-<link rel='stylesheet' href="css/style.css">
+<link rel='stylesheet' href="css/loginstyle.css">
 </head>
 <body class="articulo">
 <!-- partial:index.partial.html -->
@@ -45,24 +45,74 @@ $contenidoPrincipal= <<<EOS
       <polygon style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" points="-50,-50 -50,50 50,50 50,-50 "></polygon>
     </g>
   </svg>
-  <form method="post" action="procesarLogin.php">
-  <div class="email">
-    <label for="email">Email Address</label>
-    <div class="sec-2">
-      <ion-icon name="mail-outline"></ion-icon>
-      <input type="email" name="email" placeholder="usuario@mail.com"/>
-    </div>
-  </div>
-  <div class="password">
-    <label for="password">Password</label>
-    <div class="sec-2">
-      <ion-icon name="lock-closed-outline"></ion-icon>
-      <input class="pas" type="password" name="password" placeholder="············"/>
-    </div>
-  </div>
+  <form 
+id="login_form" 
+name="login_form" 
+autocomplete="off"
+method="post"
+enctype="application/x-www-form-urlencoded" 
+action="procesarLogin.php"
 
-  <input class="login" type="submit" name="Login" value="Iniciar sesión" />
+>
+        
+  
+  
+  
+<input type="text"  
+id="username" 
+class="username"
+name="username" 
+autocapitalize="off"
+autocorrect="off" 
+autocomplete="on"  
+autofocus="on"
+required />
+
+
+<label for="username">Usuario</label> <small>ejemplo@mail.com</small>  <svg viewbox="0 0 10 10" ><use xlink:href="#user" /> <use xlink:href="#fed" class="fedora" /> <use xlink:href="#burst" class="flash"  /></svg>
+
+
+<input 
+   id="password" 
+ type="password" 
+ name="password"
+autocorrect="off" 
+autocomplete="off"  
+autocomplete="new-password"
+value=""  
+required>
+ 
+<label for="password">Contraseña</label> <small>*****</small> <svg viewbox="0 0 10 10"><use xlink:href="#pad" /><use class="flash" xlink:href="#burst" /><use class="lock" xlink:href="#lock" />
+</svg>
+
+  <input id="submit" type="submit" name="submit"  value="Iniciar Sesión">
+ 
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="hbox" viewBox="0 0 200 40">
+      <rect  x=".5" y=".5" ry="3" rx="3" width="199" height="42" />
+  </svg>
 </form>
+
+
+
+<svg class="hide">
+  
+    <defs>
+   
+   
+ 
+      
+
+  <g id="padlock"> <path id="pad" d="m 3,5.5 5,0 0,4 -5,0 z" /> <path id="lock" d="m 3,5.5 0,-2 c 0,-3 4,-3 4,-0.25 L 7,4 "/>  </g>
+    
+  <path id="fed" d="M7.8 3.8c-.7.6-3.5.6-4.4-.1-.3-.2 4.8-.2 4.4.1zM7 3.5c-.4-.7-.3-2-1.5-1.5-1-.5-1 .7-1.5 1.5"  />
+      
+  <path id="user" d="M5.5 5.8c-2 0-2-3 0-3 2.3 0 2 3 0 3zm.8-.3c1.2 0 2.2 1 2.2 2.3v1.7h-6V7.7c0-1.2 1-2.2 2.3-2.2"  />
+  <path id="burst" d="m 5.47,0 v 2.19 m 4.38,2.19 h -2.2 m -6.55,0 H 3.28 M 2.38,1.28 3.92,2.83 M 8.56,1.28 7.02,2.83" />
+    
+
+  </defs>
+</svg>
 </div>
 <!-- partial -->
   

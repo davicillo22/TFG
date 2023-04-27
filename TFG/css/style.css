@@ -78,7 +78,7 @@ body {
 }
 
 .footer {
-  padding-top: 35%;
+  padding-top: 10%;
   text-align: center;
 }
 .footer-title{
@@ -329,4 +329,77 @@ button.cancel{
 button.cancel:hover {
   background-color: #4fa5d5;
   color: white;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  margin: 0 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 50px;
+  color: #007bff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card:after {
+  border-bottom: calc(0.375rem - 2px) solid transparent;
+  border-top-color: dodgerblue;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  border-top-style: solid;
+  border-top-width: 4px;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+#username {
+  display: inline-block;
+  animation: typing 3s steps(18) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+#cursor {
+  display: inline-block;
+  animation: blink .7s infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
 }
