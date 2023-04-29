@@ -30,7 +30,7 @@
 
     <!-- MENU -->
 
-    <section class="navbar navbar-default navbar-static-top" role="navigation">
+    <section style="box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);" class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

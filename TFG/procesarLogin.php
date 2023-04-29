@@ -62,7 +62,7 @@ if (!checkLogin() && !checkSession()) {
       const cursor = document.querySelector("#cursor");
     
       let i = 0;
-      let txt1 = `Bienvenido/a ${nameUser}`;
+      let txt1 = `Bienvenido Dr. ${nameUser}`;
       let txt2 = "Calculadora de Riesgo";
       let speed = 60;
       let showingTxt1 = true;

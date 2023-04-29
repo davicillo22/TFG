@@ -2,8 +2,10 @@
   font-family: "Poppins";
 }
 .articulo{
-  background: linear-gradient(to bottom, #e1eefd, #FFFFFF);
+  background: linear-gradient(to bottom, #dfecfd, #ffffff);
 }
+
+
 
 input[type="submit"] {
   background-color: #2078ac;

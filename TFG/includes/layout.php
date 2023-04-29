@@ -6,14 +6,20 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <title><?= $tituloPagina ?></title>
-    <link rel="icon" type="image/png" href="includes/faico2.png"/>
+    <link rel="icon" type="image/png" href="includes/faico.png"/>
 </head>
-<body>
 <?php
-$fondito="articulo";
-if($tituloPagina=="Calculadora de riesgo")
+$fondito="";
+$estilo = " linear-gradient(to bottom, #d8e9ff ,#ffffff, #d8e9ff)";
+if($tituloPagina=="Calculadora de riesgo"){
     $fondito="fondo";
+    $estilo="";
+}
+
 ?>
+
+<body style=" background: <?= $estilo ?>">
+
 <div id="contenedor" class=<?= $fondito ?>>
     <?php
 
