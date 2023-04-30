@@ -10,7 +10,7 @@
 </head>
 <?php
 $fondito="";
-$estilo = " linear-gradient(to bottom, #d8e9ff ,#ffffff, #d8e9ff)";
+$estilo = " linear-gradient(to bottom, #e7f1ff ,#ffffff, #e7f1ff)";
 if($tituloPagina=="Calculadora de riesgo"){
     $fondito="fondo";
     $estilo="";

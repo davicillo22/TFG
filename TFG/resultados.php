@@ -169,7 +169,7 @@ if($algoritmo == 'cox'){
             </div>
         </div>
         <div class="back">
-            <div class="section" style="height: 23%">
+            <div class="section" style="height: 23%; font-size: 29px;">
                 Concordance: <?php echo $f1;?>
             </div>
             <div class="section" style="height: 23%">
@@ -195,7 +195,6 @@ else{?>
             <div class="blockP">
                 <div id="percentage" style="font-size: 40px"><?php echo $prob1; echo "%";?></div>
             </div>
-            <?php echo "%";?>
         </div>
         <div class="bottom" style="height: 55%">
             <button id="verMetricas" class="buttonExotic">Ver métricas</button>
