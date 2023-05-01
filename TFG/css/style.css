@@ -82,7 +82,20 @@ body {
 .footer {
   padding-top: 10%;
   text-align: center;
+  position: relative;
+  bottom: -230px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+.footerLogin {
+  padding-top: 10%;
+  text-align: center;
+  position: relative;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .footer-title{
   padding-top: 10px;
   color: #2078ac;
@@ -385,6 +398,15 @@ button.cancel:hover {
 #username {
   display: inline-block;
   animation: typing 3s steps(18) forwards;
+}
+
+.cuadro-texto {
+  display: inline-block;
+  border: 2px solid #0077be;
+  border-radius: 4px;
+  width: 80%;
+  margin-top: 2%;
+  margin-left: 10%;
 }
 
 @keyframes typing {

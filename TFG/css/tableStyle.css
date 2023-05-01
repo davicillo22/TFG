@@ -110,3 +110,21 @@
 		color: #095079;
 		font-size: 18px;
 	}
+
+	.footer {
+		padding-top: 10%;
+		text-align: center;
+		position: relative;
+		bottom: 130px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.footer-title{
+		padding-top: 10px;
+		color: #2078ac;
+		font-weight: bold;
+	}
+	.footer-text{
+		color:  #2078ac;
+
+	}

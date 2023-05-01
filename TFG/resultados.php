@@ -221,6 +221,13 @@ else{?>
 
 <?php }?>
 
+<div class="center-div">
+    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%'>Volver</a>
+</div>
+
+<div class="cuadro-texto">
+    <h2 style="font-size: medium; text-align: center;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h2>
+</div>
 
 <script>
     const percentageSpan = document.getElementById('percentage');
@@ -281,13 +288,26 @@ else{?>
 </script>
 
 
+<script>
+    const welcomeMsg = document.querySelector("#welcome-msg");
+    const usernameEl = document.querySelector("#username");
 
+    let i = 0;
+    let txt = `Esta calculadora está entrenada siguiendo modelos de machine learning. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: introducir los datos a mano o seleccionar un paciente ya existente en la base de datos.`;
+    let speed = 20;
 
+    function typeWriter() {
+        if (i < txt.length) {
+            usernameEl.textContent += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
 
-<div class="center-div">
-    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%'>Volver</a>
-</div>
-
-
+    setTimeout(() => {
+        welcomeMsg.classList.add("show");
+        typeWriter();
+    }, 1000);
+</script>
 
 

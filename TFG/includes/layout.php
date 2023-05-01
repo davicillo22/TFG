@@ -11,9 +11,11 @@
 <?php
 $fondito="";
 $estilo = " linear-gradient(to bottom, #e7f1ff ,#ffffff, #e7f1ff)";
+$claseFooter = "footer";
 if($tituloPagina=="Calculadora de riesgo"){
     $fondito="fondo";
     $estilo="";
+    $claseFooter = "footerLogin";
 }
 
 ?>
@@ -33,4 +35,20 @@ if($tituloPagina=="Calculadora de riesgo"){
     </main>
 </div>
 </body>
+<footer class=<?= $claseFooter ?>>
+
+
+    <p class="footer-text">
+        <a class="footer-text" href="mailto:ofroiz@ucm.es">Contacto</a> |
+        <a class="footer-text" href="https://www.cancer.gov/es">Recursos sobre el cáncer</a>
+
+    </p>
+    <p class="footer-text">
+        <a class="footer-text" href="#">Política de privacidad</a> |
+        <a class="footer-text" href="#">Términos y condiciones</a>
+    </p>
+    <p class="footer-text">&copy; 2023 Calculadora de Riesgo para pacientes oncológicos.</p>
+
+    <p class="footer-title">Todos los derechos reservados a Exotic Company.
+</footer>
 </html>
