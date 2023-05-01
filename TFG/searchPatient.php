@@ -34,7 +34,7 @@ if (ctype_digit($id)) {
     if (mysqli_num_rows($result) > 0) {
         $contenidoPrincipal.= <<<EOS
             <link rel="stylesheet" href="css/tableStyle.css">
-            <div style="width: 100%; height: 50px; margin-left: 32%; margin-top: 35px">
+            <div style="width: 100%; height: 50px; margin-left: 29%; margin-top: 35px">
             
             <a href="generatePdfPatient.php?id=$id" target=”_blank” class="btn btn-success btn-lg">Crear pdf del paciente $id</a>
             <a href="editPatient.php?id=$id" class="btn btn-success btn-lg">Modificar datos del paciente $id</a>

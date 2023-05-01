@@ -30,6 +30,8 @@ $str ="";
 $pdf = new FPDF();
 $pdf->AddPage();
 
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->Cell(0, 10, 'Historia clinica paciente '. $id, 0, 1, 'C');
 
 // Datos de la tabla
 $pdf->SetFont('Arial', '', 12);
