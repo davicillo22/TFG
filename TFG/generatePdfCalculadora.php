@@ -1,3 +1,4 @@
+<?php
 require('fpdf/fpdf.php');
 
 // Obtener las variables pasadas desde otra página PHP
@@ -89,3 +90,5 @@ if (!empty($algoritmoTexto)) {
     $pdf->Ln();
 }
 $pdf->Output();
+
+
