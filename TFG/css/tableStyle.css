@@ -114,8 +114,8 @@
 	.footer {
 		padding-top: 10%;
 		text-align: center;
-		position: relative;
-		bottom: 130px;
+		position: fixed;
+		bottom: -40px;
 		left: 50%;
 		transform: translateX(-50%);
 	}

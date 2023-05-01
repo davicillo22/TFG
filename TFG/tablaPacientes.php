@@ -269,7 +269,7 @@ EOS;
 
     $contenidoPrincipal .= <<<EOS
 <link rel="stylesheet" href="css/filterStyle.css">
-<div>
+<div style="position: relative; z-index: 4;">
 <h3 style="margin-left: 30% " >Filtrar Pacientes</h3>
 <h4 style="margin-left: 30% ">Consulta: $textoConsulta</h4>
 <form  method="post" action="tablaPacientes.php">
