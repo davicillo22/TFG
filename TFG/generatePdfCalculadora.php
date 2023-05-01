@@ -1,6 +1,8 @@
 <?php
 require('fpdf/fpdf.php');
 
+header('Content-Type: text/html; charset=utf-8');
+
 // Obtener las variables pasadas desde otra página PHP
 $f1 = $_POST['f1'];
 $recall = $_POST['recall'];
@@ -20,8 +22,8 @@ $pdf = new FPDF();
 
 // Configurar la página
 $pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Informe de aprendizaje automático');
+$pdf->SetFont('Arial','B',16, '', true);
+$pdf->Cell(40,10,'Informe del paciente');
 
 // Agregar los elementos del informe
 $pdf->Ln();
@@ -30,23 +32,16 @@ $pdf->Cell(40,10,'Resultados');
 $pdf->Ln();
 $pdf->SetFont('Arial','',12);
 
-if (!empty($f1)) {
-$pdf->Cell(40,10,'F1: '.$f1);
-$pdf->Ln();
-}
 
-if (!empty($recall)) {
-$pdf->Cell(40,10,'Recall: '.$recall);
-$pdf->Ln();
-}
-
-if (!empty($precision)) {
-    $pdf->Cell(40,10,'Precision: '.$precision);
+if (!empty($textoVariable)) {
+    $str = iconv('UTF-8', 'windows-1252', $textoVariable);
+    $pdf->Cell(0, 10, 'Variable: ' . $str, 0, 1);
     $pdf->Ln();
 }
 
-if (!empty($accuracy)) {
-    $pdf->Cell(40,10,'Accuracy: '.$accuracy);
+if (!empty($algoritmoTexto)) {
+    $str = iconv('UTF-8', 'windows-1252', $algoritmoTexto);
+    $pdf->Cell(0, 10, 'Algoritmo : ' . $str, 0, 1);
     $pdf->Ln();
 }
 
@@ -57,11 +52,6 @@ if (!empty($lr_probability)) {
 
 if (!empty($rf_probability)) {
     $pdf->Cell(40,10,'RF Probability: '.$rf_probability);
-    $pdf->Ln();
-}
-
-if (!empty($textoVariable)) {
-    $pdf->Cell(0, 10, 'Texto Variable: ' . $textoVariable, 0, 1);
     $pdf->Ln();
 }
 
@@ -85,10 +75,28 @@ if (!empty($rbq_10_years_pre)) {
     $pdf->Ln();
 }
 
-if (!empty($algoritmoTexto)) {
-    $pdf->Cell(0, 10, 'Algoritmo Texto: ' . $algoritmoTexto, 0, 1);
+if (!empty($f1)) {
+    $pdf->Cell(40,10,'F1: '.$f1);
     $pdf->Ln();
 }
+
+if (!empty($recall)) {
+    $pdf->Cell(40,10,'Recall: '.$recall);
+    $pdf->Ln();
+}
+
+if (!empty($precision)) {
+    $pdf->Cell(40,10,'Precision: '.$precision);
+    $pdf->Ln();
+}
+
+if (!empty($accuracy)) {
+    $pdf->Cell(40,10,'Accuracy: '.$accuracy);
+    $pdf->Ln();
+}
+
+
+
 $pdf->Output();
 
 

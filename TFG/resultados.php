@@ -149,6 +149,10 @@ if($algoritmo == 'cox'){
 }
 ?>
 
+
+
+
+
 <?php if($algoritmo == 'cox'){?>
     <link rel="stylesheet" href="css/resultstyle.css">
     <div class="card" style="width: 550px;">
@@ -223,6 +227,21 @@ else{?>
 
 <div class="center-div">
     <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%'>Volver</a>
+    <form action="generatePdfCalculadora.php" target="_blank"method="post" id="myForm">
+        <input type="hidden" name="f1" value="<?php echo isset($f1) ? $f1 : '' ?>">
+        <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
+        <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
+        <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
+        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? $lr_probability : '' ?>">
+        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? $rf_probability : '' ?>">
+        <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
+        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? $rbq_5_years_post : '' ?>">
+        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? $rbq_10_years_post : '' ?>">
+        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? $rbq_5_years_pre : '' ?>">
+        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? $rbq_10_years_pre : '' ?>">
+        <input type="hidden" name="algoritmoTexto" value="<?php echo isset($algoritmoTexto) ? $algoritmoTexto : '' ?>">
+        <a href="#"class='btn btn-success btn-lg' onclick="document.getElementById('myForm').submit(); return false;" target="_blank">Generar PDF</a>
+    </form>
 </div>
 
 <div class="cuadro-texto">
