@@ -14,7 +14,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 $hayResultado=true;
-$contenidoPrincipal="";
+$contenidoPrincipal="<h2 style='margin-left: 35%'>Modifica los datos que desees</h2>";
 
 
 $id = $_GET["id"];
@@ -190,13 +190,11 @@ if (mysqli_num_rows($result) > 0) {
 
 </table>
 </div>
-<div style="width: 10%; margin: 0 auto">
-<table>
-<tr >
-<td class="fin"><input class="btn btn-success btn-lg" type="submit" name="Editado" value="Guardar Datos" /></td>
-<td class="fin"><a href='searchPatient.php?id=$id' class='btn btn-success btn-lg'>Volver</a></td>
-</tr>
-</table>
+<div style="width: 10%; margin-left: 42%; margin-top: 5px;">
+<div style="display: flex;  " >
+<input class="btn btn-success btn-lg" type="submit" name="Editado" value="Guardar Datos" style="margin-right: 20px"/>
+<a href='searchPatient.php?id=$id' class='btn btn-success btn-lg'>Volver</a>
+</div>
 </div>
 </form>
 <link rel="stylesheet" href="css/tableStyle.css">

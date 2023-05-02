@@ -7,8 +7,9 @@ $tituloPagina = 'Crear cuenta';
 $contenidoPrincipal= <<<EOS
 <link rel="stylesheet" href="css/style.css">
 <div class="screen-1">
+<h2 style="margin-left: 1%">Registrar usuario</h2>
 <form method="post" action="procesarRegister.php">
-<h2>Registrar usuario</h2>
+
     <p>Nombre:</p>
     <p><input type="text" name="name" required/></p>
     <p>Apellido:</p>
@@ -24,7 +25,7 @@ $contenidoPrincipal= <<<EOS
     </select></p>
         
     
-    <p><input type="submit" name="Registro"/></p>
+    <input style="margin-left: 25%" type="submit" name="Registro"/>
 
 </form>
 </div>

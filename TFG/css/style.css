@@ -408,7 +408,7 @@ button.cancel:hover {
   text-align: center;
   width: 50%;
   margin-left: 25%;
-  height: 255px;
+  height: 220px;
   margin-top: 20px;
   bottom: 20px;position: relative;
 }
@@ -430,4 +430,10 @@ button.cancel:hover {
 @keyframes blink {
   from, to { opacity: 1 }
   50% { opacity: 0 }
+}
+
+.invisible-div {
+  height: 30px;
+  visibility: hidden;
+  clear: both;
 }

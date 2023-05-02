@@ -342,7 +342,7 @@ else{?>
         }
     txt += " para 10 años ";
     <?php } ?>
-    txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa 'Descargar' para obtener en formato PDF el informe de resultados de tu predicción.";
+    txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa Descargar para obtener en formato PDF el informe de resultados de tu predicción.";
 
     let speed = 20;
 

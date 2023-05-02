@@ -293,7 +293,7 @@ $contenidoPrincipal = <<<EOS
 <div class="cuadro-texto">
     <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
 </div>
-
+<div class="invisible-div"></div>
 <script>
   const botonNhis = document.getElementById("botonNhis");
   const botonDatos = document.getElementById("botonDatos");
@@ -410,7 +410,7 @@ algoritmosSelect2.addEventListener("change", function() {
     const usernameEl = document.querySelector("#username");
 
     let i = 0;
-    let txt = `Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variable objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF. `;
+    let txt = `Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF. `;
     let speed = 20;
 
     function typeWriter() {
