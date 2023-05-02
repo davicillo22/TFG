@@ -7,6 +7,7 @@
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="mejorar estilos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/resultstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/resultstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatient.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resultados.php" beforeDir="false" afterPath="$PROJECT_DIR$/resultados.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +123,8 @@
       <workItem from="1682541817492" duration="9359000" />
       <workItem from="1682617533219" duration="11767000" />
       <workItem from="1682700001973" duration="20410000" />
-      <workItem from="1682857973173" duration="23659000" />
+      <workItem from="1682857973173" duration="23714000" />
+      <workItem from="1683036777168" duration="1574000" />
     </task>
     <task id="LOCAL-00001" summary="eo">
       <created>1675785240096</created>
@@ -418,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682988001041</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="mejorar estilos">
+      <created>1682988405549</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1682988405549</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

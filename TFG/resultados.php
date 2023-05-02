@@ -188,7 +188,12 @@ if($algoritmo == 'cox'){
             </div>
         </div>
     </div>
-
+    <div style="position: relative; margin-left: 25%; font-weight: bolder;">
+        <p style="font-weight: bolder;">Información:</p>
+    </div>
+    <div class="cuadro-texto" style="height: 150px">
+        <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
+    </div>
 <?php }
 else{?>
     <link rel="stylesheet" href="css/resultstyle.css">
@@ -198,7 +203,7 @@ else{?>
         <h3><?php echo $textoVariable;?>:</h3>
         <div class="top">
             <div class="blockP">
-                <div id="percentage" style="font-size: 40px"><?php echo $prob1; echo "%";?></div>
+                <div id="percentage" style="font-size: 40px; left: 18%;"><?php echo $prob1; echo "%";?></div>
             </div>
         </div>
         <div class="bottom" style="height: 55%">
@@ -224,15 +229,15 @@ else{?>
         </div>
     </div>
 </div>
-
+    <div style="position: relative; margin-left: 25%; font-weight: bolder;">
+        <p style="font-weight: bolder;">Información:</p>
+    </div>
+    <div class="cuadro-texto" style="height: 115px">
+        <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
+    </div>
 <?php }?>
 
-<div style="position: relative; margin-left: 25%; font-weight: bolder;">
-    <p style="font-weight: bolder;">Información:</p>
-</div>
-<div class="cuadro-texto" style="height: 150px">
-    <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
-</div>
+
 <div class="center-div">
     <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%;margin-bottom:12%;'>Volver</a>
     <form action="generatePdfCalculadora.php" target="_blank"method="post" id="myForm">
@@ -317,9 +322,9 @@ else{?>
 
     let txt = "Resultados relativos a <?php echo $textoVariable; ?> obtenidos a partir del algoritmo de <?php echo $algoritmoTexto; ?>. Una probabilidad del <?php echo round($prob1, 0); ?>%";
 
-    if(!(<?php echo $prob1; ?> > 33)){
+    if(!(<?php echo $prob1; ?> >= 33)){
         txt += " es relativamente baja ";
-    } else if(<?php echo $prob1; ?> > 66){
+    } else if(<?php echo $prob1; ?> >= 66){
         txt += " es alta ";
     } else {
         txt += " es media ";
@@ -328,16 +333,16 @@ else{?>
 
     <?php if( $algoritmo =="cox" ){ ?>
         txt += " para  5 años, a su vez, la probabilidad de  <?php echo round($prob2, 0); ?>%";
-        if(!(<?php echo $prob2; ?> > 33)){
+        if(!(<?php echo $prob2; ?> >= 33)){
             txt += " es relativamente baja ";
-        } else if(<?php echo $prob2; ?> > 66){
+        } else if(<?php echo $prob2; ?> >= 66){
             txt += " es alta ";
         } else {
             txt += " es media ";
         }
     txt += " para 10 años ";
     <?php } ?>
-    txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa Descargar para obtener en formato PDF el informe de resultados de tu predicción.";
+    txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa 'Descargar' para obtener en formato PDF el informe de resultados de tu predicción.";
 
     let speed = 20;
 
