@@ -13,7 +13,7 @@ $contenidoPrincipal.= <<<EOS
 <form style="display: flex; flex-direction: column; align-items: center;" method= "post" enctype="application/x-www-form-urlencoded" action="procesarProfile.php">
 <h2 style="display: flex; flex-direction: column; align-items: center;">Modifica tus datos</h2>
            
-            <table class="editProfileTable">
+            <table class="editProfileTable" style="height: 200px;">
             
             <tr>
             <td>Nombre:</td>
@@ -36,8 +36,8 @@ $contenidoPrincipal.= <<<EOS
             </tr>
             
             <tr>
-            <td><input type="submit" name="enviar" value= "Enviar"/></td>
-            <td><a href = "profile.php"> <button class="cancel" style="margin-left: 100px;"> Cancelar </button></a></td>
+            <td><input class="buttonExotic" style="height: 40px;" type="submit" name="enviar" value= "Enviar"/></td>
+            <td><a  href = "profile.php"> <button class="buttonExotic" style="margin-left: 45px; height: 40px; width: 160px;"> Cancelar </button></a></td>
             </tr>
             
             </table>
