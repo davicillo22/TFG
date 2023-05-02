@@ -12,10 +12,12 @@
 $fondito="";
 $estilo = " linear-gradient(to bottom, #e7f1ff ,#ffffff, #e7f1ff)";
 $claseFooter = "footer";
+$esIndex=false;
 if($tituloPagina=="Calculadora de riesgo"){
     $fondito="fondo";
     $estilo="";
     $claseFooter = "footerLogin";
+    $esIndex=true;
 }
 
 ?>
@@ -29,12 +31,18 @@ if($tituloPagina=="Calculadora de riesgo"){
 
     ?>
     <main>
-        <article>
+        <article style="    height: auto;">
             <?= $contenidoPrincipal?>
         </article>
     </main>
 </div>
 </body>
+
+<?php
+
+if($esIndex){
+
+?>
 <footer class=<?= $claseFooter ?>>
 
 
@@ -51,4 +59,5 @@ if($tituloPagina=="Calculadora de riesgo"){
 
     <p class="footer-title">Todos los derechos reservados a Exotic Company.
 </footer>
+<?php }?>
 </html>

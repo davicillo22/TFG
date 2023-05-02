@@ -72,7 +72,7 @@ $contenidoPrincipal = <<<EOS
             <option value="rbqPre" class="cox">Rbq pre</option>
             <option value="rbqPost" class="cox">Rbq post</option>
           </select>
-          <button class="buttonExotic" id="botonBuscarNhis">Calcular</button>
+          <button class="buttonExotic"  id="botonBuscarNhis">Calcular</button>
        </form>
     </div>
 </div>
@@ -278,12 +278,20 @@ $contenidoPrincipal = <<<EOS
             <option value="rbqPost" class="cox">Rbq post</option>
           </select>
         </div>
-      <input type="submit" name="Calcular" class="buttonExotic" value= "Calcular"/>
+      <input type="submit" name="Calcular" class="buttonExotic" style="width: 140px; margin-left:42%;" value= "Calcular"/>
     </form>
 </div>
 
 
 </div>
+</div>
+
+<div style="position: relative; margin-left: 25%; font-weight: bolder;">
+    <p style="font-weight: bolder;">Información:</p>
+</div>
+
+<div class="cuadro-texto">
+    <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
 </div>
 
 <script>
@@ -395,6 +403,28 @@ algoritmosSelect2.addEventListener("change", function() {
     variablesSelect2.value = "rbqPre";
   }
 });
+</script>
+
+<script>
+    const welcomeMsg = document.querySelector("#welcome-msg");
+    const usernameEl = document.querySelector("#username");
+
+    let i = 0;
+    let txt = `Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variable objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF. `;
+    let speed = 20;
+
+    function typeWriter() {
+        if (i < txt.length) {
+            usernameEl.textContent += txt.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    setTimeout(() => {
+        welcomeMsg.classList.add("show");
+        typeWriter();
+    }, 1000);
 </script>
 <style>
   .hidden {

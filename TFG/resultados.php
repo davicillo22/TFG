@@ -72,7 +72,7 @@ if($algoritmo == 'cox'){
     }
 }else{
     if ($variable == 'extracap') {
-        $textoVariable="extensión Extracapsular";
+        $textoVariable="Extensión extracapsular";
         if ($algoritmo == 'regresion') {
             $lr_probability = $_GET['prob1'];
             $f1="79%";
@@ -169,7 +169,8 @@ if($algoritmo == 'cox'){
                 </div>
             </div>
             <div class="bottom" style="height: 53%">
-                <button id="verMetricas" class="buttonExotic">Ver métricas</button>
+                <button id="verMetricas" class="buttonExotic" style="width: 140px;">Ver métricas</button>
+                <button href="#" class="buttonExotic" style="width: 140px; margin-left: 20px;" onclick="document.getElementById('myForm').submit(); return false;" target="_blank">Descargar</button>
             </div>
         </div>
         <div class="back">
@@ -201,7 +202,8 @@ else{?>
             </div>
         </div>
         <div class="bottom" style="height: 55%">
-            <button id="verMetricas" class="buttonExotic">Ver métricas</button>
+            <button id="verMetricas" class="buttonExotic" style="width: 140px;">Ver métricas</button>
+            <button href="#" class="buttonExotic" style="width: 140px; margin-left: 20px;" onclick="document.getElementById('myForm').submit(); return false;" target="_blank">Descargar</button>
         </div>
     </div>
     <div class="back">
@@ -225,29 +227,29 @@ else{?>
 
 <?php }?>
 
+<div style="position: relative; margin-left: 25%; font-weight: bolder;">
+    <p style="font-weight: bolder;">Información:</p>
+</div>
+<div class="cuadro-texto" style="height: 150px">
+    <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
+</div>
 <div class="center-div">
-    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%'>Volver</a>
+    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%;margin-bottom:12%;'>Volver</a>
     <form action="generatePdfCalculadora.php" target="_blank"method="post" id="myForm">
         <input type="hidden" name="f1" value="<?php echo isset($f1) ? $f1 : '' ?>">
         <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
         <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
         <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
-        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? $lr_probability : '' ?>">
-        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? $rf_probability : '' ?>">
+        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) : '' ?>">
+        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) : '' ?>">
         <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
-        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? $rbq_5_years_post : '' ?>">
-        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? $rbq_10_years_post : '' ?>">
-        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? $rbq_5_years_pre : '' ?>">
-        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? $rbq_10_years_pre : '' ?>">
+        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? strval(round($rbq_5_years_post, 2)) : '' ?>">
+        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? strval(round($rbq_10_years_post, 2)) : '' ?>">
+        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? strval(round($rbq_5_years_pre, 2)) : '' ?>">
+        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? strval(round($rbq_10_years_pre, 2)) : '' ?>">
         <input type="hidden" name="algoritmoTexto" value="<?php echo isset($algoritmoTexto) ? $algoritmoTexto : '' ?>">
-        <a href="#"class='btn btn-success btn-lg' onclick="document.getElementById('myForm').submit(); return false;" target="_blank">Generar PDF</a>
     </form>
 </div>
-
-<div class="cuadro-texto">
-    <h2 style="font-size: medium; text-align: center;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h2>
-</div>
-
 <script>
     const percentageSpan = document.getElementById('percentage');
     const verMetricasBtn = document.getElementById("verMetricas");
@@ -258,7 +260,7 @@ else{?>
     const targetString = percentageSpan.innerText;
     const targetPercentage = parseFloat(targetString);
 
-    const increment = 0.15;
+    const increment = 0.10;
     const interval = 5;
 
     const updatePercentage = () => {
@@ -286,10 +288,10 @@ else{?>
     const percentageSpan2 = document.getElementById('percentage2');
 
     let percentage2 = 0;
-    const targetString2 = percentageSpan.innerText;
+    const targetString2 = percentageSpan2.innerText;
     const targetPercentage2 = parseFloat(targetString2);
 
-    const increment2 = 0.15;
+    const increment2 = 0.10;
     const interval2 = 5;
 
     const updatePercentage2 = () => {
@@ -312,7 +314,31 @@ else{?>
     const usernameEl = document.querySelector("#username");
 
     let i = 0;
-    let txt = `Esta calculadora está entrenada siguiendo modelos de machine learning. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: introducir los datos a mano o seleccionar un paciente ya existente en la base de datos.`;
+
+    let txt = "Resultados relativos a <?php echo $textoVariable; ?> obtenidos a partir del algoritmo de <?php echo $algoritmoTexto; ?>. Una probabilidad del <?php echo round($prob1, 0); ?>%";
+
+    if(!(<?php echo $prob1; ?> > 33)){
+        txt += " es relativamente baja ";
+    } else if(<?php echo $prob1; ?> > 66){
+        txt += " es alta ";
+    } else {
+        txt += " es media ";
+    }
+
+
+    <?php if( $algoritmo =="cox" ){ ?>
+        txt += " para  5 años, a su vez, la probabilidad de  <?php echo round($prob2, 0); ?>%";
+        if(!(<?php echo $prob2; ?> > 33)){
+            txt += " es relativamente baja ";
+        } else if(<?php echo $prob2; ?> > 66){
+            txt += " es alta ";
+        } else {
+            txt += " es media ";
+        }
+    txt += " para 10 años ";
+    <?php } ?>
+    txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa Descargar para obtener en formato PDF el informe de resultados de tu predicción.";
+
     let speed = 20;
 
     function typeWriter() {
