@@ -240,13 +240,13 @@ else{?>
         <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
         <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
         <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
-        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) : '' ?>">
-        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) : '' ?>">
+        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) . "%" : '' ?>">
+        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) . "%" : '' ?>">
         <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
-        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? strval(round($rbq_5_years_post, 2)) : '' ?>">
-        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? strval(round($rbq_10_years_post, 2)) : '' ?>">
-        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? strval(round($rbq_5_years_pre, 2)) : '' ?>">
-        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? strval(round($rbq_10_years_pre, 2)) : '' ?>">
+        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? strval(round($rbq_5_years_post, 2)) . "%" : '' ?>">
+        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? strval(round($rbq_10_years_post, 2)) . "%" : '' ?>">
+        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? strval(round($rbq_5_years_pre, 2)) . "%" : '' ?>">
+        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? strval(round($rbq_10_years_pre, 2)) . "%" : '' ?>">
         <input type="hidden" name="algoritmoTexto" value="<?php echo isset($algoritmoTexto) ? $algoritmoTexto : '' ?>">
     </form>
 </div>
