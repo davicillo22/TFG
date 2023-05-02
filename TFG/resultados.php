@@ -92,7 +92,7 @@ if($algoritmo == 'cox'){
         <?php
         }
     }else if ($variable == 'margen') {
-        $textoVariable="márgenes positivos";
+        $textoVariable="Márgenes positivos";
         if ($algoritmo == 'regresion') {
             $f1="81%";
             $recall="76%";
@@ -107,7 +107,7 @@ if($algoritmo == 'cox'){
             <?php
         }
     }else if ($variable == 'tnm2') {
-        $textoVariable="estadios localizados";
+        $textoVariable="Estadios localizados";
         if ($algoritmo == 'regresion') {
             $lr_probability = $_GET['prob1'];
             $f1="95%";
@@ -126,7 +126,7 @@ if($algoritmo == 'cox'){
             <?php
         }
     } else if ($variable == 'vvss') {
-        $textoVariable="invasión de vesículas";
+        $textoVariable="Invasión de vesículas";
         if ($algoritmo == 'regresion') {
             $lr_probability = $_GET['prob1'];
             $f1="68%";

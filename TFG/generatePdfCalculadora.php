@@ -36,13 +36,13 @@ $pdf->SetFont('Arial','',12);
 if (!empty($textoVariable)) {
     $str = iconv('UTF-8', 'windows-1252', $textoVariable);
     $pdf->Cell(0, 10, 'Variable: ' . $str, 0, 1);
-    $pdf->Ln();
+
 }
 
 if (!empty($algoritmoTexto)) {
     $str = iconv('UTF-8', 'windows-1252', $algoritmoTexto);
-    $pdf->Cell(0, 10, 'Algoritmo : ' . $str, 0, 1);
-    $pdf->Ln();
+    $pdf->Cell(0, 10, 'Algoritmo: ' . $str, 0, 1);
+
 }
 
 if (!empty($lr_probability)) {
