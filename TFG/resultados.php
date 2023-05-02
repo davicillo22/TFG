@@ -34,10 +34,7 @@ $prob1 = number_format((float)$string_prob1, 2, '.', '');
 if (isset($string_prob2))
     $prob2 = number_format((float)$string_prob2, 2, '.', '');
 
-$f1="64%";
-$recall="58%";
-$precision="76%";
-$accuracy="84%";
+
 $rbqes="(pre-operatorio)";
 $textoVariable="Recidiva Bioquímica";
 ?>
@@ -175,13 +172,13 @@ if($algoritmo == 'cox'){
         </div>
         <div class="back">
             <div class="section" style="height: 23%; font-size: 29px;">
-                Concordance: <?php echo $f1;?>
+                Concordance: <?php echo $concordance;?>
             </div>
             <div class="section" style="height: 23%">
-                Partial AIC: <?php echo $recall;?>
+                Partial AIC: <?php echo $partialAIC;?>
             </div>
             <div class="section" style="height: 26%; font-size: 25px;">
-                Log-likelihood ratio test: <?php echo $precision;?>
+                Log-likelihood ratio test: <?php echo $loglikelihoodratiotest;?>
             </div>
             <div class="bottom" style="height: 30%">
                 <button id="verPrediccion" class="buttonExotic">Ver predicción</button>
@@ -245,9 +242,9 @@ else{?>
         <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
         <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
         <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
-        <input type="hidden" name="$concordance" value="<?php echo isset($concordance) ? $concordance : '' ?>">
-        <input type="hidden" name="$partialAIC" value="<?php echo isset($partialAIC) ? $partialAIC : '' ?>">
-        <input type="hidden" name="$loglikelihoodratiotest" value="<?php echo isset($loglikelihoodratiotest) ? $loglikelihoodratiotest : '' ?>">
+        <input type="hidden" name="concordance" value="<?php echo isset($concordance) ? $concordance : '' ?>">
+        <input type="hidden" name="partialAIC" value="<?php echo isset($partialAIC) ? $partialAIC : '' ?>">
+        <input type="hidden" name="loglikelihoodratiotest" value="<?php echo isset($loglikelihoodratiotest) ? $loglikelihoodratiotest : '' ?>">
         <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) . "%" : '' ?>">
         <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) . "%" : '' ?>">
         <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
