@@ -16,6 +16,9 @@ $rbq_10_years_post = $_POST['rbq_10_years_post'];
 $rbq_5_years_pre = $_POST['rbq_5_years_pre'];
 $rbq_10_years_pre = $_POST['rbq_10_years_pre'];
 $algoritmoTexto = $_POST['algoritmoTexto'];
+$concordance = $_POST['concordance'];
+$partialAIC = $_POST['partialAIC'];
+$loglikelihoodratiotest = $_POST['loglikelihoodratiotest'];
 
 // Crear una instancia de la clase FPDF
 $pdf = new FPDF();
@@ -78,6 +81,19 @@ if (!empty($rbq_10_years_pre)) {
 if (!empty($f1)) {
     $pdf->Cell(40,10,'F1: '.$f1);
     $pdf->Ln();
+}
+
+if (!empty($concordance)) {
+$pdf->Cell(40,10,'Concordance: '.$concordance);
+$pdf->Ln();
+}
+if (!empty($partialAIC)) {
+$pdf->Cell(40,10,'Partial AIC: '.$partialAIC);
+$pdf->Ln();
+}
+if (!empty($loglikelihoodratiotest)) {
+$pdf->Cell(40,10,'Log-likelihood ratio test: '.$loglikelihoodratiotest);
+$pdf->Ln();
 }
 
 if (!empty($recall)) {

@@ -52,9 +52,9 @@ if($algoritmo == 'cox'){
         $textoVariable="RBQ (pre-operatorio)";
         $rbq_5_years_pre = $_GET['prob1'];
         $rbq_10_years_pre = $_GET['prob2'];
-        $f1="77%";
-        $recall="172.69";
-        $precision="9.83 on 30 df";
+        $concordance="77%";
+        $partialAIC="172.69";
+        $loglikelihoodratiotest="9.83 on 30 df";
 
         ?>
 
@@ -62,9 +62,9 @@ if($algoritmo == 'cox'){
     }else if($variable == 'rbqPost'){
         $rbq_5_years_post = $_GET['prob1'];
         $rbq_10_years_post = $_GET['prob2'];
-        $f1="93%";
-        $recall="193.67";
-        $precision="30.85 on 51 df";
+        $concordance="93%";
+        $partialAIC="193.67";
+        $loglikelihoodratiotest="30.85 on 51 df";
         $textoVariable="RBQ (post-operatorio)";
         ?>
 
@@ -245,6 +245,9 @@ else{?>
         <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
         <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
         <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
+        <input type="hidden" name="$concordance" value="<?php echo isset($concordance) ? $concordance : '' ?>">
+        <input type="hidden" name="$partialAIC" value="<?php echo isset($partialAIC) ? $partialAIC : '' ?>">
+        <input type="hidden" name="$loglikelihoodratiotest" value="<?php echo isset($loglikelihoodratiotest) ? $loglikelihoodratiotest : '' ?>">
         <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) . "%" : '' ?>">
         <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) . "%" : '' ?>">
         <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
