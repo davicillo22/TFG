@@ -236,7 +236,7 @@ else{?>
 
 
 <div class="center-div">
-    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style='margin-top:1%;margin-bottom:12%;'>Volver</a>
+    <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style=';margin-bottom:5%;'>Volver</a>
     <form action="generatePdfCalculadora.php" target="_blank"method="post" id="myForm">
         <input type="hidden" name="f1" value="<?php echo isset($f1) ? $f1 : '' ?>">
         <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
@@ -344,7 +344,7 @@ else{?>
     <?php } ?>
     txt += " en comparación con los casos estudiados por el modelo. Además se muestran las métricas relativas al algoritmo como información extra. Pulsa Descargar para obtener en formato PDF el informe de resultados de tu predicción.";
 
-    let speed = 20;
+    let speed = 15;
 
     function typeWriter() {
         if (i < txt.length) {
