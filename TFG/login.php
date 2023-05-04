@@ -122,7 +122,7 @@ required>
 EOS;
 
 if(!$log)
-    $contenidoPrincipal.= "<h3 class='erroneo'>Email o contraseña incorrectos</h3>";
+    $contenidoPrincipal.= "<h3 style='color: #4d33d9;' class='erroneo'>Email o contraseña incorrectos</h3>";
 
 $contenidoPrincipal.= "</body></html>";
 

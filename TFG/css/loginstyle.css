@@ -4,10 +4,10 @@
 }
 
 :root {
-  font-family: "Red Hat Text", sans-serif;
-  --brand: #e00;
-  --bg: #ffffff;
-  --blu: #0e043f;
+font-family: Calibri;
+  --brand: #4d33d9;
+  --bg: #4d33d9;
+  --blu: #defbfd;
   --fg: #fcfcfc;
   --mid: #999;
   outline: none;
@@ -17,7 +17,7 @@
 
 *{}
 body {
-  background: #0e043f;
+  background: #defbfd;
   color: var(--fg);
   overscroll-behavior: none;
   /* display: flex;*/
@@ -31,7 +31,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f0442;
+    --bg: #defbfd;
     --blu: #fff;
     --fg: #ddd;
     --mid: #555;
@@ -62,7 +62,7 @@ body::after {
   gap: 2em;
   align-items: center;
   margin-top: 10%;
-  background: #0e043f;
+  background: #defbfd;
 }
 
 form {
@@ -149,6 +149,7 @@ small {
 }
 :focus + label {
   color: var(--brand);
+
 }
 
 :focus {
@@ -157,7 +158,7 @@ small {
 
 ::selection {
   color: #fff;
-  background: rgba(238, 0, 0, 0.99);
+  background: rgb(77, 51, 217);
 }
 
 ::-moz-focus-inner {
@@ -186,7 +187,7 @@ small {
 
 input[type="text"]:not(:focus),
 input[type="password"]:not(:focus) {
-  background-color: #0e043f;
+  background-color: #defbfd;
   font-size: 18px;
 }
 
@@ -198,7 +199,7 @@ input[type="password"]:not(:focus) {
   color: #fff;
   border-radius: 0 0 0.4rem 0.4rem;
   text-align: center;
-  background-image: linear-gradient(#f00, #c00);
+  background-image: linear-gradient(#4d33d9, #443886);
   line-height: 4rem;
   width: 100%;
   position: relative;
@@ -275,7 +276,7 @@ small {
 [type="text"],
 [type="password"] {
   text-indent: 2.75rem;
-  color: #FFFFFF;
+  color: #4d33d9;
   text-align: left;
   background-color: transparent;
   line-height: 4rem;
