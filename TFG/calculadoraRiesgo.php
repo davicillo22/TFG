@@ -9,7 +9,7 @@ $tituloPagina = 'Calculadora';
 
 
 
-if (empty($_GET)) {
+if (empty($_GET["nhisFound"])) {
     $nhisFound="true";
 }
 else {
