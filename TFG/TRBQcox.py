@@ -13,6 +13,9 @@ data['RBQ'] = (data['TRBQ'] > 0).astype(int)
 X = data.drop('TRBQ', axis=1)
 y = data['TRBQ']
 
+# Modificar la columna 'TRBQ' para que tenga en cuenta 'TCIR' en el caso de no haber padecido el evento
+data['TRBQ'] = np.where(data['RBQ'] == 1, data['TRBQ'], data['TCIR'])
+
 # Crear un dataframe con las variables predictoras y las variables objetivo
 data = data.rename(columns={'TRBQ': 'duration', 'RBQ': 'event'})
 
