@@ -1,4 +1,4 @@
-oimport pandas as pd
+import pandas as pd
 import numpy as np
 import pickle
 import matplotlib.pyplot as plt
@@ -12,9 +12,6 @@ data['RBQ'] = (data['TRBQ'] > 0).astype(int)
 
 X = data.drop('TRBQ', axis=1)
 y = data['TRBQ']
-
-# Reemplazar los valores -1 en la columna 'TRBQ' con un tiempo grande (por ejemplo, 9999 meses)
-y = y.replace(-1, 9999)
 
 # Crear un dataframe con las variables predictoras y las variables objetivo
 data = data.rename(columns={'TRBQ': 'duration', 'RBQ': 'event'})
