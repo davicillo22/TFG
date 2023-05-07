@@ -6,23 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="Re Train">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculadoraRiesgo.php" beforeDir="false" afterPath="$PROJECT_DIR$/calculadoraRiesgo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cph_post.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_post.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cph_pre.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_pre.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataPatient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatient.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataPatientAdd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientAdd.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataPatientNew.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientNew.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataPatientPREV.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientPREV.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_extracap.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_margen.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_tnm2.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_vvss.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rf_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_extracap.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rf_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_margen.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rf_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_tnm2.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rf_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_vvss.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarAddPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarAddPatient.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,21 +133,8 @@
       <workItem from="1683215037502" duration="4041000" />
       <workItem from="1683294387909" duration="655000" />
       <workItem from="1683453580668" duration="26347000" />
-      <workItem from="1683490983141" duration="169000" />
-    </task>
-    <task id="LOCAL-00008" summary="mod">
-      <created>1675946496460</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1675946496460</updated>
-    </task>
-    <task id="LOCAL-00009" summary="mediomod">
-      <created>1675950930705</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1675950930705</updated>
+      <workItem from="1683490983141" duration="386000" />
+      <workItem from="1683494090216" duration="3418000" />
     </task>
     <task id="LOCAL-00010" summary="mediomod">
       <created>1675972148042</created>
@@ -488,7 +465,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683485737513</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Re Train">
+      <created>1683491269777</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1683491269777</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Re Train">
+      <created>1683491317194</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1683491317194</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

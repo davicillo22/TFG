@@ -10,7 +10,7 @@ function registerPatient($modo, $nhis)
     if($modo=="registrar")
         $nhis = $_POST['nhis'];
 
-    $noerror=true;
+    $noerror="true";
 
     $conn = getConexionBD();
     $query = "SELECT COUNT(*) AS count FROM patients WHERE nhis = '$nhis'";
@@ -20,7 +20,7 @@ function registerPatient($modo, $nhis)
         $row = mysqli_fetch_assoc($resultado);
         $count = $row['count'];
         if ($count > 0 && $modo=="registrar") {
-            $noerror=false;
+            $noerror="false";
             header("Location: addPatient.php?noerror=$noerror");
             return false;
         } else if($count == 0 || $modo =="modificar") {

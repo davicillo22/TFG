@@ -7,9 +7,12 @@ require_once __DIR__ . '/includes/usuarios.php';
 $tituloPagina = 'Añadir Paciente';
 unset($_SESSION["filtros"]);
 unset($_SESSION["condiciones"]);
-$noerror =true;
-if (!empty($_GET)) {
+$noerror ="true";
+if (!empty($_GET["noerror"])) {
     $noerror=$_GET["noerror"];
+}
+else{
+    $done = isset($_GET["done"]) ? $_GET["done"] : "false";
 }
 
 
@@ -22,12 +25,27 @@ if (!empty($_GET)) {
  
  EOS;
 
-if(!$noerror){
+if($noerror=="false"){
     $contenidoPrincipal.= <<<EOS
-    <h3 class='erroneo'>NHIS duplicado, introduce otro diferente</h3>
+    <h3 class='erroneo' style="margin-top: -20px;">NHIS duplicado, introduce otro diferente</h3>
 EOS;
 
 }
+if($done=="true"){
+    $noerror="true";
+    $contenidoPrincipal.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3>Paciente añadido</h3>
+  <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
+  <button class="buttonExotic" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
+</div>
+EOS;
+
+}
+
 $textoFecha= date('Y-m-d');
 $fechaMin="1990-01-01";
 $contenidoPrincipal.= <<<EOS
@@ -339,6 +357,27 @@ $contenidoPrincipal.= <<<EOS
             </tr>
 </table>
 </div>
+<script>
+const overlay = document.getElementById('overlay');
+const dialog = document.getElementById('my-dialog');
+const closeButton = document.getElementById('close-dialog');
+
+// Abre el diálogo y muestra la capa oscura
+function openDialog() {
+  overlay.style.display = 'block';
+  dialog.showModal();
+}
+// Cierra el diálogo y oculta la capa oscura
+function closeDialog() {
+  overlay.style.display = 'none';
+  dialog.close();
+}
+
+closeButton.addEventListener('click', closeDialog)
+openDialog();
+</script>
 EOS;
+
+
 
 require __DIR__.'/includes/layout.php';

@@ -4,10 +4,12 @@ require_once __DIR__ . '/includes/patientFunctions.php';
 require_once __DIR__ . '/includes/patient.php';
 
 $tituloPagina = 'AddPatient';
-
+$done="true";
 
 if(!registerPatient("registrar", NULL)){
     $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
+    $done="false";
+
 }else{
     $contenidoPrincipal = "<div style='display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center;'>";
     $contenidoPrincipal .= "<h1 style='margin-bottom: 20px;'>Paciente añadido con éxito</h1>";
@@ -45,9 +47,9 @@ if(!registerPatient("registrar", NULL)){
     shell_exec("python globalCleanAdd.py");
     shell_exec("python empaquetador.py");
 
-
 // Close the connection
     mysqli_close($conn);
+    header("Location: addPatient.php?done=$done");
 }
 
 function generaArray (){
