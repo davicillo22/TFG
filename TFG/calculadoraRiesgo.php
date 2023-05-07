@@ -7,6 +7,7 @@ $tituloPagina = 'Calculadora';
 error_reporting(E_ALL & ~E_WARNING);
 
 $progressWidth=0;
+
 $disableEntreno="";
 $classEntreno="buttonExoticTrain";
 $haEntrenado=false;
@@ -336,7 +337,7 @@ $contenidoPrincipal .= <<<EOS
 
 <div id="loader">
   <div id="progress"></div>
-  <h4 style="margin-top: 30px; font-size: 20px;">Actualizando...</h4>
+  <h4 style="margin-top: 30px;" id="loadText"></h4>
 </div>
 
 <form action="calculadoraRiesgo.php" method="get">
@@ -524,14 +525,16 @@ algoritmosSelect2.addEventListener("change", function() {
 const button = document.getElementById('reentrenoButton');
 const loader = document.getElementById('loader');
 const progressBar = document.getElementById('progress');
+const mensajeLoad = document.getElementById('loadText');
+
+let progressWidth = 0;
 
 button.addEventListener('click', () => {
   loader.style.display = 'block';
 
-  // Aquí va el código que se ejecutará al pulsar el botón
   setTimeout(function(){
     loader.style.display = 'none';
-  }, 30000); // oculta el loader después de 30 segundos
+  }, 50000); // oculta el loader después de 1 min
 
   fillProgress();
 });
@@ -539,11 +542,14 @@ button.addEventListener('click', () => {
 function fillProgress() {
   if (progressWidth >= 100) {
     return;
-  }
-
+  } 
+  if(progressWidth % 5 === 0)
+    mensajeLoad.innerHTML = 'Actualizando ' + progressWidth + '%...';
+ 
   progressWidth += 1;
-  progressBar.style.width = "${$progressWidth}%";
-  setTimeout(fillProgress, 300);
+
+  progressBar.style.width = `${progressWidth}%`;
+  setTimeout(fillProgress, 500);
 }
 </script>
 
@@ -561,10 +567,10 @@ if(isset($_GET["haEntrenado"])){
     if($_GET["haEntrenado"]=="true"){
         //Regenerar modelos
         shell_exec("python scriptEXTRACAP.py");
-        //  shell_exec("python scriptMARGEN.py");
-        //  shell_exec("python scriptTNM2.py");
-        //   shell_exec("python scriptVVSS.py");
-        //  shell_exec("python scriptTRBQ.py");
+        shell_exec("python scriptMARGEN.py");
+        shell_exec("python scriptTNM2.py");
+        shell_exec("python scriptVVSS.py");
+        shell_exec("python TRBQcox.py");
     }
 }
 

@@ -81,35 +81,6 @@ def train_and_evaluate_survival_model(X_train, X_test):
     ll_ratio_test = cph.log_likelihood_ratio_test()
     print("Log-likelihood ratio test:", ll_ratio_test)
 
-    # Gráficos de barras para visualizar las métricas
-    metrics = ['Concordancia', 'Partial AIC', 'Log-likelihood ratio test']
-    values = [concordance, partial_aic, ll_ratio_test.test_statistic]
-    
-    x = np.arange(len(metrics))
-    width = 0.3
-
-    fig, ax = plt.subplots()
-    rects1 = ax.bar(x - width/2, values, width, label='Cox')
-
-    ax.set_ylabel('Valor')
-    ax.set_title('Métricas de evaluación RBQ')
-    ax.set_xticks(x)
-    ax.set_xticklabels(metrics)
-    ax.legend()
-
-    def autolabel(rects):
-        for rect in rects:
-            height = rect.get_height()
-            ax.annotate('{:.2f}'.format(height),
-                        xy=(rect.get_x() + rect.get_width() / 2, height),
-                        xytext=(0, 3),
-                        textcoords="offset points",
-                        ha='center', va='bottom')
-
-    autolabel(rects1)
-
-    plt.show()
-
     return cph
 
 print("Entrenando modelo para TRBQ (Preoperatorio):")

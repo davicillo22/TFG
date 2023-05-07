@@ -73,4 +73,6 @@ train_and_evaluate_models(X_train_pre, y_train)
     
 print(f"Modelos para TRBQ (Postoperatorio):")
 train_and_evaluate_models(X_train_post, y_train)
+
+
 print("\n")
