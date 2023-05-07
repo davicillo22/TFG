@@ -10,8 +10,19 @@
       <change beforePath="$PROJECT_DIR$/cph_post.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_post.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cph_pre.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_pre.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataPatient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatient.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientAdd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientAdd.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientNew.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientNew.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataPatientPREV.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientPREV.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_vvss.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_vvss.pickle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,14 +142,8 @@
       <workItem from="1683065306941" duration="735000" />
       <workItem from="1683215037502" duration="4041000" />
       <workItem from="1683294387909" duration="655000" />
-      <workItem from="1683453580668" duration="26286000" />
-    </task>
-    <task id="LOCAL-00007" summary="corrects">
-      <created>1675904708700</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1675904708700</updated>
+      <workItem from="1683453580668" duration="26347000" />
+      <workItem from="1683490983141" duration="169000" />
     </task>
     <task id="LOCAL-00008" summary="mod">
       <created>1675946496460</created>
@@ -476,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683480718760</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Re Train">
+      <created>1683485737513</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1683485737513</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

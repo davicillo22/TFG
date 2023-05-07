@@ -485,7 +485,7 @@ $contenidoPrincipal .= <<<EOS
   }
   
 
-});
+    });
 
 algoritmosSelect2.addEventListener("change", function() {
     const selectedValue2 = this.value;
@@ -512,7 +512,7 @@ algoritmosSelect2.addEventListener("change", function() {
     });
     variablesSelect2.value = "rbqPre";
   }
-});
+    });
 </script>
 
 <script>
@@ -573,7 +573,7 @@ button.addEventListener('click', () => {
 
   setTimeout(function(){
     loader.style.display = 'none';
-  }, 52000); // oculta el loader después de 1 min
+  }, 54000); // oculta el loader después de 1 min
 
   fillProgress();
 });
@@ -588,7 +588,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 520);
+  setTimeout(fillProgress, 540);
 }
 </script>
 
