@@ -4,7 +4,9 @@ require_once __DIR__.'/includes/usuarios.php';
 
 $tituloPagina = 'Calculadora';
 
+error_reporting(E_ALL & ~E_WARNING);
 
+$progressWidth=0;
 $disableEntreno="";
 $classEntreno="buttonExoticTrain";
 $haEntrenado=false;
@@ -333,13 +335,13 @@ EOS;
 $contenidoPrincipal .= <<<EOS
 
 <div id="loader">
-<div class="loader"></div>
+  <div id="progress"></div>
+  <h4 style="margin-top: 30px; font-size: 20px;">Actualizando...</h4>
 </div>
 
 <form action="calculadoraRiesgo.php" method="get">
     <input type="hidden" name="haEntrenado" value="true">
     <button id="reentrenoButton" type="submit" class="$classEntreno" $disableEntreno>Reentrenar modelos</button>
-<div id="loader" style="display:none;"></div>
 </form>
 EOS;
 
@@ -521,17 +523,28 @@ algoritmosSelect2.addEventListener("change", function() {
 <script>
 const button = document.getElementById('reentrenoButton');
 const loader = document.getElementById('loader');
+const progressBar = document.getElementById('progress');
 
 button.addEventListener('click', () => {
   loader.style.display = 'block';
-  loader.className += " show"; // muestra el loader
 
   // Aquí va el código que se ejecutará al pulsar el botón
   setTimeout(function(){
-    loader.className = loader.className.replace(" show","");
     loader.style.display = 'none';
-  }, 10000); // oculta el loader después de 10 segundos
+  }, 30000); // oculta el loader después de 30 segundos
+
+  fillProgress();
 });
+
+function fillProgress() {
+  if (progressWidth >= 100) {
+    return;
+  }
+
+  progressWidth += 1;
+  progressBar.style.width = "${$progressWidth}%";
+  setTimeout(fillProgress, 300);
+}
 </script>
 
 

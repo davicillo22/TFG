@@ -66,38 +66,6 @@ def train_and_evaluate_models(X, y):
     
     print("Regresión lineal - RMSE:", lr_rmse, "R2:", lr_r2,  "Accuracy:", lr_accuracy, "Recall:", lr_recall)
     print("Árboles aleatorios - RMSE:", rf_rmse, "R2:", rf_r2, "Accuracy:", rf_accuracy, "Recall:", rf_recall)
-    # Gráficos de barras para visualizar las métricas
-    metrics = ['RMSE',  'R2', 'Accuracy', 'Recall']
-    lr_values = [lr_rmse, lr_r2, lr_accuracy, lr_recall]
-    rf_values = [rf_rmse, rf_r2, rf_accuracy, rf_recall]
-
-    x = np.arange(len(metrics))
-    width = 0.3
-
-    fig, ax = plt.subplots()
-    rects1 = ax.bar(x - width/2, lr_values, width, label='Regresión lineal')
-    rects2 = ax.bar(x + width/2, rf_values, width, label='Árboles aleatorios')
-
-    ax.set_ylabel('Valor')
-    ax.set_title('Métricas de evaluación (Validación cruzada)')
-    ax.set_xticks(x)
-    ax.set_xticklabels(metrics)
-    ax.legend()
-
-    # Función para agregar anotaciones de texto a las barras del gráfico
-    def autolabel(rects):
-        for rect in rects:
-            height = rect.get_height()
-            ax.annotate('{:.2f}'.format(height),
-                        xy=(rect.get_x() + rect.get_width() / 2, height),
-                        xytext=(0, 3),
-                        textcoords="offset points",
-                        ha='center', va='bottom')
-
-    autolabel(rects1)
-    autolabel(rects2)
-
-    plt.show()
 
 
 print(f"Modelos para TRBQ (Preoperatorio):")

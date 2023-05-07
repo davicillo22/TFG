@@ -38,6 +38,7 @@ def train_and_evaluate_models(X, y):
     print("Árboles aleatorios:", rf_scores)
 
 
+
     # Entrena los modelos antes de guardarlos
     lr_model.fit(X, y)
     rf_model.fit(X, y)
