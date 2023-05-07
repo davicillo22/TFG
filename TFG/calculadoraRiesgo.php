@@ -357,7 +357,7 @@ else{
     $contenidoPrincipal .= <<<EOS
 <div style="margin-left: 955px; display: flex;"><h3 style="font-size: 20px">Modelos actualizados</h3><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px; margin-top: 17px; margin-left: 5px;"></i></div>
 <div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
-<h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 30 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
+<h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
 </h4>
 </div>
 EOS;
@@ -503,7 +503,7 @@ algoritmosSelect2.addEventListener("change", function() {
     const usernameEl2 = document.querySelector("#username2");
 
     let i2 = 0;
-    let txt2 = `La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 30 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.`;
+    let txt2 = `La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.`;
     let speed2 = 15;
 
     function typeWriter2() {
