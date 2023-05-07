@@ -341,7 +341,7 @@ $contenidoPrincipal .= <<<EOS
     <button id="reentrenoButton" type="submit" class="$classEntreno" $disableEntreno>Reentrenar modelos</button>
 <div id="loader" style="display:none;"></div>
 </form>
-
+<div style="margin-left: 955px; display: flex;"><h3 style="font-size: 20px">Modelos actualizados</h3><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px; margin-top: 17px; margin-left: 5px;"></i></div>
 EOS;
 
 if($haEntrenado==false){
