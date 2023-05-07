@@ -32,11 +32,6 @@ else {
         $disableEntreno="disabled";
         $classEntreno="buttonExoticTrainDisabled";
     }
-    else{
-        $haEntrenado=false;
-        $disableEntreno="";
-        $classEntreno="buttonExoticTrain";
-    }
 }
 
 
@@ -319,19 +314,42 @@ $contenidoPrincipal .= <<<EOS
 EOS;
 
 if($haEntrenado==false){
-    $contenidoPrincipal .= <<<EOS
+    if($nhisFound=="true") {
+        $contenidoPrincipal .= <<<EOS
 <div class="cuadro-texto">
-<h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
+<h4 style="font-size: medium; text-align: left;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
 </div>
 EOS;
+    }
+    else{
+        $contenidoPrincipal .= <<<EOS
+        <div class="cuadro-texto">
+        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+
+        </h4>
+        </div>
+EOS;
+    }
 }
-else{
-    $contenidoPrincipal .= <<<EOS
-<div class="cuadro-texto">
-<h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.
-</h4>
-</div>
+if($haEntrenado==true){
+    if($nhisFound=="true") {
+        $contenidoPrincipal .= <<<EOS
+        <div class="cuadro-texto">
+        <h4 style="font-size: medium; text-align: left ;" > Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+
+        </h4>
+        </div>
 EOS;
+    }
+    else{
+        $contenidoPrincipal .= <<<EOS
+        <div class="cuadro-texto">
+        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+
+        </h4>
+        </div>
+EOS;
+    }
 }
 $contenidoPrincipal .= <<<EOS
 
@@ -347,20 +365,41 @@ $contenidoPrincipal .= <<<EOS
 EOS;
 
 if($haEntrenado==false){
-    $contenidoPrincipal .= <<<EOS
+    if($nhisFound=="true") {
+        $contenidoPrincipal .= <<<EOS
 <div class="cuadro-texto" style="height: 125px; margin-top: 40px; ">
 <h4 style="font-size: medium; text-align: left;" id="welcome-msg2"><span id="username2"><span id="cursor2"></span></span></h4>
 </div>
 EOS;
-}
-else{
-    $contenidoPrincipal .= <<<EOS
-<div style="margin-left: 955px; display: flex;"><h3 style="font-size: 20px">Modelos actualizados</h3><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px; margin-top: 17px; margin-left: 5px;"></i></div>
-<div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
-<h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
-</h4>
-</div>
+    }
+    else{
+        $contenidoPrincipal .= <<<EOS
+        <div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+        <h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
+        </h4>
+        </div>
 EOS;
+    }
+}
+if($haEntrenado==true){
+    if($nhisFound=="true") {
+        $contenidoPrincipal .= <<<EOS
+        <div style="margin-left: 955px; display: flex;"><h3 style="font-size: 20px">Modelos actualizados</h3><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px; margin-top: 17px; margin-left: 5px;"></i></div>
+        <div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+        <h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
+        </h4>
+        </div>
+EOS;
+    }
+    else{
+        $contenidoPrincipal .= <<<EOS
+        <div style="margin-left: 955px; display: flex;"><h3 style="font-size: 20px">Modelos actualizados</h3><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px; margin-top: 17px; margin-left: 5px;"></i></div>
+        <div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+        <h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 60 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
+        </h4>
+        </div>
+EOS;
+    }
 }
 $contenidoPrincipal .= <<<EOS
 
@@ -534,7 +573,7 @@ button.addEventListener('click', () => {
 
   setTimeout(function(){
     loader.style.display = 'none';
-  }, 50000); // oculta el loader después de 1 min
+  }, 52000); // oculta el loader después de 1 min
 
   fillProgress();
 });
@@ -549,7 +588,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 500);
+  setTimeout(fillProgress, 520);
 }
 </script>
 
