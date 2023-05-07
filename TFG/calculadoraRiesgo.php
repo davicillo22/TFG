@@ -345,7 +345,7 @@ EOS;
 
 if($haEntrenado==false){
     $contenidoPrincipal .= <<<EOS
-<div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+<div class="cuadro-texto" style="height: 125px; margin-top: 40px; ">
 <h4 style="font-size: medium; text-align: left;" id="welcome-msg2"><span id="username2"><span id="cursor2"></span></span></h4>
 </div>
 EOS;
