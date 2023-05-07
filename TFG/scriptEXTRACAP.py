@@ -36,38 +36,7 @@ def train_and_evaluate_models(X, y):
     
     print("Regresión logística:", lr_scores)
     print("Árboles aleatorios:", rf_scores)
-    
-    # Gráficos de barras para visualizar las métricas
-    metrics = ['F1', 'Recall', 'Precision', 'Accuracy']
-    lr_values = [lr_scores['f1'], lr_scores['recall'], lr_scores['precision'], lr_scores['accuracy']]
-    rf_values = [rf_scores['f1'], rf_scores['recall'], rf_scores['precision'], rf_scores['accuracy']]
 
-    x = np.arange(len(metrics))
-    width = 0.3
-
-    fig, ax = plt.subplots()
-    rects1 = ax.bar(x - width/2, lr_values, width, label='Regresión logística')
-    rects2 = ax.bar(x + width/2, rf_values, width, label='Árboles aleatorios')
-
-    ax.set_ylabel('Valor')
-    ax.set_title('Métricas de evaluación EXTRACAP (Validación cruzada)')
-    ax.set_xticks(x)
-    ax.set_xticklabels(metrics)
-    ax.legend()
-
-    def autolabel(rects):
-        for rect in rects:
-            height = rect.get_height()
-            ax.annotate('{:.2f}'.format(height),
-                        xy=(rect.get_x() + rect.get_width() / 2, height),
-                        xytext=(0, 3),
-                        textcoords="offset points",
-                        ha='center', va='bottom')
-
-    autolabel(rects1)
-    autolabel(rects2)
-
-    plt.show()
 
     # Entrena los modelos antes de guardarlos
     lr_model.fit(X, y)

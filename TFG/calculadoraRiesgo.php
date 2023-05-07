@@ -5,16 +5,38 @@ require_once __DIR__.'/includes/usuarios.php';
 $tituloPagina = 'Calculadora';
 
 
+$disableEntreno="";
+$classEntreno="buttonExoticTrain";
+$haEntrenado=false;
+
 //Check NHIS
-
-
-
 if (empty($_GET["nhisFound"])) {
     $nhisFound="true";
 }
 else {
     $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : "true";
 }
+
+if (!isset($_GET["haEntrenado"])) {
+    $disableEntreno="";
+    $classEntreno="buttonExoticTrain";
+    $haEntrenado=false;
+}
+else {
+    //check Entrenamiento Completadoç
+    if($_GET["haEntrenado"]=="true"){
+        $haEntrenado=true;
+        $disableEntreno="disabled";
+        $classEntreno="buttonExoticTrainDisabled";
+    }
+    else{
+        $haEntrenado=false;
+        $disableEntreno="";
+        $classEntreno="buttonExoticTrain";
+    }
+}
+
+
 $textoBusqueda = "Introduce el NHIS";
 $displayDiv="none";
 $colorSearch = "gray";
@@ -86,7 +108,7 @@ $contenidoPrincipal = <<<EOS
    <table class="formula">
     <tr>
         <td>FECHACIR:</td>
-        <td><input type="date" min="1990-01-01" max='$textoFecha' name="fechacir" /></td>
+        <td><input type="date"  min="1990-01-01" max='$textoFecha' value='2017-01-01' name="fechacir"  required /></td>
         <td>EDAD:</td>
         <td><input type="number" min="0" max="120" name="edad" /></td>
     </tr>
@@ -219,7 +241,7 @@ $contenidoPrincipal = <<<EOS
     </tr>
     <tr>
         <td>FECHAFIN:</td>
-        <td><input type="date" name="fechafin" min="1990-01-01" max='$textoFecha' /></td>
+        <td><input type="date" name="fechafin" min="1990-01-01" max='$textoFecha' value='$textoFecha' required /></td>
         <td>FALLEC:</td>
         <td><input type="number" min="1" max="2" name="fallec"  /></td>
     </tr>
@@ -262,7 +284,7 @@ $contenidoPrincipal = <<<EOS
     </tr>
 </table>
         <div class="center-div">
-        <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;" >
+          <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;" >
             <option value="" disabled selected>Selecciona un algoritmo</option>
             <option value="algoritmo1">Arboles aleatorios</option>
             <option value="regresion">Regresión logística</option>
@@ -278,7 +300,9 @@ $contenidoPrincipal = <<<EOS
             <option value="rbqPost" class="cox">Rbq post</option>
           </select>
         </div>
-      <input type="submit" name="Calcular" class="buttonExotic" style="width: 140px; margin-left:42%;" value= "Calcular"/>
+EOS;
+$contenidoPrincipal .= <<<EOS
+      <input type="submit" name="Calcular" class="buttonExotic" style="width: 140px; margin-left:42%;" value= "Calcular" />
     </form>
 </div>
 
@@ -289,10 +313,54 @@ $contenidoPrincipal = <<<EOS
 <div style="position: relative; margin-left: 25%; font-weight: bolder;">
     <p style="font-weight: bolder;">Información:</p>
 </div>
+EOS;
 
+if($haEntrenado==false){
+    $contenidoPrincipal .= <<<EOS
 <div class="cuadro-texto">
-    <h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
+<h4 style="font-size: medium; text-align: left ;" id="welcome-msg"><span id="username"><span id="cursor"></span></span></h4>
 </div>
+EOS;
+}
+else{
+    $contenidoPrincipal .= <<<EOS
+<div class="cuadro-texto">
+<h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.
+</h4>
+</div>
+EOS;
+}
+$contenidoPrincipal .= <<<EOS
+
+<div id="loader">
+<div class="loader"></div>
+</div>
+
+<form action="calculadoraRiesgo.php" method="get">
+    <input type="hidden" name="haEntrenado" value="true">
+    <button id="reentrenoButton" type="submit" class="$classEntreno" $disableEntreno>Reentrenar modelos</button>
+<div id="loader" style="display:none;"></div>
+</form>
+
+EOS;
+
+if($haEntrenado==false){
+    $contenidoPrincipal .= <<<EOS
+<div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+<h4 style="font-size: medium; text-align: left;" id="welcome-msg2"><span id="username2"><span id="cursor2"></span></span></h4>
+</div>
+EOS;
+}
+else{
+    $contenidoPrincipal .= <<<EOS
+<div class="cuadro-texto" style="height: 125px; margin-top: 40px;">
+<h4 style="font-size: medium; text-align: left ;" >La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 30 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.
+</h4>
+</div>
+EOS;
+}
+$contenidoPrincipal .= <<<EOS
+
 <div class="invisible-div"></div>
 <script>
   const botonNhis = document.getElementById("botonNhis");
@@ -361,7 +429,7 @@ $contenidoPrincipal = <<<EOS
       variablesSelect.removeAttribute("disabled");
     }
   }
-  
+  variablesSelect.value = "Extracap";
   if (selectedValue === "algoritmo1" || selectedValue === "regresion") {
     document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
       option.classList.remove("hidden");
@@ -390,7 +458,7 @@ algoritmosSelect2.addEventListener("change", function() {
       variablesSelect2.removeAttribute("disabled");
     }
   }
-  
+  variablesSelect2.value= "extracap";
   if (selectedValue2 === "algoritmo1" || selectedValue2 === "regresion") {
     document.querySelectorAll(".algoritmo1, .regresion").forEach(option => {
       option.classList.remove("hidden");
@@ -426,6 +494,47 @@ algoritmosSelect2.addEventListener("change", function() {
         typeWriter();
     }, 1000);
 </script>
+
+<script>
+    const welcomeMsg2 = document.querySelector("#welcome-msg2");
+    const usernameEl2 = document.querySelector("#username2");
+
+    let i2 = 0;
+    let txt2 = `La opción "Reentrenar Modelos" permite al usuario regenerar los modelos con los que trabaja la calculadora. Esto lo hace actualizándola a partir de los últimos pacientes que se han añadido a través de la aplicación. Es un proceso que tarda unos 30 segundos debido a que son un total de 10 modelos los que se están actualizando, rogamos paciencia.`;
+    let speed2 = 15;
+
+    function typeWriter2() {
+        if (i2 < txt2.length) {
+            usernameEl2.textContent += txt2.charAt(i2);
+            i2++;
+            setTimeout(typeWriter2, speed2);
+        }
+    }
+
+    setTimeout(() => {
+        welcomeMsg2.classList.add("show");
+        typeWriter2();
+    }, 1000);
+</script>
+
+
+<script>
+const button = document.getElementById('reentrenoButton');
+const loader = document.getElementById('loader');
+
+button.addEventListener('click', () => {
+  loader.style.display = 'block';
+  loader.className += " show"; // muestra el loader
+
+  // Aquí va el código que se ejecutará al pulsar el botón
+  setTimeout(function(){
+    loader.className = loader.className.replace(" show","");
+    loader.style.display = 'none';
+  }, 10000); // oculta el loader después de 10 segundos
+});
+</script>
+
+
 <style>
   .hidden {
     display: none;
@@ -433,5 +542,17 @@ algoritmosSelect2.addEventListener("change", function() {
 </style>
 
 EOS;
+
+//Check Entrenamiento
+if(isset($_GET["haEntrenado"])){
+    if($_GET["haEntrenado"]=="true"){
+        //Regenerar modelos
+        shell_exec("python scriptEXTRACAP.py");
+        //  shell_exec("python scriptMARGEN.py");
+        //  shell_exec("python scriptTNM2.py");
+        //   shell_exec("python scriptVVSS.py");
+        //  shell_exec("python scriptTRBQ.py");
+    }
+}
 
 require __DIR__.'/includes/layout.php';

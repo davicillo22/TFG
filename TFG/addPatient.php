@@ -29,7 +29,7 @@ EOS;
 
 }
 $textoFecha= date('Y-m-d');
-
+$fechaMin="1990-01-01";
 $contenidoPrincipal.= <<<EOS
 
 
@@ -43,7 +43,7 @@ $contenidoPrincipal.= <<<EOS
         
             <tr>
             <td>FECHACIR:</td>
-            <td><input type="date"  min="1990-01-01" max='$textoFecha' value='$textoFecha' name="fechacir"  required /></td>
+            <td><input type="date"  min="1990-01-01" max='$textoFecha' value='2017-01-01' name="fechacir"  required /></td>
             </tr>
              
             
@@ -90,7 +90,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>PSAPRE:</td>
-            <td><input type="number" min="0" max="999" step="any" name="psapre" /></td>
+            <td><input type="number" min="0" max="300" step="any" name="psapre" /></td>
             </tr>
             
             <tr>
@@ -100,7 +100,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>TDUPPRE:</td>
-            <td><input type="number" min="0" max="999" step="any" name="tduppre" /></td>
+            <td><input type="number" min="0" max="300" step="any" name="tduppre" /></td>
             </tr>
             
             <tr>
@@ -110,7 +110,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>NBIOPSIA:</td>
-            <td><input type="number" min="0" max="999" name="nbiopsia" /></td>
+            <td><input type="number" min="0" max="300" name="nbiopsia" /></td>
             </tr>
             
             <tr>
@@ -230,7 +230,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>PSAPOS:</td>
-            <td><input type="number" min="0" max="999" step="any" name="psapos" /></td>
+            <td><input type="number" min="0" max="300" step="any" name="psapos" /></td>
             </tr>
             
             <tr>
@@ -240,7 +240,7 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>RTPMES:</td>
-            <td><input type="number" min="0" max="999" name="rtpmes" /></td>
+            <td><input type="number" min="0" max="300" name="rtpmes" /></td>
             </tr>
             
             <tr>
@@ -250,17 +250,17 @@ $contenidoPrincipal.= <<<EOS
             
             <tr>
             <td>TRBQ:</td>
-            <td><input type="number" min="0" max="999" name="trbq" /></td>
+            <td><input type="number" min="0" max="300" name="trbq" /></td>
             </tr>
             
             <tr>
             <td>TDUPLI:</td>
-            <td><input type="number" min="0" max="999" name="tdupli" step="any" /></td>
+            <td><input type="number" min="0" max="300" name="tdupli" step="any" /></td>
             </tr>
             
             <tr>
             <td>T1MTX:</td>
-            <td><input type="number" min="0" max="999" name="t1mtx" /></td>
+            <td><input type="number" min="0" max="300" name="t1mtx" /></td>
             </tr>
             
             <tr>

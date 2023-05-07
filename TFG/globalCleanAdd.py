@@ -3,7 +3,7 @@ from datetime import datetime, date
 import numpy as np
 
 # Leer el archivo CSV
-data = pd.read_csv('dataPatientPREV.csv')
+data = pd.read_csv('dataPatientAdd.csv')
 # Lee el archivo CSV
 df = pd.read_csv('data.csv')
 
@@ -88,4 +88,4 @@ for column in missing_columns:
 
 
 #DATA_PATIENT LIMPIEZA GLOBAL
-data.to_csv("dataPatient.csv", index=False)
+data.to_csv("dataPatientNew.csv", index=False)
