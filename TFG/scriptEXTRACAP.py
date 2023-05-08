@@ -18,6 +18,24 @@ selected_features_post = ['EDAD', 'PSAPRE', 'PSALT', 'TDUPPRE','VOLUMEN', 'PSAPO
 X_train_post = X_train[selected_features_post]
 X_test_post = X_test[selected_features_post]
 
+one_hot_groups_post = [
+    ['OBESO_0', 'OBESO_1', 'OBESO_2', 'OBESO_3'],
+    ['TABACO_0', 'TABACO_1', 'TABACO_2', 'TABACO_3', 'TABACO_4', 'TABACO_5'],
+    ['TACTOR_1', 'TACTOR_2', 'TACTOR_3'],
+    ['GLEASON2_1', 'GLEASON2_2', 'GLEASON2_3', 'GLEASON2_4', 'GLEASON2_5'],
+    ['LOCALIZ_1', 'LOCALIZ_2', 'LOCALIZ_3', 'LOCALIZ_4'],
+    ['TNM2_1', 'TNM2_2', 'TNM2_3', 'TNM2_5'],
+    ['PTEN_0', 'PTEN_1', 'PTEN_2'],
+    ['KI_67_0', 'KI_67_1', 'KI_67_2']
+]
+
+def remove_dummy_variable_trap(X, one_hot_groups):
+    to_drop = [group[0] for group in one_hot_groups]
+    return X.drop(to_drop, axis=1)
+
+X_train_post = remove_dummy_variable_trap(X_train_post, one_hot_groups_post)
+X_test_post = X_test_post[X_train_post.columns]
+
 def train_and_evaluate_models(X, y):
     # Modelos de clasificación
     lr_model = LogisticRegression(random_state=42, max_iter=1000)
@@ -33,22 +51,35 @@ def train_and_evaluate_models(X, y):
     for metric, scorer in scorers.items():
         lr_scores[metric] = cross_val_score(lr_model, X, y, cv=5, scoring=scorer).mean()
         rf_scores[metric] = cross_val_score(rf_model, X, y, cv=5, scoring=scorer).mean()
-    
-    print("Regresión logística:", lr_scores)
-    print("Árboles aleatorios:", rf_scores)
-
 
 
     # Entrena los modelos antes de guardarlos
     lr_model.fit(X, y)
     rf_model.fit(X, y)
 
+    # Crear un diccionario que contenga el modelo y las métricas
+    lr_results = {
+        'model': lr_model,
+        'precision': lr_scores['precision'],
+        'recall': lr_scores['recall'],
+        'f1_score': lr_scores['f1'],
+        'accuracy': lr_scores['accuracy']
+    }
+
+    rf_results = {
+        'model': rf_model,
+        'precision': rf_scores['precision'],
+        'recall': rf_scores['recall'],
+        'f1_score': rf_scores['f1'],
+        'accuracy': rf_scores['accuracy']
+    }
+
     # Guardar los modelos entrenados
     with open('lr_extracap.pickle', 'wb') as f:
-        pickle.dump(lr_model, f)
+        pickle.dump(lr_results, f)
 
     with open('rf_extracap.pickle', 'wb') as f:
-        pickle.dump(rf_model, f)
+        pickle.dump(rf_results, f)
 
 print(f"Modelos para EXTRACAP (Postoperatorio):")
 train_and_evaluate_models(X_train_post, y_train)

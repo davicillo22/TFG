@@ -63,7 +63,7 @@ X_test_pre = X_test_pre[X_train_pre.columns]
 X_train_post = remove_dummy_variable_trap(X_train_post, one_hot_groups_post)
 X_test_post = X_test_post[X_train_post.columns]
 
-def train_and_evaluate_survival_model(X_train, X_test):
+def train_and_evaluate_survival_model(X_train, X_test, esPre):
     cph = CoxPHFitter(penalizer=0.1)
     cph.fit(X_train, duration_col='duration', event_col='event')
 
@@ -71,27 +71,44 @@ def train_and_evaluate_survival_model(X_train, X_test):
 
     # Calcular y mostrar la concordancia
     concordance = cph.score(X_test, scoring_method='concordance_index')
-    print("Concordancia:", concordance)
 
     # Calcular el Partial AIC
     partial_aic = cph.AIC_partial_
-    print("Partial AIC:", partial_aic)
 
     # Calcular el Log-likelihood ratio test
     ll_ratio_test = cph.log_likelihood_ratio_test()
-    print("Log-likelihood ratio test:", ll_ratio_test)
+    log_likelihood_ratio_value = ll_ratio_test.test_statistic
+    
+    # Crear un diccionario que contenga el modelo y las métricas
+    results={}
+    if (esPre):
+        results = {
+        'model': cph,
+        'concordancia': concordance,
+        'partialAIC': partial_aic,
+        'logRatio': log_likelihood_ratio_value
+        
+    }
+    else:
+        results = {
+        'model': cph,
+        'concordancia': concordance,
+        'partialAIC': partial_aic,
+        'logRatio': log_likelihood_ratio_value
+    }
 
-    return cph
+    return results
 
 print("Entrenando modelo para TRBQ (Preoperatorio):")
-cph_pre = train_and_evaluate_survival_model(X_train_pre, X_test_pre)
+results_pre = train_and_evaluate_survival_model(X_train_pre, X_test_pre, True)
 
 print("Entrenando modelo para TRBQ (Postoperatorio):")
-cph_post = train_and_evaluate_survival_model(X_train_post, X_test_post)
+results_post = train_and_evaluate_survival_model(X_train_post, X_test_post, False)
+
 
 # Guardar los modelos entrenados
 with open('cph_pre.pickle', 'wb') as f:
-    pickle.dump(cph_pre, f)
+    pickle.dump(results_pre, f)
 
 with open('cph_post.pickle', 'wb') as f:
-    pickle.dump(cph_post, f)
+    pickle.dump(results_post, f)
