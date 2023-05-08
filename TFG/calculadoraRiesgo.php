@@ -573,7 +573,7 @@ button.addEventListener('click', () => {
 
   setTimeout(function(){
     loader.style.display = 'none';
-  }, 54000); // oculta el loader después de 1 min
+  }, 105000); // oculta el loader después de 1 min
 
   fillProgress();
 });
@@ -588,7 +588,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 540);
+  setTimeout(fillProgress, 1050);
 }
 </script>
 
@@ -605,11 +605,11 @@ EOS;
 if(isset($_GET["haEntrenado"])){
     if($_GET["haEntrenado"]=="true"){
         //Regenerar modelos
-        shell_exec("python scriptEXTRACAP.py");
-        shell_exec("python scriptMARGEN.py");
-        shell_exec("python scriptTNM2.py");
-        shell_exec("python scriptVVSS.py");
-        shell_exec("python TRBQcox.py");
+        exec("python scriptEXTRACAP.py");
+        exec("python scriptMARGEN.py");
+        exec("python scriptTNM2.py");
+        exec("python scriptVVSS.py");
+        exec("python TRBQcox.py");
     }
 }
 
