@@ -13,12 +13,16 @@ $conn = mysqli_connect("localhost", "root", "", "bbdd");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+$doneModificado = isset($_GET["doneModificado"]) ? $_GET["doneModificado"] : "empty";
+
 $hayResultado=true;
 $contenidoPrincipal="<h2 style='margin-left: 35%'>Modifica los datos que desees</h2>";
 
 
 $id = $_GET["id"];
+
 if($id==null){
+
     header('location: tablaPacientes.php');
 
 }
@@ -29,7 +33,34 @@ $result = mysqli_query($conn, $sql);
 
 
 $tabla = "";
+if($doneModificado=="true"){
+    $noerror="true";
+    $tabla.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3>Paciente modificado</h3>
+  <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
+  <button class="buttonExoticTable" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
+</div>
+
+EOS;
+
+}
+if($doneModificado=="false") {
+    $tabla.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3>Ha ocurrido un error al modificar paciente</h3>
+  <button class="buttonExoticTable" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
+</div>
+EOS;
+}
 $tabla.=<<<EOS
+
 <div style="width: 50%; overflow-x: scroll; overflow-y: hidden; margin: 0 auto; border: 1px solid black; margin-top: 2%; font-size: large;">
 EOS;
 
@@ -197,6 +228,8 @@ if (mysqli_num_rows($result) > 0) {
 </div>
 </div>
 </form>
+
+
 <link rel="stylesheet" href="css/tableStyle.css">
 EOS;
     }
@@ -209,8 +242,51 @@ EOS;
 
 // Close the connection
 mysqli_close($conn);
+$tabla.= <<<EOS
+<script>
+const overlay = document.getElementById('overlay');
+const dialog = document.getElementById('my-dialog');
+const closeButton = document.getElementById('close-dialog');
+
+// Abre el diálogo y muestra la capa oscura
+function openDialog() {
+  overlay.style.display = 'block';
+  dialog.showModal();
+}
+// Cierra el diálogo y oculta la capa oscura
+function closeDialog() {
+  overlay.style.display = 'none';
+  dialog.close();
+}
+
+closeButton.addEventListener('click', closeDialog)
+openDialog();
+</script>
+EOS;
 
 $contenidoPrincipal .= $tabla;
+$contenidoPrincipal.= <<<EOS
+<script>
+const overlay = document.getElementById('overlay');
+const dialog = document.getElementById('my-dialog');
+const closeButton = document.getElementById('close-dialog');
+
+// Abre el diálogo y muestra la capa oscura
+function openDialog() {
+  overlay.style.display = 'block';
+  dialog.showModal();
+}
+// Cierra el diálogo y oculta la capa oscura
+function closeDialog() {
+  overlay.style.display = 'none';
+  dialog.close();
+}
+
+closeButton.addEventListener('click', closeDialog)
+openDialog();
+</script>
+EOS;
+
 
 
 require __DIR__.'/includes/layout.php';

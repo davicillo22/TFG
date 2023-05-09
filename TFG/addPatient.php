@@ -7,13 +7,14 @@ require_once __DIR__ . '/includes/usuarios.php';
 $tituloPagina = 'Añadir Paciente';
 unset($_SESSION["filtros"]);
 unset($_SESSION["condiciones"]);
+
 $noerror ="true";
 if (!empty($_GET["noerror"])) {
     $noerror=$_GET["noerror"];
 }
-else{
-    $done = isset($_GET["done"]) ? $_GET["done"] : "false";
-}
+
+    $done = isset($_GET["done"]) ? $_GET["done"] : "empty";
+
 
 
 
@@ -39,6 +40,18 @@ if($done=="true"){
 <dialog id="my-dialog">
   <h3>Paciente añadido</h3>
   <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
+  <button class="buttonExotic" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
+</div>
+EOS;
+
+}
+if($done=="false"){
+    $contenidoPrincipal.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3>Ha ocurrido un error al añadir paciente</h3>
   <button class="buttonExotic" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
 </dialog>
 </div>

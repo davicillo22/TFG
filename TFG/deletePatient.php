@@ -8,10 +8,12 @@ $tituloPagina = 'Search-Patient';
 
 // Connect to the database
 $conn = mysqli_connect("localhost", "root", "", "bbdd");
-
+$doneBorrado="true";
 // Check the connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
+    $doneBorrado="false";
+    header("Location: tablaPacientes.php?doneBorrado=$doneBorrado");
 }
 
 
@@ -21,6 +23,9 @@ $sql = "DELETE FROM patients WHERE NHIS = $id";
 
 $result = mysqli_query($conn, $sql);
 
+// Close the connection
+mysqli_close($conn);
+header("Location: tablaPacientes.php?doneBorrado=$doneBorrado");
 
 $tabla = "";
 
@@ -28,8 +33,7 @@ $tabla = "";
 $tabla = "<h1>Paciente eliminado de la base de datos</h1>";
 $tabla .= "<a href='tablaPacientes.php' class='btn btn-success btn-lg'>Volver</a>";
 
-// Close the connection
-mysqli_close($conn);
+
 
 $contenidoPrincipal = $tabla;
 $contenidoPrincipal .= "</div>";

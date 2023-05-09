@@ -8,12 +8,20 @@ require_once __DIR__ . '/includes/usuarios.php';
 $tituloPagina = 'Patient Table';
 error_reporting(1);
 
-if (empty($_GET)) {
+if (empty($_GET["nhisFound"])) {
     $nhisFound=true;
 }
 else {
     $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : true;
 }
+
+$noerror ="true";
+if (!empty($_GET["noerror"])) {
+    $noerror=$_GET["noerror"];
+}
+
+    $doneBorrado = isset($_GET["doneBorrado"]) ? $_GET["doneBorrado"] : "empty";
+
 
 $disableFiltrar=false;
 $disableAgregar=true;
@@ -182,8 +190,37 @@ $nueva_consulta = str_ireplace("or", "o", $nueva_consulta2);
 
 EOS;
 
+if($doneBorrado=="true"){
+    $noerror="true";
+    $contenidoPrincipal.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3 style="margin-left: 21px;">Paciente borrado</h3>
+  <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
+  <button class="buttonExoticTable"  style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
 
-    $addPatientButton = "<div style='width: 1500px; height: 60px; overflow: auto; margin: 0 auto; margin-top: 15px;'>
+EOS;
+
+}
+else if($doneBorrado=="false"){
+    $contenidoPrincipal.= <<<EOS
+<div id="dialog-wrapper">
+<div id="overlay"></div>
+<dialog id="my-dialog">
+  <h3>Ha ocurrido un error al borrar paciente</h3>
+  <button class="buttonExoticTable" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
+</dialog>
+</div>
+EOS;
+
+
+}
+
+
+
+    $addPatientButton = " <link rel='stylesheet' href='css/tableStyle.css'> <div style='width: 1500px; height: 60px; overflow: auto; margin: 0 auto; margin-top: 15px;'>
     <a class='btn btn-success btn-lg' href='addPatient.php'>Add Patient</a>
 </div>";
 
@@ -217,6 +254,7 @@ EOS;
 // Check if the query was successful
     if (mysqli_num_rows($result) > 0) {
         $tabla .= <<<EOS
+        <link rel="stylesheet" href="css/tableStyle.css">
         <div style="width: 1500px; height: 466px; overflow: auto; margin: 0 auto; margin-top: 80px; outline: 3px solid black;">
         EOS;
         $tabla .= "<table style='font-size: 16px'>";
@@ -363,6 +401,25 @@ EOS;
 
 
 </div>
+<script>
+const overlay = document.getElementById('overlay');
+const dialog = document.getElementById('my-dialog');
+const closeButton = document.getElementById('close-dialog');
+
+// Abre el diálogo y muestra la capa oscura
+function openDialog() {
+  overlay.style.display = 'block';
+  dialog.showModal();
+}
+// Cierra el diálogo y oculta la capa oscura
+function closeDialog() {
+  overlay.style.display = 'none';
+  dialog.close();
+}
+
+closeButton.addEventListener('click', closeDialog)
+openDialog();
+</script>
 </body>
 EOS;
 

@@ -6,10 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="Re Train">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculadoraRiesgo.php" beforeDir="false" afterPath="$PROJECT_DIR$/calculadoraRiesgo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/addPatient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cph_post.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_post.pickle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cph_pre.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_pre.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/tableStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tableStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientAdd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientAdd.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deletePatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/deletePatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/editPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_vvss.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarAddPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarAddPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesarEditPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarEditPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_vvss.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tablaPacientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/tablaPacientes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,22 +58,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/TFGit/TFG/css&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/TFGit/TFG/css",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "watcher.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\TFGit\TFG\css" />
@@ -131,14 +147,8 @@
       <workItem from="1683294387909" duration="655000" />
       <workItem from="1683453580668" duration="26347000" />
       <workItem from="1683490983141" duration="386000" />
-      <workItem from="1683494090216" duration="10416000" />
-    </task>
-    <task id="LOCAL-00012" summary="NOSE">
-      <created>1676048945214</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1676048945214</updated>
+      <workItem from="1683494090216" duration="14390000" />
+      <workItem from="1683639568162" duration="4901000" />
     </task>
     <task id="LOCAL-00013" summary="NOSE">
       <created>1676048979160</created>
@@ -476,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683574640122</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Re Train">
+      <created>1683586357025</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1683586357025</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
