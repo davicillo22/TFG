@@ -573,7 +573,7 @@ button.addEventListener('click', () => {
 
   setTimeout(function(){
     loader.style.display = 'none';
-  }, 32000); // oculta el loader después de 32s
+  }, 31000); // oculta el loader después de 32s
 
   fillProgress();
 });
@@ -588,7 +588,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 320);
+  setTimeout(fillProgress, 310);
 }
 </script>
 

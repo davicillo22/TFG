@@ -23,10 +23,10 @@ new_patient_post = new_patient_post[selected_features_post]
 rbq_5_years_post, rbq_10_years_post = predict_rbq_probabilities(cph, new_patient_post)
 
 result = {
-    "rbq_5_years_pre": rbq_5_years_post,
-    "rbq_10_years_pre": rbq_10_years_post,
+    "rbq_5_years_post": rbq_5_years_post,
+    "rbq_10_years_post": rbq_10_years_post,
 
-    "concordancia": cphDic['concordancia'],
+    "concordance": cphDic['concordancia'],
     "partialAIC": cphDic['partialAIC'],
     "logRatio": cphDic['logRatio']
 }

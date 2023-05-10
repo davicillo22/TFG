@@ -49,20 +49,20 @@ if($algoritmo == 'cox'){
         $textoVariable="RBQ (pre-operatorio)";
         $rbq_5_years_pre = $_GET['prob1'];
         $rbq_10_years_pre = $_GET['prob2'];
-        $concordance="77%";
-        $partialAIC="172.69";
-        $loglikelihoodratiotest="9.83 on 30 df";
+        $concordance=$_GET['concordance'];
+        $partialAIC=$_GET['partialAIC'];
+        $loglikelihoodratiotest=$_GET['logRatio'] . " on 30 df";
 
         ?>
 
         <?php
     }else if($variable == 'rbqPost'){
+        $textoVariable="RBQ (post-operatorio)";
         $rbq_5_years_post = $_GET['prob1'];
         $rbq_10_years_post = $_GET['prob2'];
-        $concordance="93%";
-        $partialAIC="193.67";
-        $loglikelihoodratiotest="30.85 on 51 df";
-        $textoVariable="RBQ (post-operatorio)";
+        $concordance=$_GET['concordance'];
+        $partialAIC=$_GET['partialAIC'];
+        $loglikelihoodratiotest=$_GET['logRatio'] . " on 51 df";
         ?>
 
         <?php
@@ -70,78 +70,37 @@ if($algoritmo == 'cox'){
 }else{
     if ($variable == 'extracap') {
         $textoVariable="Extensión extracapsular";
-        if ($algoritmo == 'regresion') {
-            $lr_probability = $_GET['prob1'];
-            $f1="79%";
-            $recall="77%";
-            $precision="86%";
-            $accuracy="92%";
 
-            ?>
-
-            <?php
-        } else {
-            $rf_probability = $_GET['prob1'];
-            $f1="90%";
-            $recall="88%";
-            $precision="93%";
-            $accuracy="96%";?>
-        <?php
-        }
     }else if ($variable == 'margen') {
         $textoVariable="Márgenes positivos";
-        if ($algoritmo == 'regresion') {
-            $f1="81%";
-            $recall="76%";
-            $precision="85%";
-            $accuracy="92%";?>
-            <?php
-        }else {
-            $f1="64%";
-            $recall="58%";
-            $precision="76%";
-            $accuracy="84%";?>
-            <?php
-        }
+
     }else if ($variable == 'tnm2') {
         $textoVariable="Estadios localizados";
-        if ($algoritmo == 'regresion') {
-            $lr_probability = $_GET['prob1'];
-            $f1="95%";
-            $recall="96%";
-            $precision="96%";
-            $accuracy="95%";?>
 
-            <?php
-        }else {
-            $rf_probability = $_GET['prob1'];
-            $f1="97%";
-            $recall="96%";
-            $precision="96%";
-            $accuracy="97%";?>
-
-            <?php
-        }
     } else if ($variable == 'vvss') {
         $textoVariable="Invasión de vesículas";
-        if ($algoritmo == 'regresion') {
-            $lr_probability = $_GET['prob1'];
-            $f1="68%";
-            $recall="72%";
-            $precision="67%";
-            $accuracy="92%";?>
 
-            <?php
+    }
 
-        }else {
-            $rf_probability = $_GET['prob1'];
-            $f1="50%";
-            $recall="43%";
-            $precision="64%";
-            $accuracy="91%";?>
+    if ($algoritmo == 'regresion') {
+        $lr_probability = $_GET['prob1'];
+        $f1=$_GET['f1LR'];
+        $recall=$_GET['recallLR'];
+        $precision=$_GET['precisionLR'];
+        $accuracy=$_GET['accuracyLR'];
+        ?>
 
-            <?php
-        }
+        <?php
+
+    }else {
+        $rf_probability = $_GET['prob1'];
+        $f1=$_GET['f1RF'];
+        $recall=$_GET['recallRF'];
+        $precision=$_GET['precisionRF'];
+        $accuracy=$_GET['accuracyRF'];
+        ?>
+
+        <?php
     }
 }
 ?>
@@ -172,7 +131,7 @@ if($algoritmo == 'cox'){
         </div>
         <div class="back">
             <div class="section" style="height: 23%; font-size: 29px;">
-                Concordance: <?php echo $concordance;?>
+                Concordance: <?php echo $concordance . "%" ;?>
             </div>
             <div class="section" style="height: 23%">
                 Partial AIC: <?php echo $partialAIC;?>
@@ -210,16 +169,16 @@ else{?>
     </div>
     <div class="back">
         <div class="section">
-            F1: <?php echo $f1;?>
+            F1: <?php echo $f1 . "%" ;?>
         </div>
         <div class="section">
-            Recall: <?php echo $recall;?>
+            Recall: <?php echo $recall . "%" ;?>
         </div>
         <div class="section">
-            Precision: <?php echo $precision;?>
+            Precision: <?php echo $precision . "%" ;?>
         </div>
         <div class="section">
-            Accuracy: <?php echo $accuracy;?>
+            Accuracy: <?php echo $accuracy . "%" ;?>
         </div>
         <div class="bottom" style="height: 35%">
             <button id="verPrediccion" class="buttonExotic">Ver predicción</button>
@@ -238,20 +197,20 @@ else{?>
 <div class="center-div">
     <a href='calculadoraRiesgo.php' class='btn btn-success btn-lg' style=';margin-bottom:5%;'>Volver</a>
     <form action="generatePdfCalculadora.php" target="_blank"method="post" id="myForm">
-        <input type="hidden" name="f1" value="<?php echo isset($f1) ? $f1 : '' ?>">
-        <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall : '' ?>">
-        <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision : '' ?>">
-        <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy : '' ?>">
-        <input type="hidden" name="concordance" value="<?php echo isset($concordance) ? $concordance : '' ?>">
+        <input type="hidden" name="f1" value="<?php echo isset($f1) ? $f1 . "%" : '' ?>">
+        <input type="hidden" name="recall" value="<?php echo isset($recall) ? $recall . "%"  : '' ?>">
+        <input type="hidden" name="precision" value="<?php echo isset($precision) ? $precision . "%"  : '' ?>">
+        <input type="hidden" name="accuracy" value="<?php echo isset($accuracy) ? $accuracy . "%"  : '' ?>">
+        <input type="hidden" name="concordance" value="<?php echo isset($concordance) ? $concordance . "%"  : '' ?>">
         <input type="hidden" name="partialAIC" value="<?php echo isset($partialAIC) ? $partialAIC : '' ?>">
         <input type="hidden" name="loglikelihoodratiotest" value="<?php echo isset($loglikelihoodratiotest) ? $loglikelihoodratiotest : '' ?>">
-        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? strval(round($lr_probability, 2)) . "%" : '' ?>">
-        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? strval(round($rf_probability, 2)) . "%" : '' ?>">
+        <input type="hidden" name="lr_probability" value="<?php echo isset($lr_probability) ? $lr_probability . "%" : '' ?>">
+        <input type="hidden" name="rf_probability" value="<?php echo isset($rf_probability) ? $rf_probability . "%" : '' ?>">
         <input type="hidden" name="textoVariable" value="<?php echo isset($textoVariable) ? $textoVariable : '' ?>">
-        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? strval(round($rbq_5_years_post, 2)) . "%" : '' ?>">
-        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? strval(round($rbq_10_years_post, 2)) . "%" : '' ?>">
-        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? strval(round($rbq_5_years_pre, 2)) . "%" : '' ?>">
-        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? strval(round($rbq_10_years_pre, 2)) . "%" : '' ?>">
+        <input type="hidden" name="rbq_5_years_post" value="<?php echo isset($rbq_5_years_post) ? $rbq_5_years_post . "%" : '' ?>">
+        <input type="hidden" name="rbq_10_years_post" value="<?php echo isset($rbq_10_years_post) ? $rbq_10_years_post . "%" : '' ?>">
+        <input type="hidden" name="rbq_5_years_pre" value="<?php echo isset($rbq_5_years_pre) ? $rbq_5_years_pre . "%" : '' ?>">
+        <input type="hidden" name="rbq_10_years_pre" value="<?php echo isset($rbq_10_years_pre) ? $rbq_10_years_pre . "%" : '' ?>">
         <input type="hidden" name="algoritmoTexto" value="<?php echo isset($algoritmoTexto) ? $algoritmoTexto : '' ?>">
     </form>
 </div>

@@ -29,6 +29,19 @@
             $id = $_GET['id'];
         }
 
+        //metricas
+        $recallRF=0.0;
+        $f1RF=0.0;
+        $accuracyRF=0.0;
+        $precisionRF=0.0;
+        $recallLR=0.0;
+        $f1LR=0.0;
+        $accuracyLR=0.0;
+        $precisionLR=0.0;
+        $partialAIC=0.0;
+        $concordance=0.0;
+        $logRatio=0.0;
+
         $sqlEncabezado = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='patients'";
         $result2 = mysqli_query($conn, $sqlEncabezado);
         // Create an empty array to store column names
@@ -93,6 +106,10 @@
                 $prob1 = $result->rbq_5_years_pre;
                 $prob2 = $result->rbq_10_years_pre;
 
+                $concordance = $result->concordance;
+                $partialAIC = $result->partialAIC;
+                $logRatio = $result->logRatio;
+
             }else if($variable == 'rbqPost'){
                 //llamada al script correspondiente: script.py con parámetros: csv, algoritmo y variable
                 //llamada al php de muestra de resutlados con el output de script.py
@@ -103,6 +120,10 @@
                 // Asignar las probabilidades a variables de PHP
                 $prob1 = $result->rbq_5_years_post;
                 $prob2 = $result->rbq_10_years_post;
+
+                $concordance = $result->concordance;
+                $partialAIC = $result->partialAIC;
+                $logRatio = $result->logRatio;
             }
         }else{
             if ($variable == 'extracap') {
@@ -115,9 +136,19 @@
                 if ($algoritmo == 'regresion') {
                     $prob1 = $result->lr_probability;
                     $prob2 = null;
+
+                    $recallLR=$result->recallLR;
+                    $f1LR=$result->f1LR;
+                    $accuracyLR=$result->accuracyLR;
+                    $precisionLR=$result->precisionLR;
                 } else {
                     $prob1 = $result->rf_probability;
                     $prob2 = null;
+
+                    $recallRF=$result->recallRF;
+                    $f1RF=$result->f1RF;
+                    $accuracyRF=$result->accuracyRF;
+                    $precisionRF=$result->precisionRF;
                 }
             } else if ($variable == 'margen') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -129,9 +160,19 @@
                 if ($algoritmo == 'regresion') {
                     $prob1 = $result->lr_probability;
                     $prob2 = null;
+
+                    $recallLR=$result->recallLR;
+                    $f1LR=$result->f1LR;
+                    $accuracyLR=$result->accuracyLR;
+                    $precisionLR=$result->precisionLR;
                 } else {
                     $prob1 = $result->rf_probability;
                     $prob2 = null;
+
+                    $recallRF=$result->recallRF;
+                    $f1RF=$result->f1RF;
+                    $accuracyRF=$result->accuracyRF;
+                    $precisionRF=$result->precisionRF;
                 }
             } else if ($variable == 'tnm2') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -143,9 +184,19 @@
                 if ($algoritmo == 'regresion') {
                     $prob1 = $result->lr_probability;
                     $prob2 = null;
+
+                    $recallLR=$result->recallLR;
+                    $f1LR=$result->f1LR;
+                    $accuracyLR=$result->accuracyLR;
+                    $precisionLR=$result->precisionLR;
                 } else {
                     $prob1 = $result->rf_probability;
                     $prob2 = null;
+
+                    $recallRF=$result->recallRF;
+                    $f1RF=$result->f1RF;
+                    $accuracyRF=$result->accuracyRF;
+                    $precisionRF=$result->precisionRF;
                 }
             } else if ($variable == 'vvss') {
                 // Ejecutar el script de Python y obtener el resultado en formato JSON
@@ -157,9 +208,19 @@
                 if ($algoritmo == 'regresion') {
                     $prob1 = $result->lr_probability;
                     $prob2 = null;
+
+                    $recallLR=$result->recallLR;
+                    $f1LR=$result->f1LR;
+                    $accuracyLR=$result->accuracyLR;
+                    $precisionLR=$result->precisionLR;
                 } else {
                     $prob1 = $result->rf_probability;
                     $prob2 = null;
+
+                    $recallRF=$result->recallRF;
+                    $f1RF=$result->f1RF;
+                    $accuracyRF=$result->accuracyRF;
+                    $precisionRF=$result->precisionRF;
                 }
             }
         }
@@ -234,24 +295,62 @@
 
 // Construir la cadena de consulta con los parámetros
 if ($prob2 === null) {
-    $prob1=$prob1*100;
-    $params = array(
-        'algoritmo' => $algoritmo,
-        'variable' => $variable,
-        'prob1' => strval($prob1)
-    );
+    $prob1=round($prob1*100,2);
+    if($algoritmo=="regresion"){
+        $accuracyLR=round($accuracyLR*100,2);
+        $precisionLR=round($precisionLR*100,2);
+        $f1LR=round($f1LR*100,2);
+        $recallLR=round($recallLR*100,2);
+
+        $params = array(
+            'algoritmo' => $algoritmo,
+            'variable' => $variable,
+            'prob1' => strval($prob1),
+            'precisionLR' => strval($precisionLR),
+            'accuracyLR' => strval($accuracyLR),
+            'f1LR' => strval($f1LR),
+            'recallLR' => strval($recallLR)
+
+        );
+    }
+    else{
+        $accuracyRF=round($accuracyRF*100,2);
+        $precisionRF=round($precisionRF*100,2);
+        $f1RF=round($f1RF*100,2);
+        $recallRF=round($recallRF*100,2);
+
+        $params = array(
+            'algoritmo' => $algoritmo,
+            'variable' => $variable,
+            'prob1' => strval($prob1),
+            'precisionRF' => strval($precisionRF),
+            'accuracyRF' => strval($accuracyRF),
+            'f1RF' => strval($f1RF),
+            'recallRF' => strval($recallRF)
+
+        );
+    }
+
 } else {
-    $prob1=$prob1*100;
-    $prob2=$prob2*100;
+    $prob1=round($prob1*100,2);
+    $prob2=round($prob2*100,2);
+    $concordance=round($concordance*100,2);
+    $partialAIC=round($partialAIC*100,2);
+    $logRatio=round($logRatio*100,2);
+
     $params = array(
         'algoritmo' => $algoritmo,
         'variable' => $variable,
         'prob1' => strval($prob1),
-        'prob2' => strval($prob2)
+        'prob2' => strval($prob2),
+        'concordance' => strval($concordance),
+        'partialAIC' => strval($partialAIC),
+        'logRatio' => strval($logRatio)
     );
 }
 
 $query_string = http_build_query($params);
+
 header("Location: resultados.php?$query_string");
 
 // Close the connection

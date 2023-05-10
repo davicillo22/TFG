@@ -26,7 +26,7 @@ result = {
     "rbq_5_years_pre": rbq_5_years_pre,
     "rbq_10_years_pre": rbq_10_years_pre,
 
-    "concordancia": cphDic['concordancia'],
+    "concordance": cphDic['concordancia'],
     "partialAIC": cphDic['partialAIC'],
     "logRatio": cphDic['logRatio']
 }
