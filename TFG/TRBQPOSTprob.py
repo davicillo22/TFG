@@ -7,8 +7,8 @@ with open('cph_post.pickle', 'rb') as f:
     cph=cphDic['model']
 
 def predict_rbq_probabilities(model, patient_data):
-    survival_5_years = model.predict_survival_function(patient_data, times=[60])
-    survival_10_years = model.predict_survival_function(patient_data, times=[120])
+    survival_5_years = model.predict_survival_function(patient_data, times=[5])
+    survival_10_years = model.predict_survival_function(patient_data, times=[10])
 
     rbq_5_years = 1 - survival_5_years.iloc[0, 0]
     rbq_10_years = 1 - survival_10_years.iloc[0, 0]

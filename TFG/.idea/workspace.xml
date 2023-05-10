@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="Metricas dinamicas">
+    <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="Modal dialogs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/tableStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tableStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataPatientAdd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientAdd.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/editPatient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesarAddPatient.php" beforeDir="false" afterPath="$PROJECT_DIR$/procesarAddPatient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRBQPOSTprob.py" beforeDir="false" afterPath="$PROJECT_DIR$/TRBQPOSTprob.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TRBQcox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TRBQcox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cph_post.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_post.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cph_pre.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/cph_pre.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatient.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientPREV.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientPREV.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/lr_vvss.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_extracap.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_extracap.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_margen.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_margen.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_tnm2.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_tnm2.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rf_vvss.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/rf_vvss.pickle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,14 +144,7 @@
       <workItem from="1683490983141" duration="386000" />
       <workItem from="1683494090216" duration="14390000" />
       <workItem from="1683639568162" duration="5471000" />
-      <workItem from="1683736266176" duration="6551000" />
-    </task>
-    <task id="LOCAL-00015" summary="mediomod">
-      <created>1676242228006</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1676242228006</updated>
+      <workItem from="1683736266176" duration="8277000" />
     </task>
     <task id="LOCAL-00016" summary="mediomod">
       <created>1676242235912</created>
@@ -481,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683740341570</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Modal dialogs">
+      <created>1683742895838</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1683742895839</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +535,8 @@
     <MESSAGE value="mejorar estilos" />
     <MESSAGE value="Re Train" />
     <MESSAGE value="Metricas dinamicas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Metricas dinamicas" />
+    <MESSAGE value="Modal dialogs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modal dialogs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
