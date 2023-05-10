@@ -39,7 +39,7 @@ if($doneModificado=="true"){
 <div id="dialog-wrapper">
 <div id="overlay"></div>
 <dialog id="my-dialog">
-  <h3>Paciente modificado</h3>
+  <h3 style="margin-left: 5px;">Paciente modificado</h3>
   <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
   <button class="buttonExoticTable" style="margin-top: 30px;" id="close-dialog">Cerrar</button>
 </dialog>

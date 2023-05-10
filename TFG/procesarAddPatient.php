@@ -7,8 +7,8 @@ $tituloPagina = 'AddPatient';
 $done="true";
 
 if(!registerPatient("registrar", NULL)){
-    $done="false";
-    header("Location: addPatient.php?done=$done");
+    $noerror="false";
+    header("Location: addPatient.php?noerror=$noerror");
     $contenidoPrincipal= "<p>Ha ocurrido un error. <a href='addPatient.php'>Inténtalo de nuevo</a></p>";
 
 
