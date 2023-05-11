@@ -196,3 +196,8 @@ input[type=number] {
 	text-align: center;
 }
 
+.invisible-div {
+	height: 80px;
+	visibility: hidden;
+	clear: both;
+}

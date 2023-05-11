@@ -9,10 +9,10 @@ $tituloPagina = 'Patient Table';
 error_reporting(1);
 
 if (empty($_GET["nhisFound"])) {
-    $nhisFound=true;
+    $nhisFound="true";
 }
 else {
-    $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : true;
+    $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : "empty";
 }
 
 $noerror ="true";
@@ -152,7 +152,7 @@ $nueva_consulta = str_ireplace("or", "o", $nueva_consulta2);
     mysqli_close($conn);
     $textoBusqueda = "Introduzca el NHIS a buscar";
     $colorSearch = "gray";
-    if (!$nhisFound) {
+    if ($nhisFound=="false") {
         $textoBusqueda = "NHIS no encontrado";
         $colorSearch = "red";
     }
@@ -200,7 +200,7 @@ if($doneBorrado=="true"){
   <i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 45px; margin-top: 17px; margin-left: 105px;"></i>
   <button class="buttonExoticTable"  style="margin-top: 30px;" id="close-dialog">Cerrar</button>
 </dialog>
-
+</div>
 EOS;
 
 }
@@ -312,7 +312,6 @@ EOS;
 <h4 style="margin-left: 30% ">Consulta: $textoConsulta</h4>
 <form  method="post" action="tablaPacientes.php">
     <select name="columna">
-        <option value="fechacir">Fechacir</option>
         <option value="edad">Edad</option>
         <option value="etnia">Etnia</option>
         <option value="obeso">Obeso</option>
@@ -356,7 +355,6 @@ EOS;
         <option value="trbq">Trbq</option>
         <option value="tdupli">Tdupli</option>
         <option value="t1mtx">T1mtx</option>
-        <option value="fechafin">Fechafin</option>
         <option value="fallec">Fallec</option>
         <option value="tsuperv">Tsuperv</option>
         <option value="psafin">Psafin</option>
@@ -420,6 +418,7 @@ function closeDialog() {
 closeButton.addEventListener('click', closeDialog)
 openDialog();
 </script>
+<div class="invisible-div"></div>
 </body>
 EOS;
 

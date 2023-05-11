@@ -500,7 +500,7 @@ button.cancel:hover {
   width: 1%;
   height: 30px;
   background-color: #3498db;
-  animation: fill-progress 31s linear forwards;
+  animation: fill-progress 29s linear forwards;
   position: fixed;
   z-index: 1000;
   display: flex;

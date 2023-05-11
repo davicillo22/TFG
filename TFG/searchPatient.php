@@ -15,7 +15,7 @@ $conn = mysqli_connect("localhost", "root", "", "bbdd");
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$nhisFound=false;
+$nhisFound="false";
 $contenidoPrincipal="";
 
 if (isset($_POST['nhis'])) {
@@ -49,7 +49,7 @@ if (ctype_digit($id)) {
         EOS;
 
 
-        $nhisFound = true;
+        $nhisFound = "true";
         $tabla .= "<table style='height: 100px;'>";
         $tabla .= "<tr>";
 
