@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2e928c23-c77c-46aa-9f96-1824530a49fd" name="Changes" comment="Modal dialogs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/patientFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/patientFunctions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatient.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatient.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientAdd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientAdd.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientNew.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientNew.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataPatientPREV.csv" beforeDir="false" afterPath="$PROJECT_DIR$/dataPatientPREV.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultados.php" beforeDir="false" afterPath="$PROJECT_DIR$/resultados.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,14 +139,8 @@
       <workItem from="1683736266176" duration="9695000" />
       <workItem from="1683811056740" duration="4748000" />
       <workItem from="1683878727044" duration="59000" />
-      <workItem from="1683878937411" duration="1143000" />
-    </task>
-    <task id="LOCAL-00020" summary="mediomod">
-      <created>1676394625345</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1676394625345</updated>
+      <workItem from="1683878937411" duration="1227000" />
+      <workItem from="1683915305731" duration="318000" />
     </task>
     <task id="LOCAL-00021" summary="mediomod">
       <created>1676662638526</created>
@@ -480,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683879088748</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Modal dialogs">
+      <created>1683880213466</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1683880213467</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

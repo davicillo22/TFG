@@ -130,10 +130,10 @@ if($algoritmo == 'cox'){
             </div>
         </div>
         <div class="back">
-            <div class="section" style="height: 23%; font-size: 29px;">
+            <div class="section" style="height: 23%; font-size: 26px; margin-top: 45px;">
                 Concordance: <?php echo $concordance . "%" ;?>
             </div>
-            <div class="section" style="height: 23%">
+            <div class="section" style="height: 23%; font-size: 27px;">
                 Partial AIC: <?php echo $partialAIC;?>
             </div>
             <div class="section" style="height: 26%; font-size: 25px;">
@@ -177,7 +177,7 @@ else{?>
         <div class="section">
             Precision: <?php echo $precision . "%" ;?>
         </div>
-        <div class="section">
+        <div class="section" style="font-size: 30px;">
             Accuracy: <?php echo $accuracy . "%" ;?>
         </div>
         <div class="bottom" style="height: 35%">
