@@ -67,11 +67,7 @@ $contenidoPrincipal.= <<<EOS
     
             <table class="formula">
  <form method= "post" enctype="application/x-www-form-urlencoded" action="procesarAddPatient.php">    
-            <tr>
-            <td>NHIS:</td>
-            <td><input type="number"  min="1" max="9999999" name="nhis" required /></td>
-            </tr>
-        
+
             <tr>
             <td>FECHACIR:</td>
             <td><input type="date"  min="1990-01-01" max='$textoFecha' value='2017-01-01' name="fechacir"  required /></td>
