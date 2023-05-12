@@ -11,12 +11,12 @@ function registerPatient($modo, $nhis)
         $nhis = $_POST['nhis'];
 
     $noerror="true";
-
+    $count=0;
     $conn = getConexionBD();
     $query = "SELECT COUNT(*) AS count FROM patients WHERE nhis = '$nhis'";
     $resultado = mysqli_query($conn, $query);
 
-    if ($resultado) {
+    if (isset($resultado) && $resultado) {
         $row = mysqli_fetch_assoc($resultado);
         $count = $row['count'];
         if ($count > 0 && $modo=="registrar") {
