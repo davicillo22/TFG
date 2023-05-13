@@ -19,7 +19,7 @@ if (!$conn) {
 
 $algoritmo = $_GET['algoritmo'];
 $variable = $_GET['variable'];
-$algoritmoTexto='Árboles aleatorios';
+$algoritmoTexto='Bosques aleatorios';
 
 if($algoritmo=='cox')
     $algoritmoTexto='Regresión de Cox';

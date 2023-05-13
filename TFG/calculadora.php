@@ -37,7 +37,7 @@ $contenidoPrincipal.=<<<EOS
 
 <select id="selector2">
     <option value="">Selecciona una opción</option>
-    <option value="Arboles aleatorios">Arboles aleatorios</option>
+    <option value="Bosques aleatorios">Bosques aleatorios</option>
     <option value="Regresión logística">Regresión logística</option>
     <option value="Regresión de Cox (modelo de los riesgos proporcionales)">Regresión de Cox (modelo de los riesgos proporcionales)</option>
 </select>
@@ -66,7 +66,7 @@ $contenidoPrincipal.=<<<EOS
     });
     
     selector2.addEventListener("change", () => {
-        if (selector2.value === "Arboles aleatorios") {
+        if (selector2.value === "Bosques aleatorios") {
             cajaOpciones.innerHTML = `
                 <h2>Selecciona la variable a estudiar:</h2>
                 <select>

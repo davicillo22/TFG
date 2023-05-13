@@ -42,7 +42,7 @@ def train_and_evaluate_models(X_train, y_train, X_test, y_test):
     }
 
     print("Regresión logística:", lr_scores)
-    print("Árboles aleatorios:", rf_scores)
+    print("Bosques aleatorios:", rf_scores)
     
     # Gráficos de barras para visualizar las métricas
     metrics = ['F1', 'Recall', 'Precision', 'Accuracy']
@@ -54,7 +54,7 @@ def train_and_evaluate_models(X_train, y_train, X_test, y_test):
 
     fig, ax = plt.subplots()
     rects1 = ax.bar(x - width/2, lr_values, width, label='Regresión logística')
-    rects2 = ax.bar(x + width/2, rf_values, width, label='Árboles aleatorios')
+    rects2 = ax.bar(x + width/2, rf_values, width, label='Bosques aleatorios')
 
     ax.set_ylabel('Valor')
     ax.set_title('Métricas de evaluación EXTRACAP')

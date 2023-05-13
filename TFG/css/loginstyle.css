@@ -199,7 +199,7 @@ input[type="password"]:not(:focus) {
   color: #fff;
   border-radius: 0 0 0.4rem 0.4rem;
   text-align: center;
-  background-image: linear-gradient(#4d33d9, #443886);
+  background-image: linear-gradient(#6951e8, #6658b6);
   line-height: 4rem;
   width: 100%;
   position: relative;

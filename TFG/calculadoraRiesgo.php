@@ -47,6 +47,7 @@ if ($nhisFound=="false") {
 $textoFecha= date('Y-m-d');
 $contenidoPrincipal = <<<EOS
 <link rel="stylesheet" href="css/style.css">
+
 <div class="screen-1">
 
 <div class="center-div">
@@ -58,6 +59,11 @@ $contenidoPrincipal = <<<EOS
 </div>
 
 <div id="divNhis" style="display:$displayDiv">
+EOS;
+$contenidoPrincipal .= <<<EOS
+<div id="loader3" style="display:none;"></div>
+EOS;
+$contenidoPrincipal .= <<<EOS
 <style>
 		/* Estilo para el placeholder del input text */
 		::-webkit-input-placeholder { /* Para navegadores basados en Webkit */
@@ -79,7 +85,7 @@ $contenidoPrincipal = <<<EOS
           <input style="width:100%; margin-top: 10%" type="text" name="nhis" id="idInput" placeholder='$textoBusqueda' required>
           <select name="algoritmos" id="algoritmos" required style="margin-top: 10px;">
             <option value="" disabled selected>Selecciona un algoritmo</option>
-            <option value="algoritmo1">Arboles aleatorios</option>
+            <option value="algoritmo1">Bosques aleatorios</option>
             <option value="regresion">Regresión logística</option>
             <option value="cox">Regresión de Cox</option>
           </select>
@@ -92,9 +98,10 @@ $contenidoPrincipal = <<<EOS
             <option value="rbqPre" class="cox">Rbq pre</option>
             <option value="rbqPost" class="cox">Rbq post</option>
           </select>
-          <button class="buttonExotic"  id="botonBuscarNhis">Calcular</button>
+          <button class="buttonExotic"  id="calcularButton2">Calcular</button>
        </form>
     </div>
+    
 </div>
 
 
@@ -284,7 +291,7 @@ $contenidoPrincipal = <<<EOS
         <div class="center-div">
           <select name="algoritmos1" id="algoritmos1" required style="margin-top: 10px;" >
             <option value="" disabled selected>Selecciona un algoritmo</option>
-            <option value="algoritmo1">Arboles aleatorios</option>
+            <option value="algoritmo1">Bosques aleatorios</option>
             <option value="regresion">Regresión logística</option>
             <option value="cox">Regresión de Cox</option>
           </select>
@@ -300,7 +307,10 @@ $contenidoPrincipal = <<<EOS
         </div>
 EOS;
 $contenidoPrincipal .= <<<EOS
-      <input type="submit" name="Calcular" class="buttonExotic" style="width: 140px; margin-left:42%;" value= "Calcular" />
+<div id="loader2" style="display:none;"></div>
+EOS;
+$contenidoPrincipal .= <<<EOS
+      <input id="calcularButton1" type="submit" name="Calcular" class="buttonExotic" style="width: 140px; margin-left:42%;" value= "Calcular" />
     </form>
 </div>
 
@@ -324,7 +334,7 @@ EOS;
     else{
         $contenidoPrincipal .= <<<EOS
         <div class="cuadro-texto">
-        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Bosques aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
 
         </h4>
         </div>
@@ -335,7 +345,7 @@ if($haEntrenado==true){
     if($nhisFound=="true") {
         $contenidoPrincipal .= <<<EOS
         <div class="cuadro-texto">
-        <h4 style="font-size: medium; text-align: left ;" > Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+        <h4 style="font-size: medium; text-align: left ;" > Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Bosques aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
 
         </h4>
         </div>
@@ -344,7 +354,7 @@ EOS;
     else{
         $contenidoPrincipal .= <<<EOS
         <div class="cuadro-texto">
-        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
+        <h4 style="font-size: medium; text-align: left ;" >Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Bosques aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF.;
 
         </h4>
         </div>
@@ -409,7 +419,6 @@ $contenidoPrincipal .= <<<EOS
   const botonDatos = document.getElementById("botonDatos");
   const divNhis = document.getElementById("divNhis");
   const divDatos = document.getElementById("divDatos");
-  const botonBuscarNhis = document.getElementById("botonBuscarNhis");
   const algoritmosSelect = document.querySelector("#algoritmos");
   const variablesSelect = document.querySelector("#variables");
   const algoritmosSelect2 = document.querySelector("#algoritmos1");
@@ -417,7 +426,6 @@ $contenidoPrincipal .= <<<EOS
   
   botonNhis.addEventListener("click", mostrarDivNhis);
   botonDatos.addEventListener("click", mostrarDivDatos);
-  botonBuscarNhis.addEventListener("click", mostrarDivNhis);
   
   algoritmosSelect.addEventListener("change", (event) => {
     const algoritmoSeleccionado = event.target.value;
@@ -520,7 +528,7 @@ algoritmosSelect2.addEventListener("change", function() {
     const usernameEl = document.querySelector("#username");
 
     let i = 0;
-    let txt = `Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Árboles aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF. `;
+    let txt = `Esta calculadora está configurada a partir de modelos de machine learning, siguiendo procesos de limpieza de datos, entrenamiento y exposición de resultados. En primer lugar, puedes elegir entre dos maneras de proporcionar la entrada: seleccionar un paciente ya existente en la base de datos o introducir los datos a mano. A continuación, podrás escoger entre los tres algoritmos disponibles: Bosques aleatorios y Regresión logística (aplicables a las variables objetivo de Extensión extracapsular, Márgenes quirúrgicos positivos, Estadios localizados e Invasión de vesículas seminales) y el algoritmo de Regresión de Cox (aplicable a la Recidiva Bioquímica pre y post-operatoria a 5 y 10 años). Finalmente, al pulsar en "Calcular", se redirijirá a la página de resultados, donde se podrá observar la predicción así como las métricas del algoritmo escogido, todo ello descargable en formato PDF. `;
     let speed = 15;
 
     function typeWriter() {
@@ -590,6 +598,37 @@ function fillProgress() {
   progressBar.style.width = `${progressWidth}%`;
   setTimeout(fillProgress, 290);
 }
+</script>
+<script>
+const button2 = document.getElementById('calcularButton2');
+const loader3 = document.getElementById('loader3');
+
+
+button2.addEventListener('click', () => {
+  loader3.style.display = 'block';
+  loader3.className += " show"; // muestra el loader
+
+  // Aquí va el código que se ejecutará al pulsar el botón
+  setTimeout(function(){
+    loader3.className = loader3.className.replace(" show","");
+    loader3.style.display = 'none';
+  }, 10000); // oculta el loader después de 10 segundos
+});
+</script>
+<script>
+const button1 = document.getElementById('calcularButton1');
+const loader2 = document.getElementById('loader2');
+
+button1.addEventListener('click', () => {
+  loader2.style.display = 'block';
+  loader2.className += " show"; // muestra el loader
+
+  // Aquí va el código que se ejecutará al pulsar el botón
+  setTimeout(function(){
+    loader2.className = loader2.className.replace(" show","");
+    loader2.style.display = 'none';
+  }, 10000); // oculta el loader después de 10 segundos
+});
 </script>
 
 
