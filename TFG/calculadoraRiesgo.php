@@ -612,7 +612,7 @@ button2.addEventListener('click', () => {
   setTimeout(function(){
     loader3.className = loader3.className.replace(" show","");
     loader3.style.display = 'none';
-  }, 10000); // oculta el loader después de 10 segundos
+  }, 15000); // oculta el loader después de 10 segundos
 });
 </script>
 <script>
@@ -627,7 +627,7 @@ button1.addEventListener('click', () => {
   setTimeout(function(){
     loader2.className = loader2.className.replace(" show","");
     loader2.style.display = 'none';
-  }, 10000); // oculta el loader después de 10 segundos
+  }, 15000); // oculta el loader después de 10 segundos
 });
 </script>
 
