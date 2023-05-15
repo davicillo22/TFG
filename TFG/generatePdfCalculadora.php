@@ -45,6 +45,7 @@ if (!empty($textoVariable)) {
 if (!empty($algoritmoTexto)) {
     $str = iconv('UTF-8', 'windows-1252', $algoritmoTexto);
     $pdf->Cell(0, 10, 'Algoritmo: ' . $str, 0, 1);
+    $pdf->Ln();
 
 }
 
@@ -60,7 +61,6 @@ if (!empty($rf_probability)) {
 
 if (!empty($rbq_5_years_post)) {
     $pdf->Cell(0, 10, 'RBQ 5 Years Post: ' . $rbq_5_years_post, 0, 1);
-    $pdf->Ln();
 }
 
 if (!empty($rbq_10_years_post)) {
@@ -70,7 +70,6 @@ if (!empty($rbq_10_years_post)) {
 
 if (!empty($rbq_5_years_pre)) {
     $pdf->Cell(0, 10, 'RBQ 5 Years Pre: ' . $rbq_5_years_pre, 0, 1);
-    $pdf->Ln();
 }
 
 if (!empty($rbq_10_years_pre)) {
