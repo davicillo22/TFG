@@ -560,7 +560,7 @@ button.cancel:hover {
   z-index: 1003;
   top: 200px;
   margin-left: -43%;
-  margin-top: -16%;
+  margin-top: -18%;
   width: 20%;
   height: 10%;
 
@@ -577,14 +577,14 @@ button.cancel:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
   display: none;
 }
 
 #progress {
   width: 1%;
   height: 30px;
-  background-color: #3858e0;
+  background-image: linear-gradient(to right, #3858e0, #6d88ff);
   animation: fill-progress 32s linear forwards;
   position: fixed;
   z-index: 1000;

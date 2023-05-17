@@ -365,7 +365,7 @@ $contenidoPrincipal .= <<<EOS
 
 <div id="loader">
   <div id="progress"></div>
-  <h4 style="margin-top: 50px; margin-left: 14%; color: #1733a6" id="loadText"></h4>
+  <h4 style="margin-top: 41px; margin-left: 14%; color: #1733a6" id="loadText"></h4>
 </div>
 
 <form action="calculadoraRiesgo.php" method="get">
