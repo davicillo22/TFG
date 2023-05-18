@@ -19,14 +19,13 @@ if (empty($_GET["nhisFound"])) {
 else {
     $nhisFound = isset($_GET["nhisFound"]) ? $_GET["nhisFound"] : "true";
 }
-
-if (!isset($_GET["haEntrenado"])) {
+if (!isset($_GET["haEntrenado"])){
     $disableEntreno="";
     $classEntreno="buttonExoticTrain";
     $haEntrenado=false;
 }
-else {
-    //check Entrenamiento Completadoç
+else{
+    //check Entrenamiento Completado
     if($_GET["haEntrenado"]=="true"){
         $haEntrenado=true;
         $disableEntreno="disabled";
@@ -583,7 +582,7 @@ button.addEventListener('click', () => {
   setTimeout(function(){
     loader.style.display = 'none';
        actu.style.display='none';
-  }, 32000); // oculta el loader después de 32s
+  }, 33000); // oculta el loader después de 32s
 
   fillProgress();
 });
@@ -598,7 +597,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 320);
+  setTimeout(fillProgress, 330);
 }
 </script>
 <script>

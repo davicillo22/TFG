@@ -558,9 +558,8 @@ button.cancel:hover {
 .act {
   position: fixed;
   z-index: 1003;
-  top: 200px;
   margin-left: -43%;
-  margin-top: -18%;
+  margin-top: -354px;
   width: 20%;
   height: 10%;
 
@@ -585,7 +584,7 @@ button.cancel:hover {
   width: 1%;
   height: 30px;
   background-image: linear-gradient(to right, #3858e0, #6d88ff);
-  animation: fill-progress 32s linear forwards;
+  animation: fill-progress 33s linear forwards;
   position: fixed;
   z-index: 1000;
   display: flex;
