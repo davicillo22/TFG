@@ -364,7 +364,7 @@ $contenidoPrincipal .= <<<EOS
 
 <div id="loader">
   <div id="progress"></div>
-  <h4 style="margin-top: 41px; margin-left: 14%; color: #1733a6" id="loadText"></h4>
+  <h4 style="margin-top: 72px; margin-left: 14%; color: #1733a6" id="loadText"></h4>
 </div>
 
 <form action="calculadoraRiesgo.php" method="get">
@@ -582,7 +582,7 @@ button.addEventListener('click', () => {
   setTimeout(function(){
     loader.style.display = 'none';
        actu.style.display='none';
-  }, 33000); // oculta el loader después de 32s
+  }, 55000); // oculta el loader después de 34s
 
   fillProgress();
 });
@@ -597,7 +597,7 @@ function fillProgress() {
   progressWidth += 1;
 
   progressBar.style.width = `${progressWidth}%`;
-  setTimeout(fillProgress, 330);
+  setTimeout(fillProgress, 340);
 }
 </script>
 <script>

@@ -9,12 +9,12 @@
     <link rel="icon" type="image/png" href="includes/faico.png"/>
 </head>
 <?php
-$fondito="";
+$fondo="";
 $estilo = " linear-gradient(to bottom, #e7f1ff ,#ffffff, #e7f1ff)";
 $claseFooter = "footer";
 $esIndex=false;
 if($tituloPagina=="Calculadora de riesgo"){
-    $fondito="fondo";
+    $fondo="fondo";
     $estilo="";
     $claseFooter = "footerLogin";
     $esIndex=true;
@@ -24,7 +24,7 @@ if($tituloPagina=="Calculadora de riesgo"){
 
 <body style=" background: <?= $estilo ?>">
 
-<div id="contenedor" class=<?= $fondito ?>>
+<div id="contenedor" class=<?= $fondo ?>>
     <?php
 
     require(__DIR__.'/header.php');
@@ -37,6 +37,8 @@ if($tituloPagina=="Calculadora de riesgo"){
     </main>
 </div>
 </body>
+</html>
+
 
 <?php
 

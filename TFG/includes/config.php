@@ -16,17 +16,12 @@ if (!INSTALADA) {
     exit();
 }
 
-/* */
 /* Configuración de Codificación */
-/* */
 
 ini_set('default_charset', 'UTF-8');
 setLocale(LC_ALL, 'es_ES.UTF.8');
 
-/* */
 /* Funciones de gestión de la conexión a la BD */
-/* */
-
 $BD = null;
 
 function getConexionBD()
@@ -45,7 +40,6 @@ function getConexionBD()
     }
     return $BD;
 }
-
 function cierraConexion()
 {
     // Sólo hacer uso de global para cerrar la conexion !!
@@ -54,7 +48,6 @@ function cierraConexion()
         $BD->close();
     }
 }
-
 register_shutdown_function('cierraConexion');
 
 require_once __DIR__.'/usuario.php';
