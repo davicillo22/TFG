@@ -584,7 +584,7 @@ button.cancel:hover {
   width: 1%;
   height: 30px;
   background-image: linear-gradient(to right, #3858e0, #6d88ff);
-  animation: fill-progress 34s linear forwards;
+  animation: fill-progress 32s linear forwards;
   position: fixed;
   z-index: 1000;
   display: flex;
